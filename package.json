@@ -10,11 +10,12 @@
     "assets": "node scripts/build-assets.mjs",
     "menu": "node scripts/build-menu.mjs",
     "check": "npm run check:html && npm run check:js && npm run check:links && npm run check:menu",
-    "check:html": "html-validate index.html menu.html order.html contact.html credits.html 404.html",
-    "check:js": "node --check assets/js/main.js && node --check assets/js/menu.js && node --check assets/js/order.js && node --check assets/js/contact.js",
+    "check:html": "html-validate index.html menu.html order.html contact.html credits.html 404.html admin.html",
+    "check:js": "node --check assets/js/main.js && node --check assets/js/menu.js && node --check assets/js/order.js && node --check assets/js/contact.js && node --check assets/js/admin.js && node --check server.mjs",
     "check:links": "node scripts/check-links.mjs",
     "check:menu": "node scripts/menu-check.mjs",
-    "test": "node scripts/smoke-test.mjs"
+    "test": "node scripts/smoke-test.mjs && node scripts/admin-test.mjs && node scripts/admin-ui-test.mjs",
+    "admin:passwd": "node scripts/admin-passwd.mjs"
   },
   "devDependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",

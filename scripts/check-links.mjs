@@ -14,7 +14,7 @@ import { join, dirname, resolve, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), ".."));
-const PAGES = ["index.html", "menu.html", "order.html", "contact.html", "credits.html", "404.html"];
+const PAGES = ["index.html", "menu.html", "order.html", "contact.html", "credits.html", "404.html", "admin.html"];
 const problems = [];
 
 const read = (p) => readFileSync(join(ROOT, p), "utf8");

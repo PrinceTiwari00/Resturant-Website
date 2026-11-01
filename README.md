@@ -26,6 +26,9 @@ Prefer a plain static host? Upload the repository root to Netlify, Cloudflare Pa
 any nginx box. Everything except the contact form's direct POST works unchanged — the form detects
 the missing endpoint and hands the message to WhatsApp instead (see below).
 
+**The admin panel is the exception:** it needs a running Node process and a writable disk (see below).
+On a static host it is unavailable; edit `assets/data/menu.json` and run `npm run menu` instead.
+
 ---
 
 ## Pages
@@ -37,6 +40,7 @@ the missing endpoint and hands the message to WhatsApp instead (see below).
 | `order.html` | The three ordering routes, delivery partners, how an order runs, FAQ |
 | `contact.html` | Enquiry form, hours with a live open/closed badge, map, directions, FAQ |
 | `credits.html` | Photo and font attribution (marked `noindex`) |
+| `admin.html` | Private menu editor — password protected, `noindex`, never linked from the public pages |
 | `404.html` | Error page |
 
 Every page shares: a sticky header with a live order badge, a full-screen mobile menu, the order
@@ -101,6 +105,67 @@ ready-to-send WhatsApp link instead of pretending the message went through.
 
 ---
 
+## The admin panel
+
+The shop can add, edit, remove, reorder and photograph dishes at **`/admin`** without touching a file.
+It needs the Node server — a static-only host has no API to save to.
+
+### First run
+
+```bash
+npm run admin:passwd          # asks for a password, min 10 characters
+npm start                     # then open http://localhost:3000/admin
+```
+
+That writes `data/admin.json` — a scrypt hash and a random signing secret, `chmod 600`, and
+**git-ignored**. There is no default password and no recovery email: if it is lost, run the same
+command again to set a new one (existing sessions stop working). Run it again any time to change the
+password.
+
+Until a password exists the API answers `503` and the panel refuses to open — it fails closed rather
+than falling back to something guessable.
+
+### What the panel does
+
+| Action | What happens |
+| --- | --- |
+| **Add** | Board number must be free; price must be one already printed on the wall |
+| **Edit** | Saves on submit and rebuilds `menu.html` immediately |
+| **Delete** | Removes the dish from the site and `menu.json` (historically in git) |
+| **Reorder** | ↑ ↓ move a dish within its section; this is also the order on the menu page |
+| **Photo** | Upload a JPEG/PNG/WebP; it is re-encoded, stripped of metadata and written at 300/420/620 px |
+| **Board prices** | The whitelist itself, editable — with a warning, because it is the price guard |
+
+Every save re-runs `build-menu.mjs`, so the public page and `MENU-SOURCES.md` are never stale.
+
+### How it is secured
+
+- **Password** → scrypt (N=16384, r=8, p=1, 64-byte key), per-install salt, constant-time compare.
+- **Sessions** → an HMAC-SHA256 signed token with a 12-hour expiry, sent as `Authorization: Bearer`.
+  **No cookies at all**, which means there is no ambient credential for another site to ride and no
+  CSRF surface; sign-out also revokes the token server-side.
+- **Rate limit** → 8 sign-in attempts per IP per 10 minutes, then `429`.
+- **Uploads** → magic-byte sniffing (a `.jpg` full of HTML is rejected with `415`), 12 MB cap, then a
+  full re-encode through ImageMagick, which also strips EXIF and anything appended to the file.
+- **Paths** → built from the dish id looked up in the menu document, never from the request, so
+  `?id=../../etc/passwd` is simply a 404.
+- **Output** → the panel writes dish text with `textContent`, so a dish named
+  `<img onerror=…>` is a funny name, not script.
+- **Same-origin** → mutating requests with a foreign `Origin` header are refused with `403`.
+
+29 API tests and 16 panel tests cover this, including the forged-token, path-traversal, fake-image,
+cross-origin and fail-closed cases (`scripts/admin-test.mjs`, `scripts/admin-ui-test.mjs`).
+
+### What it does not do
+
+- **Not multi-user.** One shared password for whoever runs the shop; no accounts, roles or audit log.
+- **No HTTPS by itself.** Put it behind a TLS-terminating proxy before it faces the internet — the
+  password crosses the wire once per session, and a plain-HTTP login can be read off the network.
+- **No backups.** It writes to `assets/data/menu.json`; put the repo on a host with a persistent disk
+  and a backup, or a redeploy will reset the menu.
+- **No image cropping UI.** Photos are centre-cropped to 4:3 by the pipeline; upload a crop that is
+  already close to that.
+
 ## Editing content
 
 ### Menu
@@ -151,6 +216,9 @@ Numbers the photographs do not clearly show are **omitted rather than guessed** 
 than is listed here. To fill the gaps, photograph each board straight on with no glare and add the rows.
 
 #### Changing the menu — add, update or delete a dish
+
+Two ways: use the **[admin panel](#the-admin-panel)** at `/admin` (no file editing), or edit
+`assets/data/menu.json` directly as below. Both go through the same validator.
 
 Everything is driven by `assets/data/menu.json`. Edit it, then run two commands:
 
@@ -259,7 +327,7 @@ imagery anywhere in the project, and `credits.html` says so on the page.
 
 ```bash
 npm run check     # html-validate + JS syntax + internal links/anchors/assets + menu data guard
-npm test          # jsdom behaviour tests: filters, search, cart maths, validation, hand-off
+npm test          # jsdom + API tests: filters, search, cart maths, admin auth/CRUD/uploads
 ```
 
 `npm test` loads the real HTML files in jsdom and runs the real scripts, then exercises the paths a
@@ -327,11 +395,17 @@ assets/
     menu.js              search + filter layer over the static menu
     order.js             cart, drawer, validation, WhatsApp hand-off
     contact.js           enquiry form with API → WhatsApp fallback
+    admin.js             the /admin panel
 scripts/
   build-assets.mjs       ImageMagick pipeline
   build-menu.mjs         menu.json → menu.html markup + JSON-LD + MENU-SOURCES.md
   check-links.mjs        link / anchor / asset checker
   menu-check.mjs         menu data guard: board prices, required fields, page sync
+  admin-passwd.mjs       set / replace the admin password
+  admin-test.mjs         admin API tests (auth, CRUD, uploads, traversal)
+  admin-ui-test.mjs      admin panel tests in jsdom (incl. XSS-in-dish-name)
+  lib/auth.mjs           scrypt password + signed session tokens
+  lib/menu-validate.mjs  the one validator, shared by the CLI and the API
   smoke-test.mjs         jsdom behaviour tests
 server.mjs               static server + /api/contact
 ```
@@ -343,6 +417,9 @@ server.mjs               static server + /api/contact
 - [ ] Photograph both boards straight on, no glare, and add the numbers the current photos cut off:
       noodles #04–#07, #10, #17–#19 and the cold counter #29, #30, #33, #35, #37.
 - [ ] Add the fridge drinks, with board prices, if the shop wants them orderable.
+- [ ] Run `npm run admin:passwd` on the live server and give the password to the owner only.
+- [ ] Serve the site over HTTPS before the admin panel goes public, and make sure the host keeps
+      `assets/data/menu.json` and `assets/img/raw/` on a persistent disk with backups.
 - [ ] Confirm the hours: the site now says 9 AM – 11 PM to match the live Google/Tripadvisor listings,
       which contradicts the brief's 10:30 PM close. Update `SCHEDULE`
       in `main.js`, the two hours lists in the HTML, and the JSON-LD.

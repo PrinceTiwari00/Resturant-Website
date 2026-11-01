@@ -133,6 +133,23 @@ for (const page of OTHER_PAGES) {
   }
 }
 
+/* ------------------------------------------------ dish photographs on disk */
+for (const item of allItems) {
+  if (!item.photo) continue;
+  const raw = ["jpg", "jpeg", "png", "webp"].some((ext) => existsSync(join(root, `assets/img/raw/dish-${item.id}.${ext}`)));
+  if (!raw) {
+    fail(`${item.id}: marked as having a photo but assets/img/raw/dish-${item.id}.jpg is missing — upload it in /admin`);
+    continue;
+  }
+  for (const width of [620, 420, 300]) {
+    for (const ext of ["webp", "jpg"]) {
+      if (!existsSync(join(root, `assets/img/dish-${item.id}-${width}.${ext}`))) {
+        fail(`${item.id}: missing assets/img/dish-${item.id}-${width}.${ext} — run "npm run assets"`);
+      }
+    }
+  }
+}
+
 /* ------------------------------------------------------------- the verdict */
 if (problems.length) {
   console.error(`✖ ${problems.length} menu problem(s):`);

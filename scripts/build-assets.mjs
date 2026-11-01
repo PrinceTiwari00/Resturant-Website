@@ -12,7 +12,7 @@
  * HTML srcset descriptors must match the WIDTHS table below.
  */
 import { execFileSync } from "node:child_process";
-import { mkdirSync, existsSync, statSync } from "node:fs";
+import { mkdirSync, existsSync, statSync, readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -41,8 +41,32 @@ const JOBS = [
   { name: "order-bg", widths: [1920, 1200, 800], ratio: [16, 9], quality: 74 },
 ];
 
+/* Dish photos uploaded through /admin live in raw/dish-<item id>.<ext>.
+   Any menu item flagged "photo": true gets its own resize job, so adding a
+   photograph never means editing this file. */
+const menuPath = join(root, "assets/data/menu.json");
+if (existsSync(menuPath)) {
+  const menu = JSON.parse(readFileSync(menuPath, "utf8"));
+  for (const cat of menu.categories) {
+    for (const item of cat.items) {
+      if (!item.photo) continue;
+      JOBS.push({ name: `dish-${item.id}`, widths: [620, 420, 300], ratio: [4, 3], quality: 82 });
+    }
+  }
+}
+
+/* `--only dish-buff-noodles` rebuilds a single job — the admin panel uses it so
+   saving one photograph does not repaint the whole image set. */
+const onlyIndex = process.argv.indexOf("--only");
+const only = onlyIndex > -1 ? process.argv[onlyIndex + 1] : null;
+const jobs = only ? JOBS.filter((j) => j.name === only) : JOBS;
+if (only && jobs.length === 0) {
+  console.error(`! no image job named "${only}"`);
+  process.exit(1);
+}
+
 let total = 0;
-for (const job of JOBS) {
+for (const job of jobs) {
   const base = join(RAW, job.src ?? job.name);
   const srcFile = [".jpg", ".jpeg", ".png"].map((ext) => `${base}${ext}`).find((f) => existsSync(f));
   if (!srcFile) {

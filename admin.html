@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" class="page-admin">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Menu admin | Kungfu Noodles</title>
+    <meta name="description" content="Private menu editor for Kungfu Noodles, Thamel." />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#3b0806" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/admin.css" />
+  </head>
+
+  <body class="admin">
+    <a class="skip-link" href="#admin-main">Skip to the editor</a>
+
+    <!-- ============ Signed out ============ -->
+    <section class="admin-login" id="login-screen" aria-labelledby="login-title">
+      <form class="admin-login__card" id="login-form" novalidate>
+        <p class="admin-brand">
+          <span class="admin-brand__mark" aria-hidden="true">店</span>
+          <span>Kungfu Noodles · <strong>menu admin</strong></span>
+        </p>
+        <h1 id="login-title">Sign in</h1>
+        <p class="admin-login__sub">
+          This page edits the live menu. It is for the shop only — everything else on the site is
+          public.
+        </p>
+
+        <label class="admin-field">
+          <span>Password</span>
+          <input
+            type="password"
+            id="admin-password"
+            name="password"
+            autocomplete="current-password"
+            required
+            minlength="1"
+          />
+        </label>
+
+        <button class="btn admin-submit" type="submit" id="login-submit">Sign in</button>
+        <p class="admin-msg" id="login-msg" role="alert" hidden></p>
+
+        <p class="admin-hint">
+          Forgotten it? On the server, run <code>npm run admin:passwd</code> to set a new one. There is
+          no recovery email, and no default password.
+        </p>
+      </form>
+    </section>
+
+    <!-- ============ Signed in ============ -->
+    <div class="admin-app" id="admin-app" hidden>
+      <header class="admin-bar">
+        <div class="admin-bar__brand">
+          <span class="admin-brand__mark" aria-hidden="true">店</span>
+          <div>
+            <strong>Menu admin</strong>
+            <span id="session-note">Signed in</span>
+          </div>
+        </div>
+        <div class="admin-bar__actions">
+          <a class="admin-btn admin-btn--ghost" href="menu.html" target="_blank" rel="noopener">View the menu ↗</a>
+          <button class="admin-btn admin-btn--ghost" type="button" id="sign-out">Sign out</button>
+        </div>
+      </header>
+
+      <p class="admin-status" id="admin-status" role="status" aria-live="polite">Loading the menu…</p>
+
+      <main class="admin-main" id="admin-main">
+        <div class="admin-intro">
+          <h1>The menu</h1>
+          <p>
+            Every change saves straight away and rebuilds <code>menu.html</code> — there is no draft
+            state to forget about. The two rules the site has always followed still apply: a price has
+            to be printed on the board in the shop, and a photograph has to be of the actual dish.
+          </p>
+        </div>
+
+        <div id="categories"></div>
+
+        <section class="admin-card admin-prices" aria-labelledby="prices-title">
+          <h2 id="prices-title">Prices printed on the board</h2>
+          <p class="admin-note">
+            A dish may only use one of these. If the shop raises a price, you have to photograph the
+            new board — then add the number here. This is what stops a slipped digit becoming a real
+            price on the site.
+          </p>
+          <form id="prices-form" class="admin-prices__form">
+            <label class="admin-field">
+              <span>Board prices (Rs, comma separated)</span>
+              <input type="text" id="board-prices" inputmode="numeric" autocomplete="off" />
+            </label>
+            <button class="btn btn--ghost btn--sm" type="submit">Save prices</button>
+          </form>
+        </section>
+
+        <section class="admin-card admin-help" aria-labelledby="help-title">
+          <h2 id="help-title">How this works</h2>
+          <ul>
+            <li><strong>Add</strong> — “Add a dish” in a section. The board number must be free.</li>
+            <li><strong>Edit</strong> — change the row and save. The public page updates immediately.</li>
+            <li><strong>Delete</strong> — removes the dish from the site and from <code>menu.json</code>.</li>
+            <li><strong>Photo</strong> — upload a JPEG, PNG or WebP. It is re-encoded, resized and stripped
+              of metadata, and the same file is offered at three sizes.</li>
+            <li><strong>Order</strong> — the arrows move a dish up or down within its section.</li>
+          </ul>
+          <p class="admin-note">
+            If something goes wrong, the previous version is in git: <code>git log assets/data/menu.json</code>.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <script src="assets/js/admin.js" type="module"></script>
+  </body>
+</html>

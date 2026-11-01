@@ -67,6 +67,21 @@ ${data.categories
 <button class="chip-filter" type="button" data-filter="spicy" aria-pressed="false">Spicy</button>`;
 
 /* --------------------------------------------------------------- cards */
+/* A dish photo is optional. When an item has "photo": true the admin panel has
+   uploaded raw/dish-<id>.<ext> and build-assets has written the sizes below. */
+const photoMarkup = (item) => {
+  if (!item.photo) return "";
+  const name = `dish-${item.id}`;
+  const alt = item.photoAlt || `${item.name} at Kungfu Noodles`;
+  return `<span class="dish-row__photo">
+              <picture>
+                <source type="image/webp" srcset="assets/img/${name}-300.webp 300w, assets/img/${name}-420.webp 420w, assets/img/${name}-620.webp 620w" sizes="72px" />
+                <img src="assets/img/${name}-300.jpg" width="300" height="225" loading="lazy" decoding="async" alt="${esc(alt)}" />
+              </picture>
+            </span>
+            `;
+};
+
 const cardMarkup = (item, cat) => {
   const haystack = `${item.no ? `number ${item.no} ` : ""}${item.name} ${item.cn ?? ""} ${item.desc} ${cat.name}`.toLowerCase();
   const noMarkup = item.no
@@ -75,9 +90,9 @@ const cardMarkup = (item, cat) => {
   const priceMarkup = `<span class="dish-row__price">Rs ${item.price}</span>`;
 
   return `        <article class="dish-row" data-item="${esc(item.id)}" data-name="${esc(item.name)}" data-cat="${esc(cat.id)}"
-          data-heat="${item.heat || 0}" data-diet="${esc(item.diet)}" data-price="${item.price}"
+          data-heat="${item.heat || 0}" data-diet="${esc(item.diet)}" data-price="${item.price}"${item.photo ? ' data-photo="true"' : ""}
           data-search="${esc(haystack)}">
-          ${noMarkup}
+          ${photoMarkup(item)}${noMarkup}
           <div class="dish-row__main">
             <div class="dish-row__line">
               <h3 class="dish-row__name">${esc(item.name)}${
@@ -144,6 +159,7 @@ const jsonld = {
       name: i.name,
       description: i.desc,
       identifier: i.no ? String(i.no) : undefined,
+      ...(i.photo ? { image: `https://kungfunoodles.com.np/assets/img/dish-${i.id}-620.jpg` } : {}),
       ...(i.diet === "veg" ? { suitableForDiet: "https://schema.org/VegetarianDiet" } : {}),
       offers: { "@type": "Offer", price: i.price, priceCurrency: "NPR" },
     })),
