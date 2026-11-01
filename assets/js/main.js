@@ -73,14 +73,15 @@ if (!reduceMotion && "IntersectionObserver" in window) {
 /* -------------------------------------------------------- opening hours */
 const TZ = "Asia/Kathmandu";
 /* Minutes since midnight, Kathmandu time. [open, close] */
+/* Google Maps and Tripadvisor both list 9:00 AM – 11:00 PM every day. */
 const SCHEDULE = {
-  Sun: [570, 1320], // 9:30 – 22:00
-  Mon: [570, 1320],
-  Tue: [570, 1320],
-  Wed: [570, 1320],
-  Thu: [570, 1320],
-  Fri: [570, 1350], // 9:30 – 22:30
-  Sat: [570, 1350],
+  Sun: [540, 1380], // 09:00 – 23:00
+  Mon: [540, 1380],
+  Tue: [540, 1380],
+  Wed: [540, 1380],
+  Thu: [540, 1380],
+  Fri: [540, 1380],
+  Sat: [540, 1380],
 };
 const DELIVERY = [600, 1260]; // 10:00 – 21:00
 

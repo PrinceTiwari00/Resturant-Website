@@ -65,7 +65,7 @@ ${data.categories
 
 /* --------------------------------------------------------------- cards */
 const cardMarkup = (item, cat) => {
-  const haystack = `${item.no ? `number ${item.no} ` : ""}${item.name} ${item.desc} ${cat.name}`.toLowerCase();
+  const haystack = `${item.no ? `number ${item.no} ` : ""}${item.name} ${item.cn ?? ""} ${item.desc} ${cat.name}`.toLowerCase();
   const noMarkup = item.no
     ? `<span class="dish-row__no" title="Number on the board in the shop">${item.no}</span>`
     : `<span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>`;
@@ -80,8 +80,8 @@ const cardMarkup = (item, cat) => {
           <div class="dish-row__main">
             <div class="dish-row__line">
               <h3 class="dish-row__name">${esc(item.name)}${
-    item.badge ? ` <span class="tag">${esc(item.badge)}</span>` : ""
-  }</h3>
+    item.cn ? ` <span class="dish-row__cn" lang="zh">${esc(item.cn)}</span>` : ""
+  }${item.badge ? ` <span class="tag">${esc(item.badge)}</span>` : ""}</h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
               ${priceMarkup}
             </div>
@@ -187,16 +187,23 @@ const report = [
   "",
   "## Everything else on the site that needs a human check",
   "",
-  "- **Numbered items.** Only #1, #3, #8, #11, #14 and #16 are confirmed from public sources. The board",
-  "  prints numbers up to at least #16 and lists about 15 noodle dishes — add the missing numbers.",
-  "- **Side dishes.** The shop lists roughly 20 sides; 11 are transcribed here. Photograph the side-dish",
+  "- **Numbers.** Only #1, #3, #8, #11, #14 and #16 are confirmed from public sources. The board prints",
+  "  numbers up to at least #16 and lists about 15 noodle dishes — add the rest (#2, #4–#7, #9, #10,",
+  "  #12, #13, #15).",
+  "- **Side dishes.** The shop lists about 20 sides; 13 are transcribed here. Photograph the side-dish",
   "  board and add the rest.",
-  "- **Prices.** Documented in public sources: Kungfu Special Rs 380 (2022), Buff Sichuan Rs 320,",
-  "  Sesame Wuhan Rs 320, Spicy Chicken Rs 240, Special Chinese Dry Noodles Rs 350, Agaric/Cucumber",
-  "  Rs 150 each, canned tea Rs 250. Everything else is an educated estimate.",
-  "- **Opening hours.** The brief says 9:30 AM – 10:30 PM; the Google listing currently shows 9 AM – 11 PM.",
-  "- **Recipes/allergens.** The description text is written from reviews, not from the kitchen — read it",
-  "  before it goes live.",
+  "- **Prices.** Confirmed in public sources: Kungfu Special Rs 380 (2022), Buff Sichuan Rs 320, Sesame",
+  "  Wuhan Rs 320, Spicy Chicken Rs 240, Special Chinese Dry Noodles Rs 350, Agaric/Cucumber Rs 150 each,",
+  "  canned tea Rs 250. Everything else is an educated estimate and is marked *est.* on the site.",
+  "- **Hours.** The site now uses the live listings — Google and Tripadvisor both say 9:00 AM – 11:00 PM",
+  "  daily. The client brief said 9:30 AM – 10:30 PM, so please confirm which is right; change `SCHEDULE`",
+  "  in `assets/js/main.js`, the hours lists in `index.html` and `contact.html`, and the JSON-LD.",
+  "- **Rating.** Shown as 4.0 from 739 Google reviews (and 4.5 from 21 Tripadvisor reviews), attributed",
+  "  with links. It is deliberately **not** in the structured data as `aggregateRating`: Google's policy",
+  "  does not allow third-party review counts to be marked up on your own site. If you collect reviews",
+  "  yourselves, that can be added.",
+  "- **Recipes/allergens.** The description text is written from reviews and photo captions, not from the",
+  "  kitchen — read it before it goes live.",
   "",
 ].join("\n");
 

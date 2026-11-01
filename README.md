@@ -42,6 +42,35 @@ the missing endpoint and hands the message to WhatsApp instead (see below).
 Every page shares: a sticky header with a live order badge, a full-screen mobile menu, the order
 drawer, and the footer.
 
+### Business details now come from the live listings
+
+The client brief, the Google Maps place page and the Tripadvisor listing were reconciled into what
+the site shows:
+
+| Detail | Value used | Source |
+| --- | --- | --- |
+| Rating | **4.0 · 739 reviews · 1,200 photos** | Google Maps listing |
+| Second rating | **4.5 · 21 reviews** | Tripadvisor listing |
+| Hours | **9:00 AM – 11:00 PM daily** | Google and Tripadvisor both say “closes 11 PM” |
+| Phone | +977 985-1172950 | Google, Tripadvisor, Facebook |
+| Email | manojadhikari2950@gmail.com · kungfurestaurant8@gmail.com | Facebook · Tripadvisor |
+| Address | JP Marg, Thamel, Kathmandu 44600 | Google, Tripadvisor |
+| Plus code | **P866+W3** | Google Maps (read to a taxi driver) |
+| Coordinates | 27.7122735, 85.3102415 | Google Maps place link |
+| Services | Dine-in · takeaway · table service · breakfast–dinner · vegetarian friendly · good for kids · groups | Google, Tripadvisor |
+| Category | Chinese noodle restaurant | Google |
+| Photos | 1,200 on Google · 42 on Tripadvisor | both listings |
+
+Two deliberate decisions:
+
+- **The rating is displayed with attribution and links, but is not in structured data.** Google's
+  review-snippet policy does not allow third-party ratings to be marked up as `aggregateRating` on
+  your own site — self-marked-up star ratings risk a manual action. If the shop later collects its
+  own reviews, that markup can be added properly.
+- **Hours follow the live listing, not the brief.** The brief said 9:30 AM – 10:30 PM; both live
+  listings say 9 AM – 11 PM. If the brief is right, change `SCHEDULE` in `assets/js/main.js`, the
+  hours lists in `index.html` / `contact.html`, and the JSON-LD in both pages.
+
 ---
 
 ## How ordering works
@@ -108,7 +137,8 @@ transcribes it rather than inventing dishes:
 | *Sincerely from China* feature (myRepublica) | 15 noodles + 20 sides; pork paws, buff tongue, fried eggs, seasoned cucumbers |
 | Karl Rock's Kathmandu cheap-eats guide | Board numbering (#1, #3, #14) and prices: Buff Sichuan Rs 320, Sesame Wuhan Rs 320, Spicy Chicken Rs 240, Kungfu Special Rs 350 |
 | Tripadvisor reviews | Kungfu Special Rs 380, Special Chinese Dry Noodles Rs 350, agaric + cucumber Rs 150 each, and the numbers #8, #11, #16 |
-| Google Maps reviews/photos | Fresh juices, canned tea Rs 250, super spicy chicken |
+| Google Maps reviews/photos | Fresh juices, canned tea Rs 250, super spicy chicken; 4.0 from 739 reviews; review topics naming Special Kungfu Noodles, wuhan style noodles, buff salad, egg & tomato noodle soup, buffalo tongue |
+| Tripadvisor photo captions | Chinese dish names straight off the shop's own board: 三鲜蔬菜面, 凉拌猪头肉, 盐水花生, 番茄鸡蛋面, 卤肉牛肉面, 凉拌牛舌 |
 
 **Nothing on the site is presented as certain when it isn't.** Every item carries `confirmed`:
 
@@ -194,6 +224,14 @@ order, and a full WhatsApp hand-off with line items and totals.
 
 ---
 
+## What came from where
+
+Every fact on the site traces to a source: the client PDF, the [Google Maps place page](https://www.google.com/maps/place/Kungfu+Noodles/@27.7122735,85.3102415,17z)
+(4.0 · 739 reviews, plus code, hours, service options), the [Tripadvisor listing](https://www.tripadvisor.com/Restaurant_Review-g293890-d13462947)
+(rating, second email, Chinese dish names in photo captions), the myRepublica feature on the shop,
+and Karl Rock's Kathmandu guide (board numbering and prices). `MENU-TO-CONFIRM.md` lists exactly
+what is still unverified and why — nothing is presented as certain when it isn't.
+
 ## Accessibility & performance
 
 - Semantic landmarks, one `h1` per page, skip link, visible focus rings, 48 px tap targets.
@@ -237,10 +275,15 @@ server.mjs               static server + /api/contact
 - [ ] Work through `MENU-TO-CONFIRM.md`: confirm each price and number, set `confirmed: true`, run
       `npm run menu`. Add the missing noodle numbers (#2, #4–#7, #9, #10, #12, #13, #15) and the
       remaining cold sides.
-- [ ] Confirm hours per day (the brief says 9:30 AM – 10:30 PM; the Google listing shows 9 AM – 11 PM). Update `SCHEDULE`
+- [ ] Confirm the hours: the site now says 9 AM – 11 PM to match the live Google/Tripadvisor listings,
+      which contradicts the brief's 10:30 PM close. Update `SCHEDULE`
       in `main.js`, the two hours lists in the HTML, and the JSON-LD.
 - [ ] Point the delivery-partner buttons at the restaurant's actual listing pages.
-- [ ] Check the Tripadvisor review link and the review quotations.
+- [ ] Check the review quotations: the three on the home page are real Google reviews (Sudish
+      Shrestha, Sushma Shrestha, Prozwal Manandhar) shown with names and relative dates — confirm the
+      shop is happy to display them, and refresh them as new reviews come in.
+- [ ] Verify the Google/Tripadvisor rating figures before launch (4.0 / 739 and 4.5 / 21 at time of
+      writing) and update the `index.html` hero, the reviews footer and the contact page.
 - [ ] Set the canonical domain (see Deployment notes) and add `sitemap.xml` to Google Search
       Console, then create/claim the Google Business Profile.
 - [ ] Decide where enquiries should land: `data/inquiries.jsonl` on the server, or forward it to

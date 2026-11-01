@@ -108,8 +108,20 @@ test("home page: header, listing and live opening status render", async () => {
   const status = doc.querySelector("[data-open-status]").textContent.trim();
   assert(/Open now|Closed now/.test(status), `opening status text looks wrong: "${status}"`);
   assert(doc.querySelector("#order-drawer"), "order drawer missing");
+
+  // the Google listing numbers are on the page
+  const heroRating = doc.querySelector(".hero__rating").textContent.replace(/\s+/g, " ");
+  assert(/4\.0/.test(heroRating) && /739/.test(heroRating), `hero rating missing listing data: ${heroRating}`);
+  assert(doc.querySelectorAll(".quote__name").length === 3, "three reviews expected");
+  assert(/Google/.test(doc.querySelector(".quote__src").textContent), "reviews should be attributed to Google");
+  assert(/P866\+W3/.test(doc.body.textContent), "plus code missing from the hero aside");
+  assert(/9 AM – 11 PM|9:00 AM – 11:00 PM/.test(doc.body.textContent), "hours should reflect the live listing");
   const year = doc.querySelector("[data-year]").textContent;
   assert(/^\d{4}$/.test(year), "footer year not filled");
+
+  // the status badge uses the same schedule as the listing (9 AM – 11 PM)
+  const badge = doc.querySelector("[data-open-status]").textContent;
+  assert(/until 11:00 PM|opens 9:00 AM/.test(badge), `unexpected opening status text: ${badge}`);
 });
 
 test("menu page: server-rendered items are present and filterable", async () => {
@@ -135,6 +147,12 @@ test("menu page: server-rendered items are present and filterable", async () => 
   const numbered = [...doc.querySelectorAll("[data-item]")].filter((r) => /^\d+$/.test(r.querySelector(".dish-row__no").textContent.trim()));
   eq(numbered.length, allItems.filter((i) => i.no).length, "rows showing a board number");
   assert(doc.querySelector('[data-item="kungfu-special"] .dish-row__no').textContent.trim() === "1", "Kungfu Special should be #1");
+
+  // bilingual names straight from the shop's own board photos
+  eq(doc.querySelectorAll(".dish-row__cn").length, allItems.filter((i) => i.cn).length, "rows with a Chinese name");
+  assert(doc.querySelector('[data-item="tomato-egg"]'), "番茄鸡蛋面 item missing");
+  assert(doc.querySelector('[data-item="pork-head"]'), "凉拌猪头肉 item missing");
+  assert(doc.querySelector('[data-item="pork-head"] .dish-row__cn').textContent.trim() === "凉拌猪头肉", "pork head Chinese name wrong");
 
   // draft banner counts exactly the items flagged unconfirmed
   const banner = doc.querySelector(".draft-banner");
@@ -262,6 +280,17 @@ test("order: empty cart disables the send button", async () => {
   const { doc } = await loadPage("order.html");
   await sleep(30);
   assert(doc.querySelector("#order-send").disabled, "send button should be disabled with an empty cart");
+});
+
+test("contact page: plus code, both emails, amenities and rating are shown", async () => {
+  const { doc } = await loadPage("contact.html");
+  const text = doc.body.textContent;
+  assert(/P866\+W3/.test(text), "plus code missing");
+  assert(/kungfurestaurant8@gmail\.com/.test(text), "second email missing");
+  assert(/manojadhikari2950@gmail\.com/.test(text), "main email missing");
+  assert(/739/.test(text), "review count missing");
+  assert(doc.querySelectorAll(".amenities li").length >= 6, "amenity list missing");
+  assert(/Street View/.test(text), "street view link missing");
 });
 
 test("contact: form validates then posts to the API", async () => {
