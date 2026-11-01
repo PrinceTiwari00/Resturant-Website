@@ -15,7 +15,8 @@
     "check:links": "node scripts/check-links.mjs",
     "check:menu": "node scripts/menu-check.mjs",
     "test": "node scripts/smoke-test.mjs && node scripts/admin-test.mjs && node scripts/admin-ui-test.mjs",
-    "admin:passwd": "node scripts/admin-passwd.mjs"
+    "admin:passwd": "node scripts/admin-passwd.mjs",
+    "build:site": "node scripts/build-site.mjs"
   },
   "devDependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",

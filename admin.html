@@ -47,6 +47,29 @@
           Forgotten it? On the server, run <code>npm run admin:passwd</code> to set a new one. There is
           no recovery email, and no default password.
         </p>
+
+        <div class="admin-offline" id="offline-note" hidden>
+          <p class="admin-offline__lede" role="status">
+            <strong>This copy of the site is served as plain files</strong> — GitHub Pages, Netlify,
+            Cloudflare Pages or a similar host. There is no Node process here, so there is nothing for
+            the editor to save a menu to. Signing in cannot work on this copy.
+          </p>
+          <p>Two ways to change the menu:</p>
+          <ol>
+            <li>
+              <strong>On this copy:</strong> edit <code>assets/data/menu.json</code>, run
+              <code>npm run menu</code>, then commit and push. <code>npm run check</code> validates it.
+            </li>
+            <li>
+              <strong>With this editor:</strong> run <code>npm start</code> on a Node host (a laptop, a
+              small VPS, Render, Railway, Fly.io) and open <code>/admin</code> there.
+            </li>
+          </ol>
+          <p class="admin-offline__foot">
+            Everything else on the site works here: the menu, the order builder and the WhatsApp
+            hand-off are all static.
+          </p>
+        </div>
       </form>
     </section>
 

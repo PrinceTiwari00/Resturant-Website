@@ -1,0 +1,68 @@
+name: Deploy to GitHub Pages
+
+# Builds a clean, publishable copy of the site, runs the checks and tests, then
+# deploys it to GitHub Pages.
+#
+# GitHub Pages serves FILES ONLY — there is no Node process on the host. That
+# means the public site works perfectly here (menu, order builder, WhatsApp
+# hand-off, contact form fallback) but the password-protected menu editor at
+# /admin does not: it needs a server to save to. The panel detects this and says
+# so on the page. To use the editor, run `npm start` on a Node host.
+#
+# Before the first run: repository Settings → Pages → Source: "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Fails the deploy on a broken link, an unreachable menu price (anything
+      # that is not printed on the shop's boards) or a menu/data mismatch.
+      - run: npm run check
+
+      # Real behaviour tests: filters, cart maths, WhatsApp hand-off, and the
+      # admin API's auth guards.
+      - run: npm test
+
+      # Publish only what a browser needs. node_modules, the server, the admin
+      # API, git internals, raw photo originals and local data never reach the
+      # host — the script asserts that before it finishes.
+      - name: Assemble the publishable site
+        run: node scripts/build-site.mjs
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

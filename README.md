@@ -29,6 +29,8 @@ the missing endpoint and hands the message to WhatsApp instead (see below).
 **The admin panel is the exception:** it needs a running Node process and a writable disk (see below).
 On a static host it is unavailable; edit `assets/data/menu.json` and run `npm run menu` instead.
 
+Publishing to **GitHub Pages** is wired up already — see [Hosting on GitHub Pages](#hosting-on-github-pages).
+
 ---
 
 ## Pages
@@ -338,6 +340,48 @@ order, and a full WhatsApp hand-off with line items and totals.
 
 ## Deployment notes
 
+### Hosting on GitHub Pages
+
+GitHub Pages serves **files only** — there is no Node process, so `server.mjs` never runs there.
+
+| Feature | On GitHub Pages |
+| --- | --- |
+| All pages, images, fonts, CSS, JS | ✅ works |
+| The menu, search, filters, order builder, WhatsApp hand-off | ✅ works — all client-side |
+| Contact form | ✅ falls back to WhatsApp automatically |
+| **The `/admin` menu editor** | ❌ cannot work — nothing to save to |
+
+The admin panel detects this and says so on the page instead of showing a password box that could
+never succeed. To use the editor you need a Node host (a laptop, a VPS, Render, Railway, Fly.io): run
+`npm start` there and open `/admin`.
+
+**To publish:**
+
+1. Settings → Pages → **Source: GitHub Actions**.
+2. Push to `main`. [`.github/workflows/pages.yml`](.github/workflows/pages.yml) runs `npm run check`
+   and `npm test`, assembles `_site/` with `npm run build:site`, and deploys it.
+3. The site appears at `https://<user>.github.io/<repo>/`.
+
+Manually, if you would rather not use Actions: run `npm run build` then `npm run build:site`, and
+publish the contents of `_site/` to any static host.
+
+Notes:
+
+- `_site/` is an **allowlist** build: only pages, `assets/` (minus `img/raw/`) and the small root
+  files are copied. The server, `node_modules`, `data/` and `package.json` are never published, and
+  the script fails if `data/admin.json` ever appears there.
+- `.nojekyll` is present on purpose — without it Pages runs the repo through Jekyll, which ignores
+  files starting with `_` and can rewrite output.
+- **Project pages live under `/<repo>/`**, but the canonical, Open Graph and sitemap URLs point at
+  `https://kungfunoodles.com.np`. Add a custom domain (Pages → Custom domain, free HTTPS) or rewrite
+  the domain with the command below — otherwise search engines get a contradictory signal.
+- Pages on a **private** repository needs GitHub Pro/Team/Enterprise; public repos are free.
+
+**Updating the menu without the panel:** edit `assets/data/menu.json`, run `npm run menu`, commit and
+push — the workflow republishes. `npm run check` refuses a price that is not printed on the board.
+
+---
+
 - **Canonical domain.** `https://kungfunoodles.com.np` is used in `<link rel="canonical">`, Open
   Graph tags, `sitemap.xml` and JSON-LD. Replace it everywhere if the site lands elsewhere:
 
@@ -399,6 +443,7 @@ assets/
 scripts/
   build-assets.mjs       ImageMagick pipeline
   build-menu.mjs         menu.json → menu.html markup + JSON-LD + MENU-SOURCES.md
+  build-site.mjs         assembles _site/ for GitHub Pages / static hosts
   check-links.mjs        link / anchor / asset checker
   menu-check.mjs         menu data guard: board prices, required fields, page sync
   admin-passwd.mjs       set / replace the admin password

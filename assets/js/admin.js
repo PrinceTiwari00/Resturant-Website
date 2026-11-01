@@ -34,7 +34,22 @@ const $ = (sel, root = document) => root.querySelector(sel);
    panel runs in (jsdom, older Safari), and the menu is pure JSON anyway. */
 const clone = (value) => JSON.parse(JSON.stringify(value));
 
+/* A static host (GitHub Pages, Netlify, Cloudflare Pages) has no /api at all.
+   Rather than let someone type the password into a form that can never accept
+   it, we ask the server whether it exists before showing the form. */
+async function backendOnline() {
+  try {
+    const res = await fetch("/api/health", { headers: { Accept: "application/json" } });
+    if (!res.ok) return false;
+    const body = await res.json().catch(() => null);
+    return body?.ok === true;
+  } catch {
+    return false;
+  }
+}
+
 const state = {
+  online: null,
   token: sessionStorage.getItem(TOKEN_KEY) || "",
   menu: null,
   editing: null, // dish id whose editor is open
@@ -86,6 +101,21 @@ const screens = {
 function showLogin(message) {
   screens.login.hidden = false;
   screens.app.hidden = true;
+
+  const offline = state.online === false;
+  const form = $("#login-form");
+  const note = $("#offline-note");
+  for (const node of form.querySelectorAll("input, button, label.admin-field, .admin-hint")) {
+    node.hidden = offline;
+  }
+  $("#login-title").textContent = offline ? "No editor on this copy" : "Sign in";
+  if (offline) {
+    form.querySelector(".admin-login__sub").textContent =
+      "The menu editor needs a Node server. This copy is static files only.";
+    note.hidden = false;
+    return;
+  }
+  note.hidden = true;
   const msg = $("#login-msg");
   if (message) {
     msg.textContent = message;
@@ -494,6 +524,13 @@ async function refresh() {
 }
 
 async function start() {
+  state.online = await backendOnline();
+  if (!state.online) {
+    sessionStorage.removeItem(TOKEN_KEY);
+    state.token = "";
+    showLogin();
+    return;
+  }
   if (!state.token) {
     showLogin();
     return;
@@ -534,7 +571,10 @@ $("#login-form").addEventListener("submit", async (event) => {
     render();
     status("Signed in. Every change saves straight away.", "ok");
   } catch (error) {
-    msg.textContent = error.message;
+    const offline = /Failed to fetch|NetworkError|load failed/i.test(error.message);
+    msg.textContent = offline
+      ? "Could not reach the server. If this site is on a static host, the editor cannot work here — edit assets/data/menu.json and run npm run menu."
+      : error.message;
     msg.hidden = false;
   } finally {
     button.disabled = false;

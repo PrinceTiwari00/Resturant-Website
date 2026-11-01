@@ -5,6 +5,12 @@
   background: var(--paper2);
 }
 
+/* Components below set their own `display`, which would otherwise beat the
+   browser's [hidden] rule and leave the sign-in fields visible. */
+[hidden] {
+  display: none !important;
+}
+
 .admin {
   min-height: 100vh;
   color: var(--ink);
@@ -134,6 +140,46 @@
 }
 .admin-msg[hidden] {
   display: none;
+}
+
+/* Shown instead of the sign-in fields when the page is on a static host. */
+.admin-offline {
+  display: grid;
+  gap: 0.6rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.admin-offline[hidden] {
+  display: none;
+}
+.admin-offline p {
+  margin: 0;
+}
+.admin-offline ol {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.45rem;
+}
+.admin-offline__lede {
+  padding: 0.65rem 0.8rem;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--gold) 14%, var(--white));
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  color: var(--ink);
+}
+.admin-offline code {
+  font-size: 0.86em;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+.admin-offline__foot {
+  font-size: 0.8rem;
+  color: var(--ink-3);
 }
 
 /* ---------------------------------------------------------------- app ---- */
