@@ -1,0 +1,13 @@
+{
+  "name": "Kungfu Noodles — Thamel, Kathmandu",
+  "short_name": "Kungfu Noodles",
+  "description": "Hand-pulled Chinese noodles in the heart of Thamel. Menu, ordering and directions.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fbf6ee",
+  "theme_color": "#3b0806",
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

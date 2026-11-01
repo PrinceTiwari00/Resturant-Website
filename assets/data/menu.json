@@ -1,0 +1,311 @@
+{
+  "meta": {
+    "boardNote": "The shop prices its menu on two hand-lettered poster boards on the wall: noodles run from #01, and the cold counter from #20. Every item, number, Chinese name, printed English name and price below was transcribed from photographs of those boards — nothing here is estimated.",
+    "sources": [
+      "The shop's own noodle board, photographed by Nosh Nepal and published on the Kungfu Noodles listing (noshnepal.com/restaurant/kungfu-noodles, menu photo 1): items 01, 02, 03, 08, 09, 11, 12, 13, 14, 15, 16 and 25.",
+      "The shop's own cold-counter board, photographed by Nosh Nepal and published on the same listing (menu photo 2): items 20, 21, 22, 23, 24, 25, 26, 27, 28, 31, 32, 34 and 36.",
+      "Google Maps listing for Kungfu Noodles (4.0 from 739 reviews, 1,200 photos): review topics and review text confirming #1, #8, #11, #14, #15, #16, the fried egg, peanuts, cucumber, tripe, pork ears and buff tongue.",
+      "Tripadvisor listing d13462947 (4.5 from 21 reviews) and its photo captions: 三鲜蔬菜面, 凉拌猪头肉, 盐水花生, 番茄鸡蛋面, 卤肉牛肉面, 凉拌牛舌.",
+      "myRepublica feature “Land of noodles — Sincerely from China”: 15 noodle dishes and 20 sides, handmade noodles, ingredients imported from China, pork paws and buff tongue among the sides."
+    ],
+    "boardPrices": [
+      100,
+      150,
+      240,
+      320,
+      350
+    ],
+    "boardPriceNote": "Every price printed on the two boards. menu.json may only use these — the shop charges what the wall says.",
+    "note": "The board carries more numbers than we could read — the photographs cut off or blur a few tiles. Anything we could not read is left off the site rather than guessed at."
+  },
+  "currency": "NPR",
+  "categories": [
+    {
+      "id": "noodles",
+      "name": "Noodles",
+      "cn": "面",
+      "blurb": "Handmade noodles, cooked to order. The number on the left is printed on the board in the shop — say the number and you get exactly this bowl.",
+      "items": [
+        {
+          "no": 1,
+          "id": "kungfu-special",
+          "name": "Kungfu Noodles Special",
+          "cn": "江湖特色牛肉面",
+          "desc": "The bowl the shop is named for: buff, chilli and Chinese sauce in a noodle soup. The feature written about it calls it hot, spicy, meaty and chewy.",
+          "price": 350,
+          "heat": 2,
+          "diet": "buff",
+          "badge": "House special",
+          "source": "Noodle board #01 — “Kungfu noodles-Special” 350, printed ingredients “buff, chilli, chinese sauce, noodle & soup”, two flames. Confirmed by the Google review topic “Special Kungfu Noodles” and by myRepublica."
+        },
+        {
+          "no": 2,
+          "id": "chicken-gizzard-noodles",
+          "name": "Noodles with Chicken Gizzard",
+          "cn": "鸡杂面",
+          "desc": "Chicken gizzard and chilli in a noodle soup. Two flames on the board.",
+          "price": 320,
+          "heat": 2,
+          "diet": "chicken",
+          "source": "Noodle board #02 — “Noodles with chicken gizzard” 320, printed ingredients “chicken gizzard, chilli, noodles & soup”."
+        },
+        {
+          "no": 3,
+          "id": "sichuan-style",
+          "name": "Noodles, Sichuan Style",
+          "cn": "四川担担面",
+          "desc": "Minced meat and vegetables in a noodle soup, built on Sichuan pepper — numbing more than simply hot.",
+          "price": 320,
+          "heat": 2,
+          "diet": "meat",
+          "source": "Noodle board #03 — “Noodles, Sichuan Style” 320, printed ingredients “Minced meat, Vegts, noodle & Soup”. Named in Tripadvisor reviews."
+        },
+        {
+          "no": 8,
+          "id": "chicken-mushroom",
+          "name": "Noodles with Chicken & Mushroom",
+          "cn": "蘑菇炖鸡面",
+          "desc": "Chicken and mushroom in a Chinese-sauce noodle soup. A regular who has eaten here since 2018 calls this the bowl to order, especially in winter.",
+          "price": 320,
+          "heat": 0,
+          "diet": "chicken",
+          "source": "Noodle board #08 — “Noodles with chicken & mushroom” 320, printed ingredients “mushroom, chicken, chinese sauce, noodles & soup”. Confirmed by a Google review: “My favorite would be the #8, which is chicken noodle… served with chicken and mushroom.”"
+        },
+        {
+          "no": 9,
+          "id": "special-dry",
+          "name": "Special Chinese Dry Noodles",
+          "cn": "宜宾燃面",
+          "desc": "No broth: dry noodles with pickled mustard tuber, peanuts and minced meat.",
+          "price": 320,
+          "heat": 1,
+          "diet": "meat",
+          "source": "Noodle board #09 — “Special Chinese Dry Noodles” 320, printed ingredients “pickled mustard tuber, peanuts, meat, dry noodles”, one flame. Also described in the Tripadvisor feature."
+        },
+        {
+          "no": 11,
+          "id": "super-spicy-chicken",
+          "name": "Noodles with Super Spicy Chicken",
+          "cn": "辣子鸡面",
+          "desc": "Spicy chicken and peanuts over dry noodles. Three flames on the board — the hottest thing printed on it.",
+          "price": 320,
+          "heat": 3,
+          "diet": "chicken",
+          "source": "Noodle board #11 — “Noodles with super spicy chicken” 320, printed ingredients “spicy chicken, peanuts, dry noodles”, three flames. Confirmed by Google reviews naming “#11”."
+        },
+        {
+          "no": 12,
+          "id": "beijing-style",
+          "name": "Noodles, Beijing Style",
+          "cn": "北京炸酱面",
+          "desc": "Minced meat, cucumber and carrot over dry noodles — the mild, savoury one.",
+          "price": 320,
+          "heat": 0,
+          "diet": "meat",
+          "source": "Noodle board #12 — “Noodles, Beijing Style” 320, printed ingredients “Minced meat, cucumber, carrot, dry noodles”."
+        },
+        {
+          "no": 13,
+          "id": "three-vegetable",
+          "name": "Noodles with Three Vegetables",
+          "cn": "三鲜蔬菜面",
+          "desc": "Mushroom, tomato and spinach in a Chinese-sauce noodle soup. The board marks this one “For Vegetarian”.",
+          "price": 320,
+          "heat": 0,
+          "diet": "veg",
+          "badge": "Vegetarian",
+          "source": "Noodle board #13 — “Noodles with 3 vegs. For Vegetarian” 320, printed ingredients “mushroom, tomato, spinach, chinese sauce, noodle & soup”. Also captioned 三鲜蔬菜面 on Tripadvisor."
+        },
+        {
+          "no": 14,
+          "id": "wuhan-style",
+          "name": "Noodles, Wuhan Style",
+          "cn": "武汉热干面",
+          "desc": "Sesame sauce, vegetables and dry noodles — no broth, no meat printed on the board. Toss it hard before the first bite.",
+          "price": 320,
+          "heat": 2,
+          "diet": "veg",
+          "badge": "Dry",
+          "source": "Noodle board #14 — “Noodles, Wuhan Style” 320, printed ingredients “Sesame sauce, vegetables, dry noodles”, two flames. A Google reviewer orders “#14 Noodles, Wuhan Style and a fried egg”."
+        },
+        {
+          "no": 15,
+          "id": "chongqing-style",
+          "name": "Noodles, Chongqing Style",
+          "cn": "重庆小面",
+          "desc": "Chilli, peanuts and Chinese sauce in a noodle soup. Three flames on the board.",
+          "price": 320,
+          "heat": 3,
+          "diet": "meat",
+          "source": "Noodle board #15 — “Noodles, Chongqing Style” 320, printed ingredients “chilli, peanuts, chinese sauce, noodles & soup”, three flames. Google reviewers order “no. 15 and 16” together."
+        },
+        {
+          "no": 16,
+          "id": "hot-sour",
+          "name": "Hot & Sour Noodles",
+          "cn": "酸辣粉",
+          "desc": "Chilli, peanuts and Chinese sauce in a noodle soup — sour first, then the numbing heat. Three flames.",
+          "price": 320,
+          "heat": 3,
+          "diet": "veg",
+          "source": "Noodle board #16 — “Hot & Sour Noodles” 320, printed ingredients “chilli, peanuts, chinese sauce, noodle & soup”, three flames (the Tripadvisor reviewer rates this one as the vegetarian-friendly order)."
+        }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": "Cold Counter & Sides",
+      "cn": "凉菜",
+      "blurb": "The cold counter across the back wall, numbered from #20. Order two or three for the table while the noodles are cooked.",
+      "items": [
+        {
+          "no": 20,
+          "id": "cold-tomato",
+          "name": "Cold Sliced Tomato",
+          "cn": "凉拌番茄",
+          "desc": "Sliced tomato, dressed cold.",
+          "price": 150,
+          "heat": 0,
+          "diet": "veg",
+          "source": "Cold-counter board #20 — “tomato” 150."
+        },
+        {
+          "no": 21,
+          "id": "salted-peanuts",
+          "name": "Salted Peanuts",
+          "cn": "盐水花生",
+          "desc": "Boiled peanuts in brine — the bowl that lands on every table.",
+          "price": 150,
+          "heat": 0,
+          "diet": "veg",
+          "source": "Cold-counter board #21 — “peanuts” 150. Also captioned 盐水花生 on Tripadvisor and named in Google reviews."
+        },
+        {
+          "no": 22,
+          "id": "preserved-egg",
+          "name": "Preserved Egg with Green Pepper",
+          "cn": "青椒皮蛋",
+          "desc": "Century egg chopped with green pepper.",
+          "price": 150,
+          "heat": 0,
+          "diet": "egg",
+          "source": "Cold-counter board #22 — “preserved egg” 150. The client brief also lists preserved egg among the shop's sides."
+        },
+        {
+          "no": 23,
+          "id": "cold-onion",
+          "name": "Cold Onion Salad",
+          "cn": "凉拌洋葱",
+          "desc": "Raw onion, dressed cold.",
+          "price": 150,
+          "heat": 0,
+          "diet": "veg",
+          "source": "Cold-counter board #23 — “onion” 150."
+        },
+        {
+          "no": 24,
+          "id": "chicken-paw",
+          "name": "Pickled Chicken Paws",
+          "cn": "山椒鸡爪",
+          "desc": "Chicken feet cured in pickled mountain pepper.",
+          "price": 240,
+          "heat": 0,
+          "diet": "chicken",
+          "source": "Cold-counter board #24 — “chicken paw” 240."
+        },
+        {
+          "no": 25,
+          "id": "fried-egg",
+          "name": "Fried Egg",
+          "cn": "煎鸡蛋",
+          "desc": "A fried egg on top of any bowl. Both boards print it — it is the cheapest thing in the shop.",
+          "price": 100,
+          "heat": 0,
+          "diet": "egg",
+          "source": "Printed on both boards, #25 — “Fried egg” 100. A Google reviewer pairs it with “#14 Noodles, Wuhan Style”."
+        },
+        {
+          "no": 26,
+          "id": "spiced-chicken",
+          "name": "Spiced Chicken",
+          "cn": "卤味鸡块",
+          "desc": "Chicken braised in the shop's spiced master stock, served cold.",
+          "price": 240,
+          "heat": 0,
+          "diet": "chicken",
+          "source": "Cold-counter board #26 — “spiced chicken” 240."
+        },
+        {
+          "no": 27,
+          "id": "chicken-gizzard",
+          "name": "Five-Spice Chicken Gizzard",
+          "cn": "五香鸡胗",
+          "desc": "Gizzard braised with five spice and sliced cold.",
+          "price": 240,
+          "heat": 0,
+          "diet": "chicken",
+          "source": "Cold-counter board #27 — “chicken gizzard” 240."
+        },
+        {
+          "no": 28,
+          "id": "spiced-buff",
+          "name": "Spiced Buff",
+          "cn": "五香牛肉",
+          "desc": "Buff braised in five spice and sliced cold — what the reviews call the buff salad.",
+          "price": 240,
+          "heat": 0,
+          "diet": "buff",
+          "source": "Cold-counter board #28 — “spiced buff” 240. The Google listing's review topics name “buff salad” seven times."
+        },
+        {
+          "no": 31,
+          "id": "pork-ear",
+          "name": "Pork Ear in Chilli Oil",
+          "cn": "红油耳片",
+          "desc": "Thin slices of pork ear under chilli oil — all crunch.",
+          "price": 240,
+          "heat": 0,
+          "diet": "pork",
+          "source": "Cold-counter board #31 — “pork ear meat” 240. Tripadvisor reviewers list pig's ears among the sides."
+        },
+        {
+          "no": 32,
+          "id": "pork-tripe",
+          "name": "Cold Pork Tripe",
+          "cn": "凉拌猪肚",
+          "desc": "Pork tripe dressed cold.",
+          "price": 240,
+          "heat": 0,
+          "diet": "pork",
+          "source": "Cold-counter board #32 — “pork tripe” 240. Google reviews name tripe among the sides."
+        },
+        {
+          "no": 34,
+          "id": "pork-paws",
+          "name": "Braised Pork Paws",
+          "cn": "五香猪手",
+          "desc": "Pork trotters braised until sticky, served cold.",
+          "price": 240,
+          "heat": 0,
+          "diet": "pork",
+          "source": "Cold-counter board #34 — “pork paws” 240. myRepublica names pork paws as one of the shop's not-so-typical sides."
+        },
+        {
+          "no": 36,
+          "id": "buff-tongue",
+          "name": "Five-Spice Buff Tongue",
+          "cn": "五香舌头",
+          "desc": "Buff tongue, five spice, sliced thin.",
+          "price": 240,
+          "heat": 0,
+          "diet": "buff",
+          "source": "Cold-counter board #36 — “buff tongue” 240. Named by myRepublica and captioned 凉拌牛舌 on Tripadvisor."
+        }
+      ]
+    }
+  ],
+  "unlisted": {
+    "title": "Also on the wall",
+    "body": "The two boards carry more numbers than are printed here — the photographs cut off part of the cold counter and blurred a few noodles. They are left out rather than guessed at. There are cold bottles and cans in the fridge by the counter too; ask at the till for what is in it that day."
+  }
+}

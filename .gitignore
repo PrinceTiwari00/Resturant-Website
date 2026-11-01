@@ -1,0 +1,8 @@
+node_modules/
+data/inquiries.jsonl
+.DS_Store
+*.log
+.arena/
+
+# admin credentials — never commit. Regenerate with: npm run admin:passwd
+data/admin.json

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kungfu Noodles">
+  <rect width="64" height="64" rx="14" fill="#7a1410"/>
+  <g fill="none" stroke="#e6c88d" stroke-width="2" stroke-linecap="round">
+    <path d="M20 15c2 3-2 5 0 8M32 13c2 3-2 5 0 8M44 15c2 3-2 5 0 8" opacity=".55"/>
+    <path d="M41 6 27 25M47 8 33 26" stroke-width="2.4"/>
+  </g>
+  <path d="M11 28h42c0 12-9.4 21-21 21S11 40 11 28Z" fill="#fbf6ee"/>
+  <path d="M11 28h42" stroke="#c39a56" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M20 36c3 4 7 6 12 6" stroke="#b02a17" stroke-width="2" fill="none" stroke-linecap="round" opacity=".5"/>
+</svg>

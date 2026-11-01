@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" class="page-order">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Order Online — Takeaway &amp; Delivery in Thamel | Kungfu Noodles</title>
+    <meta
+      name="description"
+      content="Order Kungfu Noodles for takeaway or delivery in Kathmandu. Build your order here, then send it to the kitchen on WhatsApp, or call +977 985-1172950."
+    />
+    <link rel="canonical" href="https://kungfunoodles.com.np/order.html" />
+    <meta name="theme-color" content="#3b0806" />
+    <meta name="geo.region" content="NP-P3" />
+    <meta name="geo.placename" content="Thamel, Kathmandu" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kungfu Noodles" />
+    <meta property="og:title" content="Order online — Kungfu Noodles, Thamel" />
+    <meta property="og:description" content="Build your order in thirty seconds, then send the list to the kitchen on WhatsApp or call the shop on JP Marg." />
+    <meta property="og:url" content="https://kungfunoodles.com.np/order.html" />
+    <meta property="og:image" content="https://kungfunoodles.com.np/assets/img/og-1200.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kungfunoodles.com.np/" },
+          { "@type": "ListItem", "position": 2, "name": "Order online", "item": "https://kungfunoodles.com.np/order.html" }
+        ]
+      }
+    </script>
+
+    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/order.js"></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a class="brand" href="index.html" aria-label="Kungfu Noodles — home">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M9.5 6.6 15.8 14M13.8 5.2 20.2 12.6" stroke="#e6c88d" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M5.8 14.4h20.4c0 6-4.6 10.8-10.2 10.8S5.8 20.4 5.8 14.4Z" fill="#fbf6ee" />
+              <path d="M5.8 14.4h20.4" stroke="#e6c88d" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </span>
+          <span class="brand__text">
+            <span class="brand__name">Kungfu Noodles</span>
+            <span class="brand__sub">Thamel · Kathmandu</span>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="nav__link" href="index.html">Home</a>
+          <a class="nav__link" href="menu.html">Menu</a>
+          <a class="nav__link" href="order.html" aria-current="page">Order online</a>
+          <a class="nav__link" href="contact.html">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="nav__cta btn btn--sm" href="tel:+9779851172950" aria-label="Call Kungfu Noodles on +977 985-1172950">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 3h2.2l1.6 4-2 1.4a12 12 0 0 0 5.2 5.2l1.4-2 4 1.6v2.2A2.6 2.6 0 0 1 16.4 21C9.6 20.6 3.4 14.4 3 7.6A2.6 2.6 0 0 1 6.6 3Z"/></svg>
+            <span>Call to order</span>
+          </a>
+          <button class="order-pill" type="button" data-drawer-open aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1.2 12.2a1.6 1.6 0 0 1-1.6 1.8H6.4a1.6 1.6 0 0 1-1.6-1.8L6 7Z"/><path d="M9.2 7V5.6a2.8 2.8 0 0 1 5.6 0V7"/></svg>
+            <span class="order-pill__label">Your order</span>
+            <span class="order-pill__count" data-order-count data-count="0">0</span>
+          </button>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" inert>
+      <ul class="mobile-nav__list">
+        <li><a href="index.html"><span>01</span>Home</a></li>
+        <li><a href="menu.html"><span>02</span>Menu</a></li>
+        <li><a href="order.html" aria-current="page"><span>03</span>Order online</a></li>
+        <li><a href="contact.html"><span>04</span>Contact</a></li>
+      </ul>
+      <div class="mobile-nav__foot">
+        <a href="tel:+9779851172950">+977 985-1172950</a>
+        <p>JP Marg, Thamel, Kathmandu 44600<br />Open daily · 9 AM – 11 PM</p>
+        <button class="btn btn--light" type="button" data-drawer-open>View your order</button>
+      </div>
+    </nav>
+
+    <main id="main">
+      <section class="page-hero" data-cn="外賣" aria-labelledby="order-title">
+        <div class="wrap page-hero__inner">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span>/</span><span aria-current="page">Order online</span>
+          </nav>
+          <p class="eyebrow">Takeaway · Delivery · Phone</p>
+          <h1 id="order-title">Order online</h1>
+          <p>
+            Two minutes on this page and your bowls are on the wok. No account, no card details — the
+            order goes to the kitchen on WhatsApp and they confirm it by return before anything is
+            cooked.
+          </p>
+          <p style="font-size: 0.95rem"><span data-open-status class="is-open"></span></p>
+          <p style="font-size: 0.85rem; opacity: 0.85">Rated 4.0 by 739 diners on Google · open 9 AM – 11 PM</p>
+        </div>
+      </section>
+
+      <!-- ============ Three ways ============ -->
+      <section class="section" aria-labelledby="ways-title">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow" data-reveal>Pick your lane</p>
+            <h2 id="ways-title" data-reveal>Three ways to get noodles</h2>
+            <p data-reveal>Two of them go to the same phone on the counter on JP Marg. The third is the door.</p>
+          </div>
+
+          <div class="ways">
+            <article class="card" data-reveal>
+              <p class="eyebrow" style="font-size: 0.66rem">Fastest</p>
+              <h3 style="margin: 0.6rem 0 0.5rem">Build it here</h3>
+              <p style="color: var(--ink-3); font-size: 0.92rem; line-height: 1.6">
+                Add dishes from the menu, then send the itemised list — numbers, quantities, total — to
+                the shop's WhatsApp in one tap. Best for a group order with lots of small changes.
+              </p>
+              <div class="btn-row" style="margin-top: 1.2rem">
+                <button class="btn btn--sm" type="button" data-drawer-open aria-haspopup="dialog">Open my order</button>
+                <a class="btn btn--ghost btn--sm" href="menu.html">Menu</a>
+              </div>
+            </article>
+
+            <article class="card" data-reveal>
+              <p class="eyebrow" style="font-size: 0.66rem">Human</p>
+              <h3 style="margin: 0.6rem 0 0.5rem">Call the shop</h3>
+              <p style="color: var(--ink-3); font-size: 0.92rem; line-height: 1.6">
+                The number on the Google listing is a mobile that someone picks up through the day, 9 AM
+                to 11 PM. Tripadvisor lists takeout, Nosh lists delivery and takeaway.
+              </p>
+              <div class="btn-row" style="margin-top: 1.2rem">
+                <a class="btn btn--sm" href="tel:+9779851172950">+977 985-1172950</a>
+                <a class="btn btn--ghost btn--sm" href="https://wa.me/9779851172950" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </article>
+
+            <article class="card" data-reveal>
+              <p class="eyebrow" style="font-size: 0.66rem">In person</p>
+              <h3 style="margin: 0.6rem 0 0.5rem">Walk in</h3>
+              <p style="color: var(--ink-3); font-size: 0.92rem; line-height: 1.6">
+                JP Marg, Thamel — the doorway under the white hanging sign. Dine-in, table service, good
+                for groups, open 9 AM to 11 PM every day.
+              </p>
+              <div class="btn-row" style="margin-top: 1.2rem">
+                <a class="btn btn--sm" href="contact.html#find-us">Map &amp; directions</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Delivery ============ -->
+      <section class="section section--paper2" id="partners" aria-labelledby="partners-title">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow" data-reveal>Delivery</p>
+            <h2 id="partners-title" data-reveal>Ask the shop whether they can reach you</h2>
+            <p data-reveal>
+              The listings say the shop delivers and does takeaway — Nosh Nepal tags it Delivery and
+              Takeaway, Tripadvisor lists takeout. What we can't tell you from here is the fee, the
+              radius or the timing, because the shop has never published them. So we don't invent a
+              number: send the order, and the reply will have the real one.
+            </p>
+          </div>
+
+          <div class="order-methods" style="max-width: 44rem">
+            <a class="order-method" style="background: var(--white); color: var(--ink); border-color: var(--line)" href="https://wa.me/9779851172950" target="_blank" rel="noopener">
+              <span class="order-method__icon" style="background: color-mix(in srgb, var(--red) 8%, transparent); color: var(--red)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3Z"/><path d="M8.8 8.6c.1-.3.3-.3.5-.3h.4c.2 0 .4 0 .5.4l.6 1.5c.1.2 0 .4-.1.5l-.5.5c-.1.2-.2.3 0 .6.4.8 1.2 1.5 2 2 .2.1.4 0 .5-.1l.5-.6c.1-.1.3-.2.5-.1l1.5.6c.2.1.3.2.4.4v.4c0 .6-.5 1.1-1 1.3-.9.2-2 0-3.5-.8-1.4-.8-2.6-2.1-3-3.3-.4-1-.3-1.9.2-2.5Z"/></svg>
+              </span>
+              <span>
+                <span class="order-method__title">WhatsApp the list</span>
+                <span class="order-method__sub" style="color: var(--ink-3)">+977 985-1172950 · ask for delivery to your address</span>
+              </span>
+              <span class="order-method__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/></svg></span>
+            </a>
+
+            <a class="order-method" style="background: var(--white); color: var(--ink); border-color: var(--line)" href="tel:+9779851172950">
+              <span class="order-method__icon" style="background: color-mix(in srgb, var(--red) 8%, transparent); color: var(--red)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 3h2.2l1.6 4-2 1.4a12 12 0 0 0 5.2 5.2l1.4-2 4 1.6v2.2A2.6 2.6 0 0 1 16.4 21C9.6 20.6 3.4 14.4 3 7.6A2.6 2.6 0 0 1 6.6 3Z"/></svg>
+              </span>
+              <span>
+                <span class="order-method__title">Or just ring them</span>
+                <span class="order-method__sub" style="color: var(--ink-3)">Faster than any app for a question about a delivery</span>
+              </span>
+              <span class="order-method__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/></svg></span>
+            </a>
+
+            <a class="order-method" style="background: var(--white); color: var(--ink); border-color: var(--line)" href="https://www.google.com/maps/place/Kungfu+Noodles/@27.7122735,85.3102415,17z" target="_blank" rel="noopener nofollow">
+              <span class="order-method__icon" style="background: color-mix(in srgb, var(--red) 8%, transparent); color: var(--red)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              </span>
+              <span>
+                <span class="order-method__title">Collect it yourself</span>
+                <span class="order-method__sub" style="color: var(--ink-3)">JP Marg, Thamel · plus code P866+W3</span>
+              </span>
+              <span class="order-method__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </a>
+          </div>
+
+          <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--ink-3); max-width: 44rem">
+            If you would rather not phone, the Google Maps listing is where the shop posts its own
+            hours, phone number, photos and reply to reviews.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ How it works ============ -->
+      <section class="section" aria-labelledby="how-title">
+        <div class="wrap">
+          <div class="story" style="align-items: start">
+            <div class="story__body">
+              <p class="eyebrow" data-reveal>How an order runs</p>
+              <h2 id="how-title" data-reveal>From tap to table, in four steps</h2>
+              <ol style="display: grid; gap: 1.1rem; margin-top: 0.5rem">
+                <li style="display: grid; grid-template-columns: auto 1fr; gap: 0.9rem" data-reveal>
+                  <span style="font-family: var(--font-display); color: var(--red); font-size: 1.1rem">01</span>
+                  <div><strong>Choose your bowls.</strong> Tap + beside anything on the <a href="menu.html">menu</a>. Your order is kept on this device, so you can add to it later.</div>
+                </li>
+                <li style="display: grid; grid-template-columns: auto 1fr; gap: 0.9rem" data-reveal>
+                  <span style="font-family: var(--font-display); color: var(--red); font-size: 1.1rem">02</span>
+                  <div><strong>Send it.</strong> Name, phone, pickup or delivery — then WhatsApp opens with the whole order written out.</div>
+                </li>
+                <li style="display: grid; grid-template-columns: auto 1fr; gap: 0.9rem" data-reveal>
+                  <span style="font-family: var(--font-display); color: var(--red); font-size: 1.1rem">03</span>
+                  <div><strong>They confirm.</strong> The kitchen replies with the total and the timing before anything is cooked — and tells you if a dish has run out.</div>
+                </li>
+                <li style="display: grid; grid-template-columns: auto 1fr; gap: 0.9rem" data-reveal>
+                  <span style="font-family: var(--font-display); color: var(--red); font-size: 1.1rem">04</span>
+                  <div><strong>Pay on hand-over.</strong> Nothing is taken online — settle at the counter when you collect, or when it reaches you.</div>
+                </li>
+              </ol>
+              <div class="btn-row" data-reveal>
+                <button class="btn" type="button" data-drawer-open aria-haspopup="dialog">Start my order</button>
+                <a class="btn btn--ghost" href="contact.html">Ask a question</a>
+              </div>
+            </div>
+
+            <div class="card" data-reveal>
+              <h3 style="font-size: var(--step-2)">Good to know</h3>
+              <div class="faq">
+                <details open>
+                  <summary>How long does takeaway take?</summary>
+                  <p>Ask when you send the order — the kitchen gives you a time in the reply. Reviews say the service is quick and the bowls are enough for two, so a group order takes longer.</p>
+                </details>
+                <details>
+                  <summary>Is there a minimum order?</summary>
+                  <p>None for pickup — order one bowl if you like. There is no published minimum for delivery, so ask when you send the list.</p>
+                </details>
+                <details>
+                  <summary>Can you make it less spicy?</summary>
+                  <p>Ask them to. A regular reviewer puts it plainly: “Make sure you tell the staff if you don't like too much chilli in your noodle.” Sichuan pepper still tingles.</p>
+                </details>
+                <details>
+                  <summary>Do you cater for groups?</summary>
+                  <p>The shop seats groups and lists “good for kids”, so it is worth calling ahead for a big table. There is no published booking system — it is a phone call.</p>
+                </details>
+                <details>
+                  <summary>Allergies?</summary>
+                  <p>Tell the shop before ordering. The board lists peanuts, sesame, egg and wheat noodles across the menu, and one small kitchen cooks it all.</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Closing CTA ============ -->
+      <section class="orderband section section--tight" aria-labelledby="order-cta">
+        <div class="orderband__media" aria-hidden="true">
+          <picture>
+            <source type="image/webp" srcset="assets/img/order-bg-800.webp 800w, assets/img/order-bg-1200.webp 1200w" sizes="100vw" />
+            <img src="assets/img/order-bg-1200.jpg" width="1200" height="675" loading="lazy" decoding="async" alt="" />
+          </picture>
+        </div>
+        <div class="wrap" style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between">
+          <div>
+            <h2 id="order-cta" style="font-size: clamp(1.7rem, 3.4vw, 2.6rem)">Hungry yet?</h2>
+            <p style="margin-top: 0.5rem; color: color-mix(in srgb, var(--paper) 78%, transparent)">
+              The Special Kungfu Noodles is the order we'd make for you.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn--light" type="button" data-drawer-open aria-haspopup="dialog">Order the special</button>
+            <a class="btn btn--ghost" href="tel:+9779851172950">Call the shop</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="site-footer__top">
+          <div class="site-footer__brand">
+            <a class="brand" href="index.html">
+              <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M9.5 6.6 15.8 14M13.8 5.2 20.2 12.6" stroke="#e6c88d" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M5.8 14.4h20.4c0 6-4.6 10.8-10.2 10.8S5.8 20.4 5.8 14.4Z" fill="#fbf6ee" />
+              <path d="M5.8 14.4h20.4" stroke="#e6c88d" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </span>
+              <span class="brand__text">
+                <span class="brand__name" style="color: var(--paper)">Kungfu Noodles</span>
+                <span class="brand__sub" style="color: var(--gold)">Thamel · Kathmandu</span>
+              </span>
+            </a>
+            <p>Handmade Chinese noodles, Sichuan heat and cold side dishes on JP Marg. Open every day, 9 AM until 11 PM.</p>
+            <div class="social">
+              <a href="https://www.facebook.com/kungfunoodles977/" target="_blank" rel="noopener" aria-label="Kungfu Noodles on Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.3h2.5l.4-2.9h-2.9V8.9c0-.8.2-1.4 1.4-1.4h1.6V4.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.1H7.9v2.9h2.5V21h3.1Z"/></svg>
+              </a>
+              <a href="https://wa.me/9779851172950" target="_blank" rel="noopener" aria-label="Kungfu Noodles on WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.9L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Zm4.6 11.7c-.2.5-1 1-1.5 1.1-.8.1-1.7-.1-3.3-.9-1.7-.9-2.8-2.5-3.1-3.2-.3-.7-.2-1.6.3-2.1.2-.2.4-.3.6-.3h.4c.2 0 .4 0 .5.4l.6 1.4c.1.2 0 .4-.1.5l-.5.5c-.1.1-.2.3 0 .6.4.7 1 1.3 1.8 1.7.3.2.4.1.6-.1l.4-.5c.2-.2.3-.3.6-.2l1.4.6c.2.1.3.2.4.4 0 .3 0 .7-.1 1Z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="site-footer__col">
+            <h3>Eat</h3>
+            <a href="menu.html">Full menu</a>
+            <a href="menu.html#cat-noodles">Noodles</a>
+            <a href="menu.html#cat-sides">Cold counter</a>
+            <a href="menu.html#cat-sides">Cold sides</a>
+            <a href="order.html">Order online</a>
+          </div>
+
+          <div class="site-footer__col">
+            <h3>Visit</h3>
+            <p>JP Marg, Thamel<br />Kathmandu 44600</p>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=27.7122735,85.3102415" target="_blank" rel="noopener">Get directions ↗</a>
+            <a href="contact.html">Contact &amp; hours</a>
+          </div>
+
+          <div class="site-footer__col">
+            <h3>Talk</h3>
+            <a href="tel:+9779851172950">+977 985-1172950</a>
+            <a href="mailto:manojadhikari2950@gmail.com">Email us</a>
+            <a href="https://wa.me/9779851172950" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://www.facebook.com/kungfunoodles977/" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© <span data-year>2026</span> Kungfu Noodles · JP Marg, Thamel, Kathmandu. Prices in Nepali Rupees.</p>
+          <div class="site-footer__legal">
+            <a href="menu.html">Menu</a>
+            <a href="contact.html">Contact</a>
+            <a href="credits.html">Photo &amp; font credits</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="drawer-backdrop" data-drawer-close aria-hidden="true"></div>
+    <aside class="drawer" id="order-drawer" role="dialog" aria-modal="true" aria-labelledby="order-drawer-title" inert>
+      <header class="drawer__head">
+        <div>
+          <h2 id="order-drawer-title">Your order</h2>
+          <p>We send this list to the kitchen on WhatsApp.</p>
+        </div>
+        <button class="drawer__close" type="button" data-drawer-close aria-label="Close order panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+
+      <div class="drawer__body">
+        <div id="order-lines" aria-live="polite"></div>
+        <div class="drawer__empty" id="order-empty">
+          <h3>Nothing in the bowl yet</h3>
+          <p>Add dishes from the menu and they'll appear here. Your order is saved on this device.</p>
+          <a class="btn btn--sm" href="menu.html">Browse the menu</a>
+        </div>
+
+        <form class="drawer__form" id="order-form" novalidate>
+          <h3>Who's eating?</h3>
+          <div class="field">
+            <label for="cust-name">Name</label>
+            <input id="cust-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="cust-phone">Phone</label>
+            <input id="cust-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="98XXXXXXXX" required />
+          </div>
+          <div class="field">
+            <label for="cust-type">Pickup or delivery?</label>
+            <select id="cust-type" name="type">
+              <option value="Pickup">Pickup at the shop</option>
+              <option value="Delivery">Delivery</option>
+            </select>
+          </div>
+          <div class="field" id="address-field" hidden>
+            <label for="cust-address">Delivery address</label>
+            <input id="cust-address" name="address" type="text" autocomplete="address-line1" placeholder="Street, hotel or landmark" />
+          </div>
+          <div class="field">
+            <label for="cust-notes">Notes <span style="font-weight: 400; text-transform: none; letter-spacing: 0">(optional)</span></label>
+            <textarea id="cust-notes" name="notes" rows="2" placeholder="Less spicy, no coriander, extra chilli oil…"></textarea>
+          </div>
+          <div class="form-status" id="order-status" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <footer class="drawer__foot">
+        <div class="totals">
+          <div class="totals__row"><span>Items</span><span data-order-count-label>Your order is empty</span></div>
+          <div class="totals__row"><span>Delivery</span><span>Quoted on confirmation</span></div>
+          <div class="totals__row totals__row--total"><span>Total</span><span data-order-subtotal>Rs 0</span></div>
+        </div>
+        <button class="btn btn--block" type="submit" form="order-form" id="order-send">
+          Send order on WhatsApp
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/></svg>
+        </button>
+        <div class="btn-row" style="gap: 0.5rem">
+          <button class="btn btn--ghost btn--sm" type="button" data-copy-order>Copy order</button>
+          <button class="btn btn--ghost btn--sm" type="button" data-clear-order>Clear</button>
+        </div>
+        <p class="drawer__note">
+          No payment taken online. We'll confirm by phone or WhatsApp before cooking. Prefer to talk?
+          <a href="tel:+9779851172950">+977 985-1172950</a>.
+        </p>
+      </footer>
+    </aside>
+
+    <!-- sticky mobile order bar (shown once the cart has something in it) -->
+    <div class="order-bar" data-order-bar inert>
+      <span class="order-bar__summary">
+        <strong data-order-bar-title>Your order</strong>
+        <span data-order-bar-meta>0 items · Rs 0</span>
+      </span>
+      <button class="order-bar__cta" type="button" data-drawer-open aria-haspopup="dialog">
+        View order
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/></svg>
+      </button>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4.5 4.5L19 7"/></svg>
+      <span id="toast-message">Added to your order</span>
+    </div>
+
+    <button class="to-top" type="button" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
+    </button>
+  </body>
+</html>
