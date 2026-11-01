@@ -160,7 +160,7 @@ test("menu page: server-rendered items are present and filterable", async () => 
   assert(board.textContent.includes(String(allItems.length)), "source note should state how many dishes were transcribed");
 
   // the two boards photograph the shop's own prices — no item may claim a non-board price
-  const PRICES = new Set([100, 150, 240, 320, 350]);
+  const PRICES = new Set(menuData.meta.boardPrices);
   assert(
     allItems.every((i) => PRICES.has(i.price)),
     `an item has a price that is not printed on either board: ${allItems.filter((i) => !PRICES.has(i.price)).map((i) => `${i.name} ${i.price}`).join(", ")}`

@@ -150,11 +150,74 @@ item has a transcription in its `source`.
 Numbers the photographs do not clearly show are **omitted rather than guessed** — the wall carries more
 than is listed here. To fill the gaps, photograph each board straight on with no glare and add the rows.
 
-After editing, regenerate the static markup + `Menu` JSON-LD:
+#### Changing the menu — add, update or delete a dish
+
+Everything is driven by `assets/data/menu.json`. Edit it, then run two commands:
 
 ```bash
-npm run menu
+npm run menu     # rebuilds menu.html + the Menu JSON-LD + MENU-SOURCES.md
+npm run check    # verifies the result (includes the menu guard)
 ```
+
+That is the whole loop. Nothing else on the site needs touching, and `npm run menu` is safe to run
+as often as you like — it only rewrites the blocks between the `build:menu-*` markers.
+
+**Add a dish.** Copy an existing block inside the category's `items` array and change the fields.
+`no` must be the number printed on the board, and `price` must be one of the prices listed in
+`meta.boardPrices`:
+
+```json
+{
+  "no": 5,
+  "id": "example-dish",
+  "name": "Name exactly as printed in English on the board",
+  "cn": "菜的中文名字",
+  "desc": "One or two lines, built from the ingredients printed under the name.",
+  "price": 320,
+  "heat": 1,
+  "diet": "buff",
+  "source": "Noodle board #05 — «printed English name» 320, printed ingredients «…»"
+}
+```
+
+`price` must already be in `meta.boardPrices` (100, 150, 240, 320, 350 today). If the board genuinely
+prints a price that is not in that list, add the number to `meta.boardPrices` first — the guard exists
+so a typo cannot become a real price on the page.
+
+> **Watch the older photographs.** There is more than one picture of the same wall in circulation, and
+> the prices on it have gone up: an older Tripadvisor photo shows #06 at 290 and the vegetable noodles
+> at 280, while the straight-on Nosh Nepal board shows the same dishes at 320. **The site uses the
+> higher, newer board.** When you add a row, use the newest photograph you have and say which one in
+> `source`.
+
+**Update a dish or a price.** Change the field in place and re-run the two commands. If you change a
+price, `npm run menu` rewrites the menu page, and `npm run check` will also catch the hand-written
+"add to order" buttons on the home page, which carry their own `data-price` — it names the file and
+the stale number so you can fix it.
+
+**Delete a dish.** Remove the object from the JSON and run the two commands. If you forget the
+rebuild, the guard fails with `"x" is on the page but no longer in menu.json — it was deleted; run
+"npm run menu"`. If the dish is also featured on the home page, it fails with
+`index.html: "add to order" button for "x", which is not in menu.json any more` — delete or repoint
+that card too.
+
+**A new price on the board.** Prices are whitelisted on purpose, so a typo (`32` for `320`) cannot go
+live. When the shop genuinely changes a price, photograph the board, then add the new number to
+`meta.boardPrices` and use it on the item.
+
+#### What the guard refuses
+
+`node scripts/menu-check.mjs` (part of `npm run check`) is the safety net. It fails on:
+
+- a price that is not in `meta.boardPrices` — nothing goes live that isn't read off the wall;
+- a missing `cn` (Chinese name), `source`, `desc`, `diet` or `heat`;
+- a `source` that doesn't quote the board number it was transcribed from;
+- duplicate ids or duplicate board numbers;
+- the menu page and the JSON disagreeing in either direction (added-but-not-built,
+  deleted-but-still-listed).
+
+Prices, ids and the board numbers are the parts a visitor sees and pays, so they get the strictest
+checks.
 
 The generated HTML is real markup inside `menu.html`, so the menu is crawlable, indexable and
 readable without JavaScript. Client-side search and filters only layer on top of it.
@@ -195,7 +258,7 @@ imagery anywhere in the project, and `credits.html` says so on the page.
 ## Quality checks
 
 ```bash
-npm run check     # html-validate + JS syntax + internal links, anchors, assets, menu sync
+npm run check     # html-validate + JS syntax + internal links/anchors/assets + menu data guard
 npm test          # jsdom behaviour tests: filters, search, cart maths, validation, hand-off
 ```
 
@@ -267,7 +330,8 @@ assets/
 scripts/
   build-assets.mjs       ImageMagick pipeline
   build-menu.mjs         menu.json → menu.html markup + JSON-LD + MENU-SOURCES.md
-  check-links.mjs        link / anchor / asset / menu-sync checker
+  check-links.mjs        link / anchor / asset checker
+  menu-check.mjs         menu data guard: board prices, required fields, page sync
   smoke-test.mjs         jsdom behaviour tests
 server.mjs               static server + /api/contact
 ```

@@ -8,6 +8,14 @@
       "Tripadvisor listing d13462947 (4.5 from 21 reviews) and its photo captions: 三鲜蔬菜面, 凉拌猪头肉, 盐水花生, 番茄鸡蛋面, 卤肉牛肉面, 凉拌牛舌.",
       "myRepublica feature “Land of noodles — Sincerely from China”: 15 noodle dishes and 20 sides, handmade noodles, ingredients imported from China, pork paws and buff tongue among the sides."
     ],
+    "boardPrices": [
+      100,
+      150,
+      240,
+      320,
+      350
+    ],
+    "boardPriceNote": "Every price printed on the two boards. menu.json may only use these — the shop charges what the wall says.",
     "note": "The board carries more numbers than we could read — the photographs cut off or blur a few tiles. Anything we could not read is left off the site rather than guessed at."
   },
   "currency": "NPR",

@@ -9,10 +9,11 @@
     "build": "npm run assets && npm run menu",
     "assets": "node scripts/build-assets.mjs",
     "menu": "node scripts/build-menu.mjs",
-    "check": "npm run check:html && npm run check:js && npm run check:links",
+    "check": "npm run check:html && npm run check:js && npm run check:links && npm run check:menu",
     "check:html": "html-validate index.html menu.html order.html contact.html credits.html 404.html",
     "check:js": "node --check assets/js/main.js && node --check assets/js/menu.js && node --check assets/js/order.js && node --check assets/js/contact.js",
     "check:links": "node scripts/check-links.mjs",
+    "check:menu": "node scripts/menu-check.mjs",
     "test": "node scripts/smoke-test.mjs"
   },
   "devDependencies": {
