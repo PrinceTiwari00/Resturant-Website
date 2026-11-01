@@ -147,7 +147,7 @@
       </section>
 
       <!-- ============ Form + details ============ -->
-      <section class="section" aria-labelledby="write-title">
+      <section class="section" id="write" aria-labelledby="write-title">
         <div class="wrap contact-grid">
           <div class="card" data-reveal>
             <p class="eyebrow">Send a message</p>
@@ -414,8 +414,8 @@
           <div class="site-footer__col">
             <h3>Eat</h3>
             <a href="menu.html">Full menu</a>
-            <a href="menu.html#cat-soups">Signature soups</a>
-            <a href="menu.html#cat-dry">Dry noodles</a>
+            <a href="menu.html#cat-noodles">Noodles</a>
+            <a href="menu.html#cat-sides">Cold counter</a>
             <a href="menu.html#cat-sides">Cold sides</a>
             <a href="order.html">Order online</a>
           </div>
@@ -516,6 +516,18 @@
         </p>
       </footer>
     </aside>
+
+    <!-- sticky mobile order bar (shown once the cart has something in it) -->
+    <div class="order-bar" data-order-bar inert>
+      <span class="order-bar__summary">
+        <strong data-order-bar-title>Your order</strong>
+        <span data-order-bar-meta>0 items · Rs 0</span>
+      </span>
+      <button class="order-bar__cta" type="button" data-drawer-open aria-haspopup="dialog">
+        View order
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/></svg>
+      </button>
+    </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4.5 4.5L19 7"/></svg>

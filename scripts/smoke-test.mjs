@@ -130,16 +130,38 @@ test("menu page: server-rendered items are present and filterable", async () => 
   const hot = [...doc.querySelectorAll("[data-item]")].filter((r) => !r.hidden);
   assert(hot.length > 0 && hot.every((r) => Number(r.dataset.heat) >= 2), "spicy filter is wrong");
   eq(doc.querySelectorAll("[data-cat-section][hidden]").length > 0, true, "empty categories hidden");
+
+  // board numbers are rendered for the items the shop numbers
+  const numbered = [...doc.querySelectorAll("[data-item]")].filter((r) => /^\d+$/.test(r.querySelector(".dish-row__no").textContent.trim()));
+  eq(numbered.length, allItems.filter((i) => i.no).length, "rows showing a board number");
+  assert(doc.querySelector('[data-item="kungfu-special"] .dish-row__no').textContent.trim() === "1", "Kungfu Special should be #1");
+
+  // draft banner counts exactly the items flagged unconfirmed
+  const banner = doc.querySelector(".draft-banner");
+  const draft = allItems.filter((i) => i.confirmed === false).length;
+  if (draft > 0) {
+    assert(banner, "draft banner missing while items are unconfirmed");
+    assert(banner.textContent.includes(`${draft} of ${allItems.length}`), `banner count wrong: ${banner.textContent.slice(0, 120)}`);
+    eq(doc.querySelectorAll('[data-confirmed="false"]').length, draft, "rows marked as estimates");
+  } else {
+    assert(!banner || !banner.textContent.match(/Draft menu/), "banner should disappear once everything is confirmed");
+  }
 });
 
 test("menu page: search narrows results and handles no matches", async () => {
   const { doc, window } = await loadPage("menu.html");
   const input = doc.querySelector("#menu-search");
-  input.value = "dumpling";
+  input.value = "buff";
   input.dispatchEvent(new window.Event("input", { bubbles: true }));
   await sleep(200);
   let visible = [...doc.querySelectorAll("[data-item]")].filter((r) => !r.hidden);
-  assert(visible.length >= 2, `expected dumpling results, got ${visible.length}`);
+  assert(visible.length >= 3, `expected buff results, got ${visible.length}`);
+
+  input.value = "number 14";
+  input.dispatchEvent(new window.Event("input", { bubbles: true }));
+  await sleep(200);
+  visible = [...doc.querySelectorAll("[data-item]")].filter((r) => !r.hidden);
+  eq(visible.length, 1, "searching by board number should find exactly one dish");
 
   input.value = "zzzzz";
   input.dispatchEvent(new window.Event("input", { bubbles: true }));
@@ -151,7 +173,7 @@ test("menu page: search narrows results and handles no matches", async () => {
 
 test("order: adding a dish updates the cart, badge and total", async () => {
   const { doc, window } = await loadPage("menu.html");
-  const btn = doc.querySelector('[data-add-to-order="special-kungfu"]');
+  const btn = doc.querySelector('[data-add-to-order="kungfu-special"]');
   btn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
 
   eq(doc.querySelectorAll(".cart-line").length, 1, "cart lines");
@@ -165,6 +187,17 @@ test("order: adding a dish updates the cart, badge and total", async () => {
   const minus = doc.querySelector('[data-qty="-1"]');
   minus.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
   eq(doc.querySelector("[data-order-subtotal]").textContent.trim(), "Rs 380", "subtotal after decrement");
+
+  // the cart shows the board number, and the sticky bar mirrors it
+  assert(doc.querySelector(".cart-line__no")?.textContent.trim() === "#1", "cart line should carry the board number");
+  const bar = doc.querySelector("[data-order-bar]");
+  assert(bar.classList.contains("is-visible"), "sticky order bar should appear when the cart has items");
+  eq(bar.inert, false, "order bar must be reachable when visible");
+  assert(/1 item · Rs 380/.test(bar.textContent), `order bar summary wrong: ${bar.textContent.replace(/\s+/g, " ").trim()}`);
+
+  doc.querySelector("[data-clear-order]").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  assert(!bar.classList.contains("is-visible"), "order bar should hide when the cart is emptied");
+  eq(bar.inert, true, "order bar must be inert when hidden");
 });
 
 test("order: drawer opens, delivery address appears, validation blocks empty submit", async () => {
@@ -193,7 +226,7 @@ test("order: valid order produces a WhatsApp hand-off with every line", async ()
     return { closed: false };
   };
 
-  doc.querySelector('[data-add-to-order="wuhan-dry"]').dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  doc.querySelector('[data-add-to-order="wuhan-style"]').dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
   doc.querySelector('[data-add-to-order="buff-salad"]').dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
 
   doc.querySelector("#cust-name").value = "Sita Rai";
@@ -209,10 +242,20 @@ test("order: valid order produces a WhatsApp hand-off with every line", async ()
   eq(url.hostname, "wa.me", "hand-off host");
   assert(url.pathname.includes("9779851172950"), "wrong phone number in hand-off");
   const text = decodeURIComponent(url.searchParams.get("text") || "");
-  assert(text.includes("Wuhan Style Dry Noodles"), "dry noodles missing from message");
+  assert(text.includes("#14 Wuhan Style") || text.includes("#14 Noodles, Wuhan Style"), `board number missing from message: ${text}`);
   assert(text.includes("Buff Salad"), "salad missing from message");
-  assert(text.includes("Rs 670"), `total wrong in message: ${text}`);
+  assert(text.includes("Rs 570"), `total wrong in message: ${text}`);
   assert(text.includes("Sita Rai") && text.includes("9812345678"), "customer details missing");
+});
+
+test("home page: a signature dish can be added straight from the card", async () => {
+  const { doc, window } = await loadPage("index.html");
+  const btn = doc.querySelector('.dish-card__add[data-add-to-order="kungfu-special"]');
+  assert(btn, "no add button on the signature card");
+  btn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  assert(doc.querySelector("[data-order-subtotal]").textContent.trim() === "Rs 380", "subtotal after adding from home");
+  assert(doc.querySelector("[data-order-count]").textContent === "1", "header badge after adding from home");
+  assert(doc.querySelector("[data-order-bar]").classList.contains("is-visible"), "sticky bar should appear on home too");
 });
 
 test("order: empty cart disables the send button", async () => {

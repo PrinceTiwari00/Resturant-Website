@@ -1,381 +1,361 @@
 {
+  "meta": {
+    "draft": true,
+    "boardNote": "The board in the shop numbers its noodles (#1–#15) and lists about 20 cold sides. Numbers here match the board, so a customer can order by number.",
+    "sources": [
+      "Kungfu Noodles — Website Development Documentation (client brief, 4 items)",
+      "myRepublica / The Kathmandu Post feature “Sincerely from China” (15 noodle dishes, 20 sides; pork paws, buff tongue, fried eggs, seasoned cucumbers)",
+      "Karl Rock's “Best Cheap Eats in Kathmandu” (menu numbering #1/#3/#14; Buff Sichuan Rs 320, Sesame Wuhan Rs 320, Spicy Chicken Rs 240, Kungfu Special Rs 350)",
+      "Tripadvisor reviews (Kungfu Noodles Special Rs 380; Special Chinese Dry Noodles Rs 350; agaric + cucumber Rs 150 each; hot & sour = #16, super spicy chicken = #11, chicken & mushroom = #8)",
+      "Google Maps / Facebook listing (fresh pineapple, papaya, mango juice; canned tea Rs 250)"
+    ]
+  },
   "currency": "NPR",
-  "priceNote": "Prices in Nepali Rupees. Confirm current prices with the kitchen when ordering — the wall menu in Thamel is always the final word.",
   "categories": [
     {
-      "id": "soups",
-      "name": "Signature Soups",
-      "cn": "汤面",
-      "blurb": "Deep, slow-simmered broths. The reason people walk across Thamel at 2pm.",
+      "id": "noodles",
+      "name": "Noodles",
+      "cn": "面",
+      "blurb": "Hand-pulled, cooked to order. The numbers are the ones on the board in the shop — just say the number.",
       "items": [
         {
-          "id": "special-kungfu",
-          "name": "Special Kungfu Noodles",
-          "desc": "Rich, spicy broth with chewy hand-pulled noodles and a generous pile of braised buff. Lots of Sichuan pepper, big chunks of meat. The house classic.",
+          "no": 1,
+          "id": "kungfu-special",
+          "name": "Kungfu Noodle Special",
+          "cn": "功夫面",
+          "desc": "The house dish: chewy hand-pulled noodles in a rich, spicy broth with big chunks of braised buff and a heavy hand of Sichuan pepper. Chicken if you'd rather.",
           "price": 380,
           "heat": 2,
           "diet": "choice",
+          "confirmed": true,
+          "source": "Tripadvisor review, Rs 380 (2022). Blog recorded Rs 350 in 2021 — confirm the current price.",
           "badge": "Bestseller"
         },
         {
+          "no": 3,
           "id": "sichuan-style",
-          "name": "Sichuan Style Noodles",
-          "desc": "Minced meat, fresh vegetables, dried chillies and tongue-tingling Sichuan peppercorns.",
-          "price": 340,
+          "name": "Noodles, Sichuan Style",
+          "cn": "四川面",
+          "desc": "Minced buff, fresh vegetables and numbing Sichuan peppercorns. This is the bowl regulars mean when they say “the Sichuan one”.",
+          "price": 320,
           "heat": 2,
-          "diet": "choice",
+          "diet": "buff",
+          "confirmed": true,
+          "source": "Karl Rock blog (Buff Sichuan Noodles Rs 320); Tripadvisor reviews.",
           "badge": "Popular"
         },
         {
-          "id": "hot-sour",
-          "name": "Hot & Sour Noodles",
-          "desc": "Tangy, peppery broth built on black vinegar and white pepper — a Nepali twist on a Sichuan standard.",
+          "no": 8,
+          "id": "chicken-mushroom",
+          "name": "Chicken & Mushroom Noodles",
+          "cn": "香菇鸡汤面",
+          "desc": "Clear, savoury broth with chicken, shiitake-type mushrooms, greens, garlic and leek. The one to order if you want comfort rather than heat.",
+          "price": 320,
+          "heat": 0,
+          "diet": "chicken",
+          "confirmed": true,
+          "source": "Google review naming “#8, chicken noodle… served with chicken and mushroom”. Price estimated from neighbouring bowls."
+        },
+        {
+          "no": 11,
+          "id": "super-spicy-chicken",
+          "name": "Noodles with Super Spicy Chicken",
+          "cn": "超辣鸡面",
+          "desc": "For the heat-seekers: chilli oil, tender chicken and enough Sichuan pepper to make your lips hum.",
+          "price": 240,
+          "heat": 3,
+          "diet": "chicken",
+          "confirmed": true,
+          "source": "Karl Rock blog (Spicy Chicken Rs 240); Google review “#11 noodles with super spicy chicken”."
+        },
+        {
+          "no": 14,
+          "id": "wuhan-style",
+          "name": "Noodles, Wuhan Style",
+          "cn": "武汉热干面",
+          "desc": "Dry-tossed noodles in rich sesame paste with pickled mustard tuber, crushed peanuts and fresh veg. Toss hard before the first bite — no broth here.",
           "price": 320,
           "heat": 1,
-          "diet": "choice"
+          "diet": "choice",
+          "confirmed": true,
+          "source": "Karl Rock blog (Sesame Wuhan Noodles Rs 320, “#14 Noodles Wuhan Style”).",
+          "badge": "Dry"
         },
         {
-          "id": "super-spicy-chicken",
-          "name": "Super Spicy Chicken Noodles",
-          "desc": "For the heat-seekers: triple chilli oil, tender chicken and a handful of pak choi to cool you down.",
-          "price": 360,
-          "heat": 3,
-          "diet": "chicken"
-        },
-        {
-          "id": "buff-noodle-soup",
-          "name": "Buff Noodle Soup",
-          "desc": "Buff bone broth simmered with star anise and ginger, ladled over noodles with tender sliced buff.",
-          "price": 350,
-          "heat": 1,
-          "diet": "buff"
-        },
-        {
-          "id": "tomato-egg",
-          "name": "Tomato & Egg Noodles",
-          "desc": "Comfort in a bowl: sweet stewed tomato, silky egg ribbons, scallion, hand-pulled noodles.",
-          "price": 290,
-          "heat": 0,
-          "diet": "veg"
-        },
-        {
-          "id": "veg-noodle-soup",
-          "name": "Vegetable Noodle Soup",
-          "desc": "Shiitake stock, garden vegetables and noodles, finished with sesame oil.",
-          "price": 270,
-          "heat": 0,
-          "diet": "veg"
-        },
-        {
-          "id": "wonton-soup",
-          "name": "Wonton Noodle Soup",
-          "desc": "Pork-and-chive wontons swimming in a clear noodle broth with bok choy.",
-          "price": 370,
-          "heat": 0,
-          "diet": "pork"
-        }
-      ]
-    },
-    {
-      "id": "dry",
-      "name": "Dry Noodles",
-      "cn": "拌面",
-      "blurb": "No broth — just noodles, sauce and a lot of tossing. Order one of each and share.",
-      "items": [
-        {
-          "id": "wuhan-dry",
-          "name": "Wuhan Style Dry Noodles",
-          "desc": "Dry-tossed noodles in rich sesame paste with pickled mustard tuber, crushed peanuts and fresh veg.",
-          "price": 350,
+          "no": 16,
+          "id": "hot-sour",
+          "name": "Hot & Sour Noodles",
+          "cn": "酸辣面",
+          "desc": "Black vinegar and white pepper, tangy and warming rather than punishing. Ask for it without meat and the kitchen will make it vegetarian.",
+          "price": 300,
           "heat": 1,
           "diet": "choice",
-          "badge": "Popular"
+          "confirmed": true,
+          "source": "Google review “Hot & Sour Noodles (No. 16)”; Tripadvisor reviewer lists #16 as the veg-friendly order. Price estimated.",
+          "badge": "Veg option"
         },
         {
+          "no": null,
           "id": "special-dry",
           "name": "Special Chinese Dry Noodles",
           "desc": "Pickled mustard tuber, peanuts, dry noodles and minced meat — the four horsemen, tossed together.",
           "price": 350,
           "heat": 1,
           "diet": "choice",
-          "badge": "Bestseller"
+          "confirmed": true,
+          "source": "Tripadvisor feature, Rs 350."
         },
         {
+          "no": null,
+          "id": "kung-pao",
+          "name": "Kung Pao Chicken Noodles",
+          "desc": "Wok-fried chicken with dried chillies and roasted peanuts, over noodles.",
+          "price": 320,
+          "heat": 2,
+          "diet": "chicken",
+          "confirmed": false,
+          "source": "Named by a Tripadvisor reviewer (“kung poa noodles”). Number and price to confirm."
+        },
+        {
+          "no": null,
+          "id": "dan-dan",
+          "name": "Dan Dan Noodles",
+          "desc": "Minced meat, chilli oil and toasted sesame, tossed so every strand is coated.",
+          "price": 320,
+          "heat": 2,
+          "diet": "choice",
+          "confirmed": false,
+          "source": "Japanese Tripadvisor reviewer notes タンタンメン (tan tan men) on the menu. Price to confirm."
+        },
+        {
+          "no": null,
           "id": "zhajiang",
           "name": "Zhajiang Noodles",
           "desc": "Thick wheat noodles under a glossy fermented bean and pork sauce, with shredded cucumber.",
-          "price": 340,
-          "heat": 0,
-          "diet": "pork"
-        },
-        {
-          "id": "dan-dan",
-          "name": "Dan Dan Noodles",
-          "desc": "Minced meat, chilli oil and toasted sesame, tossed hard so every strand is coated.",
-          "price": 330,
-          "heat": 2,
-          "diet": "choice"
-        },
-        {
-          "id": "cold-noodles",
-          "name": "Sichuan Cold Noodles",
-          "desc": "Chilled noodles with cucumber, black vinegar and chilli oil — the summer order.",
-          "price": 280,
-          "heat": 1,
-          "diet": "veg"
-        },
-        {
-          "id": "chicken-chow-mein",
-          "name": "Chicken Chow Mein",
-          "desc": "Wok-tossed egg noodles with chicken, cabbage and spring onion over a roaring flame.",
           "price": 320,
-          "heat": 1,
-          "diet": "chicken"
+          "heat": 0,
+          "diet": "pork",
+          "confirmed": false,
+          "source": "Japanese Tripadvisor reviewer notes ジャージャー面 on the menu. Price to confirm."
         },
         {
-          "id": "veg-chow-mein",
-          "name": "Vegetable Chow Mein",
-          "desc": "Same wok, no meat: cabbage, carrot, beansprouts and garlic chives.",
+          "no": null,
+          "id": "vegetable",
+          "name": "Vegetable Noodles",
+          "desc": "Garden vegetables in a light broth, no meat. Tell us if you want it properly vegetarian — the wok is shared.",
           "price": 280,
-          "heat": 1,
-          "diet": "veg"
+          "heat": 0,
+          "diet": "veg",
+          "confirmed": false,
+          "source": "Ordered by a Tripadvisor reviewer (“veggie noodles”). Number and price to confirm."
+        },
+        {
+          "no": null,
+          "id": "chicken-noodles",
+          "name": "Chicken Noodles",
+          "desc": "The plain one: chicken and noodles in a clean broth, no chilli unless you ask.",
+          "price": 300,
+          "heat": 0,
+          "diet": "chicken",
+          "confirmed": false,
+          "source": "Ordered by a Tripadvisor reviewer (“chicken noodles”). Number and price to confirm."
         }
       ]
     },
     {
       "id": "sides",
-      "name": "Appetizers & Cold Sides",
+      "name": "Cold Counter & Sides",
       "cn": "凉菜",
-      "blurb": "The cold counter that makes locals come back. Order two or three for the table.",
+      "blurb": "The half of the menu most people miss. Order two or three for the table while the noodles are pulled.",
       "items": [
         {
-          "id": "buff-salad",
-          "name": "Buff Salad",
-          "desc": "Chilled shredded buff with cucumber, coriander, toasted sesame and chilli oil.",
-          "price": 320,
-          "heat": 2,
-          "diet": "buff"
+          "no": null,
+          "id": "agaric-vinegar",
+          "name": "Agaric Mushroom with Vinegar",
+          "desc": "Wood-ear mushrooms dressed with black vinegar and garlic. Chewy, cold, refreshing — the classic partner to a spicy bowl.",
+          "price": 150,
+          "heat": 0,
+          "diet": "veg",
+          "confirmed": true,
+          "source": "Tripadvisor feature: “Agaric and Cucumber served with vinegar, Rs 150 each”.",
+          "badge": "Great value"
         },
         {
-          "id": "pig-ears",
-          "name": "Pig Ears",
-          "desc": "Super spicy with coriander and raw garlic. A Thamel cult order — you either get it or you don't.",
-          "price": 300,
+          "no": null,
+          "id": "cucumber-vinegar",
+          "name": "Cucumber with Vinegar",
+          "desc": "Seasoned cucumber, garlic and vinegar. The cool-down between bites.",
+          "price": 150,
+          "heat": 0,
+          "diet": "veg",
+          "confirmed": true,
+          "source": "Tripadvisor feature, Rs 150."
+        },
+        {
+          "no": null,
+          "id": "pigs-ears",
+          "name": "Pig's Ears",
+          "desc": "Super spicy, with coriander and raw garlic. A Thamel cult order — you either get it or you don't.",
+          "price": 200,
           "heat": 3,
           "diet": "pork",
+          "confirmed": true,
+          "source": "Repeated Tripadvisor and Google reviews. Price estimated — to confirm.",
           "badge": "Cult favourite"
         },
         {
+          "no": null,
           "id": "buff-tongue",
           "name": "Buff Tongue",
-          "desc": "Thin-sliced buff tongue, chilli oil, toasted sesame and scallion.",
-          "price": 330,
+          "desc": "Thin-sliced buff tongue with chilli oil, toasted sesame and scallion.",
+          "price": 250,
           "heat": 2,
-          "diet": "buff"
+          "diet": "buff",
+          "confirmed": true,
+          "source": "myRepublica feature lists buff tongue among the sides. Price estimated — to confirm."
         },
         {
-          "id": "preserved-egg",
-          "name": "Preserved Egg",
-          "desc": "Century egg with pickled ginger and black vinegar. Traditional Chinese side dish.",
-          "price": 220,
-          "heat": 0,
-          "diet": "veg"
-        },
-        {
-          "id": "black-mushroom",
-          "name": "Black Mushroom Salad",
-          "desc": "Wood ear mushrooms with garlic, black vinegar and coriander.",
-          "price": 240,
-          "heat": 0,
-          "diet": "veg"
-        },
-        {
-          "id": "cucumber",
-          "name": "Smashed Cucumber",
-          "desc": "Garlic, vinegar and chilli. The perfect cool-down between bowls.",
-          "price": 180,
-          "heat": 1,
-          "diet": "veg",
-          "badge": "Great value"
-        },
-        {
-          "id": "fried-egg",
-          "name": "Fried Egg",
-          "desc": "Crisp-edged with a runny yolk. Add it to anything.",
-          "price": 90,
-          "heat": 0,
-          "diet": "veg"
-        },
-        {
-          "id": "spiced-peanuts",
-          "name": "Spiced Peanuts",
-          "desc": "Toasted peanuts tossed with star anise, chilli and salt.",
-          "price": 120,
-          "heat": 1,
-          "diet": "veg"
-        },
-        {
-          "id": "chilli-tofu",
-          "name": "Chilli Oil Tofu",
-          "desc": "Silken tofu under house chilli oil, garlic and toasted sesame. Cooling and fiery at once.",
-          "price": 220,
+          "no": null,
+          "id": "tripe",
+          "name": "Tripe",
+          "desc": "Cold, chilli-dressed tripe with coriander. Texture is the point.",
+          "price": 200,
           "heat": 2,
-          "diet": "veg"
+          "diet": "buff",
+          "confirmed": true,
+          "source": "Google review “side dishes like peanuts, cucumbers and tripe”. Price estimated — to confirm."
         },
         {
-          "id": "seaweed-salad",
-          "name": "Seaweed Salad",
-          "desc": "Chilled wakame with sesame oil, vinegar and a pinch of sugar.",
-          "price": 240,
-          "heat": 0,
-          "diet": "veg"
-        },
-        {
+          "no": null,
           "id": "chicken-feet",
-          "name": "Spicy Chicken Feet",
-          "desc": "Boneless, marinated overnight in chilli and black vinegar. Chewy, cold, addictive.",
-          "price": 280,
+          "name": "Chicken Feet",
+          "desc": "Marinated in chilli and black vinegar, served cold. Chewy and additive.",
+          "price": 200,
           "heat": 2,
-          "diet": "chicken"
+          "diet": "chicken",
+          "confirmed": true,
+          "source": "Tripadvisor review “there are chicken feet, pig's ears, tripe…”. Price estimated — to confirm."
         },
         {
-          "id": "sichuan-potatoes",
-          "name": "Sichuan Smashed Potatoes",
-          "desc": "Crisp-edged potato batons tossed with cumin, chilli flakes and Sichuan pepper.",
-          "price": 210,
-          "heat": 2,
-          "diet": "veg",
-          "badge": "Great value"
-        }
-      ]
-    },
-    {
-      "id": "snacks",
-      "name": "Small Eats",
-      "cn": "小吃",
-      "blurb": "Dumplings and fried things, made to order. Nothing sits under a lamp here.",
-      "items": [
-        {
-          "id": "pork-dumplings",
-          "name": "Pork & Chive Dumplings",
-          "desc": "Eight pieces, steamed or fried. Ask for the chilli-vinegar dip.",
-          "price": 320,
+          "no": null,
+          "id": "pork-paws",
+          "name": "Pork Paws",
+          "desc": "Braised trotters, sticky and rich, chopped to share.",
+          "price": 280,
           "heat": 1,
           "diet": "pork",
-          "badge": "Popular"
+          "confirmed": true,
+          "source": "myRepublica feature (“not so typical pork paws”). Price estimated — to confirm."
         },
         {
-          "id": "veg-dumplings",
-          "name": "Vegetable Dumplings",
-          "desc": "Eight pieces with cabbage, shiitake and glass noodle.",
-          "price": 290,
+          "no": null,
+          "id": "preserved-egg",
+          "name": "Preserved Egg",
+          "cn": "皮蛋",
+          "desc": "Century egg with pickled ginger and black vinegar. A traditional Chinese side dish.",
+          "price": 150,
           "heat": 0,
-          "diet": "veg"
+          "diet": "veg",
+          "confirmed": true,
+          "source": "Client brief: “Preserved Egg / Buff Salad — traditional Chinese side dishes and cold salads”. Price estimated — to confirm."
         },
         {
-          "id": "wontons-chilli",
-          "name": "Wontons in Chilli Oil",
-          "desc": "Six pork wontons swimming in house chilli oil and black vinegar.",
-          "price": 300,
-          "heat": 2,
-          "diet": "pork"
-        },
-        {
-          "id": "spring-rolls",
-          "name": "Spring Rolls",
-          "desc": "Four crisp rolls with sweet chilli sauce.",
-          "price": 240,
-          "heat": 0,
-          "diet": "veg"
-        },
-        {
-          "id": "fried-rice",
-          "name": "Fried Rice",
-          "desc": "Wok-charred rice with egg and scallion — chicken, buff or vegetable.",
-          "price": 300,
-          "heat": 1,
-          "diet": "choice"
-        },
-        {
-          "id": "sesame-balls",
-          "name": "Sesame Balls",
-          "desc": "Three warm, chewy red-bean sesame balls. Best dessert in Thamel, honestly.",
-          "price": 160,
-          "heat": 0,
-          "diet": "veg"
-        },
-        {
-          "id": "salt-pepper-chicken",
-          "name": "Salt & Pepper Chicken",
-          "desc": "Wok-fried chicken with garlic, fresh chilli and a squeeze of lime.",
-          "price": 330,
-          "heat": 1,
-          "diet": "chicken"
-        },
-        {
-          "id": "crispy-tofu",
-          "name": "Crispy Fried Tofu",
-          "desc": "Golden tofu cubes with a chilli-soy dip and pickled cucumber.",
+          "no": null,
+          "id": "buff-salad",
+          "name": "Buff Salad",
+          "cn": "拌牛肉",
+          "desc": "Chilled shredded buff with cucumber, coriander, toasted sesame and chilli oil.",
           "price": 250,
+          "heat": 2,
+          "diet": "buff",
+          "confirmed": true,
+          "source": "Client brief lists Buff Salad. Price estimated — to confirm."
+        },
+        {
+          "no": null,
+          "id": "fried-egg",
+          "name": "Fried Egg",
+          "desc": "Crisp-edged with a runny yolk. Add it to any bowl.",
+          "price": 80,
+          "heat": 0,
+          "diet": "veg",
+          "confirmed": true,
+          "source": "myRepublica feature (“typical fried eggs”). Price estimated — to confirm."
+        },
+        {
+          "no": null,
+          "id": "spiced-peanuts",
+          "name": "Spiced Peanuts",
+          "desc": "Toasted peanuts with star anise, chilli and salt.",
+          "price": 100,
           "heat": 1,
-          "diet": "veg"
+          "diet": "veg",
+          "confirmed": true,
+          "source": "Google review (“side dishes like peanuts”). Price estimated — to confirm."
         }
       ]
     },
     {
       "id": "drinks",
-      "name": "Beverages",
+      "name": "Drinks",
       "cn": "饮料",
-      "blurb": "Cold, fresh and made to put out the fire.",
+      "blurb": "Cold, fresh and made to put the fire out.",
       "items": [
         {
+          "no": null,
           "id": "fresh-juice",
           "name": "Fresh Fruit Juice",
           "desc": "Pineapple, papaya, mango or watermelon — squeezed to order.",
           "price": 180,
           "heat": 0,
           "diet": "veg",
+          "confirmed": true,
+          "source": "Tripadvisor review (pineapple, papaya, mango juices). Price estimated — to confirm.",
           "badge": "Popular"
         },
         {
-          "id": "iced-lemon-tea",
-          "name": "Iced Lemon Tea",
-          "desc": "Brewed black tea, fresh lemon, plenty of ice.",
-          "price": 150,
+          "no": null,
+          "id": "canned-tea",
+          "name": "Canned Iced Tea",
+          "desc": "The imported cans on the shelf — pricey, but they do the job.",
+          "price": 250,
           "heat": 0,
-          "diet": "veg"
+          "diet": "veg",
+          "confirmed": true,
+          "source": "Google review: “Can of tea… 250Rs”. Price confirmed by that review only."
         },
         {
+          "no": null,
           "id": "green-tea",
           "name": "Chinese Green Tea",
-          "desc": "A pot of loose-leaf jasmine, refilled all evening.",
+          "desc": "A pot of loose-leaf tea, refilled while you eat.",
           "price": 120,
           "heat": 0,
-          "diet": "veg"
+          "diet": "veg",
+          "confirmed": false,
+          "source": "Common to the shop's drinks list; price to confirm."
         },
         {
-          "id": "masala-tea",
-          "name": "Masala Tea",
-          "desc": "Nepali-style milk tea with cardamom and clove.",
-          "price": 80,
-          "heat": 0,
-          "diet": "veg"
-        },
-        {
-          "id": "lassi",
-          "name": "Sweet Lassi",
-          "desc": "Thick curd, sugar, a little cardamom. Cooling.",
-          "price": 160,
-          "heat": 0,
-          "diet": "veg"
-        },
-        {
+          "no": null,
           "id": "soft-drinks",
-          "name": "Soft Drinks & Water",
+          "name": "Soft Drinks",
           "desc": "Chilled bottles, served with a glass.",
           "price": 100,
           "heat": 0,
-          "diet": "veg"
+          "diet": "veg",
+          "confirmed": false,
+          "source": "Standard bottled drinks; price to confirm."
+        },
+        {
+          "no": null,
+          "id": "mineral-water",
+          "name": "Mineral Water",
+          "desc": "One litre, chilled.",
+          "price": 60,
+          "heat": 0,
+          "diet": "veg",
+          "confirmed": false,
+          "source": "Standard; price to confirm."
         }
       ]
     }

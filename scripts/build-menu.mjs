@@ -1,13 +1,20 @@
 #!/usr/bin/env node
 /**
  * Generates the static menu markup + Menu JSON-LD from assets/data/menu.json
- * and injects it into menu.html between `build:` markers.
- *
- * Menu content lives in ONE place (the JSON). The generated HTML is real
- * markup — crawlable, linkable, and readable without JavaScript. Client-side
- * filtering (assets/js/menu.js) only runs on top of it.
+ * and injects it into menu.html between `build:` markers. Also writes
+ * MENU-TO-CONFIRM.md — the owner's checklist of unverified items.
  *
  *   node scripts/build-menu.mjs
+ *
+ * Menu content lives in ONE place (the JSON). The generated HTML is real
+ * markup — crawlable, readable without JavaScript. Client-side filtering
+ * (assets/js/menu.js) only runs on top of it.
+ *
+ * Per item:
+ *   no         number printed on the board in the shop (null if unnumbered)
+ *   price      NPR
+ *   confirmed  false → price is an estimate; rendered with an "est." marker
+ *              and counted in the draft banner until the owner flips it
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -15,6 +22,8 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const data = JSON.parse(readFileSync(join(root, "assets/data/menu.json"), "utf8"));
+const allItems = data.categories.flatMap((c) => c.items.map((i) => ({ ...i, category: c.name })));
+const unconfirmed = allItems.filter((i) => !i.confirmed);
 
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -43,6 +52,7 @@ const dietMarkup = (diet) => {
   return `<span class="diet"><span class="diet__dot diet__dot--${d.dot}" aria-hidden="true"></span>${esc(d.label)}</span>`;
 };
 
+/* ------------------------------------------------------------- filters */
 const filterMarkup = `<button class="chip-filter is-active" type="button" data-filter="all" aria-pressed="true">Everything</button>
 ${data.categories
   .map(
@@ -53,24 +63,33 @@ ${data.categories
 <button class="chip-filter" type="button" data-filter="veg" aria-pressed="false">Vegetarian</button>
 <button class="chip-filter" type="button" data-filter="spicy" aria-pressed="false">Spicy</button>`;
 
+/* --------------------------------------------------------------- cards */
 const cardMarkup = (item, cat) => {
-  const haystack = `${item.name} ${item.desc} ${cat.name}`.toLowerCase();
+  const haystack = `${item.no ? `number ${item.no} ` : ""}${item.name} ${item.desc} ${cat.name}`.toLowerCase();
+  const noMarkup = item.no
+    ? `<span class="dish-row__no" title="Number on the board in the shop">${item.no}</span>`
+    : `<span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>`;
+  const priceMarkup = item.confirmed
+    ? `<span class="dish-row__price">Rs ${item.price}</span>`
+    : `<span class="dish-row__price">Rs ${item.price} <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>`;
+
   return `        <article class="dish-row" data-item="${esc(item.id)}" data-name="${esc(item.name)}" data-cat="${esc(cat.id)}"
-          data-heat="${item.heat || 0}" data-diet="${esc(item.diet)}" data-price="${item.price}"
+          data-heat="${item.heat || 0}" data-diet="${esc(item.diet)}" data-price="${item.price}" data-confirmed="${item.confirmed}"
           data-search="${esc(haystack)}">
+          ${noMarkup}
           <div class="dish-row__main">
             <div class="dish-row__line">
               <h3 class="dish-row__name">${esc(item.name)}${
     item.badge ? ` <span class="tag">${esc(item.badge)}</span>` : ""
   }</h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs ${item.price}</span>
+              ${priceMarkup}
             </div>
             <p class="dish-row__desc">${esc(item.desc)}</p>
             <div class="dish-row__meta">${dietMarkup(item.diet)}${heatMarkup(item.heat)}</div>
           </div>
           <button class="dish-row__add" type="button" data-add-to-order="${esc(item.id)}"
-            aria-label="Add ${esc(item.name)} to your order">
+            aria-label="Add ${esc(item.name)}${item.no ? `, number ${item.no} on the board,` : ""} to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>`;
@@ -100,7 +119,18 @@ ${cat.items.map((item) => cardMarkup(item, cat)).join("\n")}
   })
   .join("\n\n");
 
-const allItems = data.categories.flatMap((c) => c.items);
+/* -------------------------------------------------------------- banner */
+const draftBanner = unconfirmed.length
+  ? `<div class="draft-banner" role="status">
+            <span class="draft-banner__dot" aria-hidden="true"></span>
+            <p><strong>Draft menu.</strong> ${unconfirmed.length} of ${allItems.length} prices are still to be
+            confirmed with the kitchen — they're marked <span class="dish-row__est">est.</span>
+            Numbers match the board in the shop.</p>
+            <a href="contact.html#write">Tell us about a wrong price</a>
+          </div>`
+  : "";
+
+/* --------------------------------------------------------------- jsonld */
 const jsonld = {
   "@context": "https://schema.org",
   "@type": "Menu",
@@ -114,6 +144,7 @@ const jsonld = {
       "@type": "MenuItem",
       name: i.name,
       description: i.desc,
+      identifier: i.no ? String(i.no) : undefined,
       ...(i.diet === "veg" ? { suitableForDiet: "https://schema.org/VegetarianDiet" } : {}),
       offers: { "@type": "Offer", price: i.price, priceCurrency: "NPR" },
     })),
@@ -124,13 +155,56 @@ const html = readFileSync(join(root, "menu.html"), "utf8");
 const replaced = html
   .replace(/(<!-- build:menu-filters -->)[\s\S]*?(<!-- \/build:menu-filters -->)/, `$1\n${filterMarkup}\n$2`)
   .replace(/(<!-- build:menu-sections -->)[\s\S]*?(<!-- \/build:menu-sections -->)/, `$1\n${sections}\n$2`)
+  .replace(/(<!-- build:menu-banner -->)[\s\S]*?(<!-- \/build:menu-banner -->)/, `$1\n${draftBanner}\n$2`)
   .replace(
     /(<!-- build:menu-jsonld -->)[\s\S]*?(<!-- \/build:menu-jsonld -->)/,
     `$1\n<script type="application/ld+json">\n${JSON.stringify(jsonld, null, 2)}\n</script>\n$2`
   );
 
+if (replaced === html && !html.includes("build:menu-banner")) {
+  console.warn("! menu.html is missing the build:menu-banner markers");
+}
+
 writeFileSync(join(root, "menu.html"), replaced);
+
+/* ------------------------------------------- owner's verification list */
+const report = [
+  "# Menu items to confirm with the kitchen",
+  "",
+  `Generated from \`assets/data/menu.json\` on ${new Date().toISOString().slice(0, 10)}.`,
+  "",
+  "`confirmed: false` (or a manually flagged estimate) renders with an **est.** marker on the site and",
+  "counts towards the draft banner on the menu page. Flip the flag to `true` once the price is right,",
+  "then run `npm run menu` — the banner disappears when every item is confirmed.",
+  "",
+  `**${unconfirmed.length} of ${allItems.length} items still to confirm.**`,
+  "",
+  "| # | Item | Category | Listed price | Why it needs confirming |",
+  "| --- | --- | --- | --- | --- |",
+  ...unconfirmed.map(
+    (i) => `| ${i.no ?? "—"} | ${i.name} | ${i.category} | Rs ${i.price} | ${i.source.replace(/\|/g, "\\|")} |`
+  ),
+  "",
+  "## Everything else on the site that needs a human check",
+  "",
+  "- **Numbered items.** Only #1, #3, #8, #11, #14 and #16 are confirmed from public sources. The board",
+  "  prints numbers up to at least #16 and lists about 15 noodle dishes — add the missing numbers.",
+  "- **Side dishes.** The shop lists roughly 20 sides; 11 are transcribed here. Photograph the side-dish",
+  "  board and add the rest.",
+  "- **Prices.** Documented in public sources: Kungfu Special Rs 380 (2022), Buff Sichuan Rs 320,",
+  "  Sesame Wuhan Rs 320, Spicy Chicken Rs 240, Special Chinese Dry Noodles Rs 350, Agaric/Cucumber",
+  "  Rs 150 each, canned tea Rs 250. Everything else is an educated estimate.",
+  "- **Opening hours.** The brief says 9:30 AM – 10:30 PM; the Google listing currently shows 9 AM – 11 PM.",
+  "- **Recipes/allergens.** The description text is written from reviews, not from the kitchen — read it",
+  "  before it goes live.",
+  "",
+].join("\n");
+
+writeFileSync(join(root, "MENU-TO-CONFIRM.md"), report);
+
 console.log(
-  `menu.html updated — ${data.categories.length} categories, ${allItems.length} items, ` +
+  `menu.html updated — ${data.categories.length} categories, ${allItems.length} items ` +
+    `(${allItems.length - unconfirmed.length} confirmed, ${unconfirmed.length} to confirm), ` +
     `${allItems.filter((i) => i.diet === "veg").length} vegetarian.`
 );
+console.log("MENU-TO-CONFIRM.md written.");

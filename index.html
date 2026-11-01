@@ -180,8 +180,8 @@
             <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>JP Marg · Thamel · Kathmandu</p>
             <h1 id="hero-title">Authentic Chinese <em>hand-pulled</em> noodles in the heart of Thamel.</h1>
             <p class="hero__sub">
-              Deep, chilli-red Sichuan broths. Noodles pulled and tossed to order. A counter of cold
-              sides that regulars cross the valley for. A small room, one very loud wok.
+              Fifteen noodle bowls, about twenty cold sides, and a numbered menu you can order straight
+              from. Deep Sichuan broths, noodles pulled to order, one very loud wok in a small room.
             </p>
             <div class="hero__actions">
               <button class="btn" type="button" data-drawer-open aria-haspopup="dialog">
@@ -224,14 +224,14 @@
         <div class="ribbon__track">
           <span class="ribbon__item">Hand-pulled daily</span>
           <span class="ribbon__item">Sichuan peppercorns, not chilli powder</span>
-          <span class="ribbon__item">15 noodle dishes</span>
-          <span class="ribbon__item">Cold sides &amp; offal cuts</span>
+          <span class="ribbon__item">15 numbered noodle bowls</span>
+          <span class="ribbon__item">20 cold sides &amp; offal cuts</span>
           <span class="ribbon__item">Open daily from 9:30 AM</span>
           <span class="ribbon__item">Thamel, Kathmandu</span>
           <span class="ribbon__item">Hand-pulled daily</span>
           <span class="ribbon__item">Sichuan peppercorns, not chilli powder</span>
-          <span class="ribbon__item">15 noodle dishes</span>
-          <span class="ribbon__item">Cold sides &amp; offal cuts</span>
+          <span class="ribbon__item">15 numbered noodle bowls</span>
+          <span class="ribbon__item">20 cold sides &amp; offal cuts</span>
           <span class="ribbon__item">Open daily from 9:30 AM</span>
           <span class="ribbon__item">Thamel, Kathmandu</span>
         </div>
@@ -244,76 +244,95 @@
             <p class="eyebrow" data-reveal>Four things to order first</p>
             <h2 id="signature-title" data-reveal>The dishes people come back for</h2>
             <p data-reveal>
-              If it's your first visit, start here. Every bowl is built to order — tell us how
-              much heat you want and we'll pull it back or push it up.
+              If it's your first visit, start here. These are the numbers the regulars call out —
+              tap any dish to add it to your order, or just say the number when you arrive.
             </p>
           </div>
 
           <div class="dishes">
-            <a class="dish-card dish-card--feature" href="menu.html#cat-soups" data-reveal>
-              <div class="dish-card__media">
+            <article class="dish-card dish-card--feature" data-reveal>
+              <a class="dish-card__media" href="menu.html#cat-noodles" tabindex="-1" aria-hidden="true">
                 <picture>
                   <source type="image/webp" srcset="assets/img/dish-kungfu-420.webp 420w, assets/img/dish-kungfu-620.webp 620w, assets/img/dish-kungfu-900.webp 900w" sizes="(min-width: 1080px) 52vw, 92vw" />
                   <img src="assets/img/dish-kungfu-620.jpg" width="620" height="620" loading="lazy" decoding="async" alt="Special Kungfu Noodles: hand-pulled noodles in spicy broth topped with braised buff and scallions." />
                 </picture>
-                <span class="dish-card__tag">The house classic</span>
+                <span class="dish-card__tag">No. 1 · the house classic</span>
                 <span class="dish-card__price">Rs 380</span>
-              </div>
+              </a>
               <div class="dish-card__body">
-                <h3>Special Kungfu Noodles</h3>
+                <h3><a href="menu.html#cat-noodles">Kungfu Noodle Special</a></h3>
                 <p>
                   Rich, spicy broth with chewy hand-pulled noodles and big chunks of braised buff.
                   Lots of Sichuan pepper — the numbing kind. Choose chicken or buff.
                 </p>
+                <button class="dish-card__add" type="button" data-add-to-order="kungfu-special"
+                  data-name="Kungfu Noodle Special" data-price="380" data-no="1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                  Add to order · Rs 380
+                </button>
               </div>
-            </a>
+            </article>
 
-            <a class="dish-card dish-card--tall" href="menu.html#cat-soups" data-reveal>
-              <div class="dish-card__media">
+            <article class="dish-card dish-card--tall" data-reveal>
+              <a class="dish-card__media" href="menu.html#cat-noodles" tabindex="-1" aria-hidden="true">
                 <picture>
                   <source type="image/webp" srcset="assets/img/dish-sichuan-300.webp 300w, assets/img/dish-sichuan-420.webp 420w, assets/img/dish-sichuan-620.webp 620w" sizes="(min-width: 1080px) 38vw, 92vw" />
-                  <img src="assets/img/dish-sichuan-420.jpg" width="420" height="420" loading="lazy" decoding="async" alt="Sichuan style noodles with minced meat, vegetables and crushed peanuts." />
+                  <img src="assets/img/dish-sichuan-420.jpg" width="420" height="420" loading="lazy" decoding="async" alt="Noodles Sichuan style with minced buff, vegetables and crushed peanuts." />
                 </picture>
-                <span class="dish-card__price">Rs 340</span>
-              </div>
+                <span class="dish-card__price">Rs 320</span>
+              </a>
               <div class="dish-card__body">
-                <h3>Sichuan Style Noodles</h3>
-                <p>Minced meat, fresh vegetables and peppercorns that make your lips hum.</p>
+                <h3><a href="menu.html#cat-noodles">No. 3 · Noodles, Sichuan Style</a></h3>
+                <p>Minced buff, fresh vegetables and peppercorns that make your lips hum.</p>
+                <button class="dish-card__add" type="button" data-add-to-order="sichuan-style"
+                  data-name="Noodles, Sichuan Style" data-price="320" data-no="3">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                  Add to order · Rs 320
+                </button>
               </div>
-            </a>
+            </article>
 
-            <a class="dish-card dish-card--wide" href="menu.html#cat-dry" data-reveal>
-              <div class="dish-card__media">
+            <article class="dish-card dish-card--wide" data-reveal>
+              <a class="dish-card__media" href="menu.html#cat-noodles" tabindex="-1" aria-hidden="true">
                 <picture>
                   <source type="image/webp" srcset="assets/img/dish-wuhan-300.webp 300w, assets/img/dish-wuhan-420.webp 420w, assets/img/dish-wuhan-620.webp 620w" sizes="(min-width: 1080px) 38vw, 92vw" />
                   <img src="assets/img/dish-wuhan-420.jpg" width="420" height="420" loading="lazy" decoding="async" alt="Wuhan style dry noodles in sesame sauce with peanuts and pickled mustard tuber." />
                 </picture>
-                <span class="dish-card__price">Rs 350</span>
-              </div>
+                <span class="dish-card__price">Rs 320</span>
+              </a>
               <div class="dish-card__body">
-                <h3>Wuhan Style Dry Noodles</h3>
+                <h3><a href="menu.html#cat-noodles">No. 14 · Noodles, Wuhan Style</a></h3>
                 <p>Rich sesame paste, pickled mustard tuber, crushed peanuts. Toss it hard before the first bite.</p>
+                <button class="dish-card__add" type="button" data-add-to-order="wuhan-style"
+                  data-name="Noodles, Wuhan Style" data-price="320" data-no="14">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                  Add to order · Rs 320
+                </button>
               </div>
-            </a>
+            </article>
 
-            <a class="dish-card dish-card--strip" href="menu.html#cat-sides" data-reveal>
-              <div class="dish-card__media">
+            <article class="dish-card dish-card--strip" data-reveal>
+              <a class="dish-card__media" href="menu.html#cat-sides" tabindex="-1" aria-hidden="true">
                 <picture>
                   <source type="image/webp" srcset="assets/img/dish-salad-300.webp 300w, assets/img/dish-salad-420.webp 420w, assets/img/dish-salad-620.webp 620w" sizes="(min-width: 620px) 34vw, 92vw" />
-                  <img src="assets/img/dish-salad-420.jpg" width="420" height="420" loading="lazy" decoding="async" alt="Preserved egg halves and a chilled buff salad with cucumber and sesame." />
+                  <img src="assets/img/dish-salad-420.jpg" width="420" height="420" loading="lazy" decoding="async" alt="Cold side dishes: sliced preserved egg and a chilled shredded buff salad with cucumber and sesame." />
                 </picture>
-                <span class="dish-card__price">Rs 220</span>
-              </div>
+                <span class="dish-card__price">Rs 150 each</span>
+              </a>
               <div class="dish-card__body">
-                <h3>Preserved Egg &amp; Buff Salad</h3>
+                <h3><a href="menu.html#cat-sides">The cold counter</a></h3>
                 <p>
-                  The cold counter is half the reason people come. Century egg with pickled ginger,
-                  shredded buff salad, wood-ear mushrooms and smashed cucumber — order two or three
-                  for the table while the noodles are pulled.
+                  Half the reason people come. Wood-ear mushrooms and cucumber dressed with black
+                  vinegar at Rs 150 a plate, plus pig's ears with coriander and raw garlic, buff
+                  tongue and tripe. Order two or three for the table while the noodles are pulled.
                 </p>
+                <button class="dish-card__add" type="button" data-add-to-order="agaric-vinegar"
+                  data-name="Agaric Mushroom with Vinegar" data-price="150">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                  Add wood-ear &amp; cucumber · Rs 150
+                </button>
               </div>
-            </a>
-
+            </article>
           </div>
 
           <div class="btn-row" style="margin-top: 2rem">
@@ -353,7 +372,7 @@
               stayed for a second bowl.
             </p>
             <dl class="story__facts" data-reveal>
-              <div><dt>41</dt><dd>Dishes on the menu</dd></div>
+              <div><dt>15</dt><dd>Noodle bowls, numbered</dd></div>
               <div><dt>7</dt><dd>People in the kitchen</dd></div>
               <div><dt>13hrs</dt><dd>Open, every day</dd></div>
             </dl>
@@ -593,8 +612,8 @@
           <div class="site-footer__col">
             <h3>Eat</h3>
             <a href="menu.html">Full menu</a>
-            <a href="menu.html#cat-soups">Signature soups</a>
-            <a href="menu.html#cat-dry">Dry noodles</a>
+            <a href="menu.html#cat-noodles">Noodles</a>
+            <a href="menu.html#cat-sides">Cold counter</a>
             <a href="menu.html#cat-sides">Cold sides</a>
             <a href="order.html">Order online</a>
           </div>
@@ -696,6 +715,18 @@
         </p>
       </footer>
     </aside>
+
+    <!-- sticky mobile order bar (shown once the cart has something in it) -->
+    <div class="order-bar" data-order-bar inert>
+      <span class="order-bar__summary">
+        <strong data-order-bar-title>Your order</strong>
+        <span data-order-bar-meta>0 items · Rs 0</span>
+      </span>
+      <button class="order-bar__cta" type="button" data-drawer-open aria-haspopup="dialog">
+        View order
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/></svg>
+      </button>
+    </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4.5 4.5L19 7"/></svg>

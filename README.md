@@ -33,7 +33,7 @@ the missing endpoint and hands the message to WhatsApp instead (see below).
 | File | Purpose |
 | --- | --- |
 | `index.html` | Hero, signature dishes, story, reviews, ordering options, location + lazy map |
-| `menu.html` | All 41 items in 5 sections, live search, category / vegetarian / spicy filters |
+| `menu.html` | 28 items in 3 sections, numbered like the board, live search, category / vegetarian / spicy filters, draft banner |
 | `order.html` | The three ordering routes, delivery partners, how an order runs, FAQ |
 | `contact.html` | Enquiry form, hours with a live open/closed badge, map, directions, FAQ |
 | `credits.html` | Photo and font attribution (marked `noindex`) |
@@ -48,11 +48,14 @@ drawer, and the footer.
 
 There is no payment gateway and no customer database — deliberately. The flow is:
 
-1. Customer taps **+** on any dish. The cart is stored in `localStorage`, so it survives page
-   changes and closing the tab.
+1. Customer taps **+** on any dish — or “Add to order” on the home page's signature cards. A sticky
+   bar slides up on mobile showing item count and total, and the cart is stored in `localStorage`, so
+   it survives page changes, navigation and closing the tab.
 2. They add a name, phone number and pickup/delivery choice in the drawer.
-3. **Send order** builds a plain-text itemised order (quantities, line totals, total, customer
-   details, notes) and opens WhatsApp to **+977 985-1172950** with it pre-filled.
+3. **Send order** builds a plain-text itemised order — board numbers, quantities, line totals,
+   total, customer details, notes, and a “(price to confirm)” flag on any estimated price — and opens
+   WhatsApp to **+977 985-1172950** with it pre-filled. Orders can be placed by number because the
+   menu carries the board's numbering.
 4. The kitchen confirms by phone or WhatsApp and the customer pays on hand-over (cash, eSewa,
    Fonepay).
 
@@ -81,15 +84,45 @@ assets/data/menu.json
 
 ```json
 {
-  "id": "special-kungfu",
-  "name": "Special Kungfu Noodles",
+  "no": 1,                    // number printed on the board in the shop (null if unnumbered)
+  "id": "kungfu-special",
+  "name": "Kungfu Noodle Special",
   "desc": "Rich, spicy broth, chewy noodles, choice of chicken or buff.",
   "price": 380,
-  "heat": 2,            // 0–3 flames
-  "diet": "choice",     // veg | chicken | buff | pork | choice
-  "badge": "Bestseller" // optional
+  "heat": 2,                  // 0–3 flames
+  "diet": "choice",           // veg | chicken | buff | pork | choice
+  "confirmed": true,          // false → renders with an "est." marker
+  "badge": "Bestseller",      // optional
+  "source": "where this came from — printed in MENU-TO-CONFIRM.md"
 }
 ```
+
+#### Where the menu came from
+
+The shop's real menu is a numbered board — about **15 noodle bowls and 20 cold sides**. The site
+transcribes it rather than inventing dishes:
+
+| Source | What it established |
+| --- | --- |
+| The client brief (PDF) | 4 items: Special Kungfu Noodles, Sichuan Style, Wuhan Style, Preserved Egg / Buff Salad |
+| *Sincerely from China* feature (myRepublica) | 15 noodles + 20 sides; pork paws, buff tongue, fried eggs, seasoned cucumbers |
+| Karl Rock's Kathmandu cheap-eats guide | Board numbering (#1, #3, #14) and prices: Buff Sichuan Rs 320, Sesame Wuhan Rs 320, Spicy Chicken Rs 240, Kungfu Special Rs 350 |
+| Tripadvisor reviews | Kungfu Special Rs 380, Special Chinese Dry Noodles Rs 350, agaric + cucumber Rs 150 each, and the numbers #8, #11, #16 |
+| Google Maps reviews/photos | Fresh juices, canned tea Rs 250, super spicy chicken |
+
+**Nothing on the site is presented as certain when it isn't.** Every item carries `confirmed`:
+
+- `true` → price shown plainly.
+- `false` → price shown with a dashed **est.** marker, and the menu page displays a draft banner
+  counting how many are unconfirmed.
+
+`npm run menu` also writes **`MENU-TO-CONFIRM.md`**, the owner's checklist: every unconfirmed item,
+its listed price, and why it needs checking. Flip `confirmed` to `true` as you verify prices — when
+the last one is confirmed the banner disappears on its own. No code change needed.
+
+Items still to confirm: the six noodles without board numbers (Kung Pao, Dan Dan, Zhajiang,
+Vegetable, Chicken, Special Chinese Dry), their prices, three drinks, and the numbers/prices of
+sides beyond the eleven transcribed.
 
 After editing, regenerate the static markup + `Menu` JSON-LD:
 
@@ -201,8 +234,10 @@ server.mjs               static server + /api/contact
 ## Before launch — checklist
 
 - [ ] Replace the AI-generated photography with the shop's own photos.
-- [ ] Confirm every price in `assets/data/menu.json` against the wall menu, then `npm run menu`.
-- [ ] Confirm hours per day (currently Sun–Thu 9:30–22:00, Fri–Sat 9:30–22:30) and update `SCHEDULE`
+- [ ] Work through `MENU-TO-CONFIRM.md`: confirm each price and number, set `confirmed: true`, run
+      `npm run menu`. Add the missing noodle numbers (#2, #4–#7, #9, #10, #12, #13, #15) and the
+      remaining cold sides.
+- [ ] Confirm hours per day (the brief says 9:30 AM – 10:30 PM; the Google listing shows 9 AM – 11 PM). Update `SCHEDULE`
       in `main.js`, the two hours lists in the HTML, and the JSON-LD.
 - [ ] Point the delivery-partner buttons at the restaurant's actual listing pages.
 - [ ] Check the Tripadvisor review link and the review quotations.

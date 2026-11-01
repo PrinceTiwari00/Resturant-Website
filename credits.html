@@ -167,6 +167,18 @@
       </footer>
     </aside>
 
+    <!-- sticky mobile order bar (shown once the cart has something in it) -->
+    <div class="order-bar" data-order-bar inert>
+      <span class="order-bar__summary">
+        <strong data-order-bar-title>Your order</strong>
+        <span data-order-bar-meta>0 items · Rs 0</span>
+      </span>
+      <button class="order-bar__cta" type="button" data-drawer-open aria-haspopup="dialog">
+        View order
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/></svg>
+      </button>
+    </div>
+
     <div class="toast" id="toast" role="status" aria-live="polite">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4.5 4.5L19 7"/></svg>
       <span id="toast-message">Added to your order</span>
