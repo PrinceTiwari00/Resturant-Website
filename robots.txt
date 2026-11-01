@@ -1,0 +1,6 @@
+# Kungfu Noodles — JP Marg, Thamel, Kathmandu
+User-agent: *
+Allow: /
+Disallow: /credits.html
+
+Sitemap: https://kungfunoodles.com.np/sitemap.xml
