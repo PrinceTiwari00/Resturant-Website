@@ -6,3 +6,6 @@ data/inquiries.jsonl
 
 # admin credentials — never commit. Regenerate with: npm run admin:passwd
 data/admin.json
+
+# static build output for GitHub Pages / Netlify
+_site/

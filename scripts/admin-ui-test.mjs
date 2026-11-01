@@ -64,6 +64,9 @@ window.fetch = async (url, options = {}) => {
   const body = JSON.parse(options.body || "{}");
   const reply = (status, payload) => ({ ok: status < 400, status, json: async () => payload });
 
+  if (String(url).includes("/api/health")) {
+    return { ok: true, status: 200, json: async () => ({ ok: true, uptime: 1 }) };
+  }
   if (String(url).includes("/api/admin/login")) {
     return body.password === "right"
       ? reply(200, { ok: true, token: "tok-123", expiresAt: Date.now() + 3600e3 })
@@ -148,6 +151,31 @@ check("no dish data is rendered before sign-in", !text($("#categories")).include
   check("the price picker offers only board prices", priceList.length > 0 && priceList.every((v) => menu.meta.boardPrices.includes(Number(v))));
   const source = window.document.querySelector(".admin-editor input[name='source']");
   check("the edit form is prefilled with where the dish came from", Boolean(source?.value));
+}
+
+/* ------------------------------------------ hosted as plain files (GitHub Pages) */
+{
+  const staticConsole = new VirtualConsole();
+  staticConsole.on("jsdomError", () => {});
+  const staticDom = new JSDOM(read("admin.html"), {
+    url: "https://someone.github.io/Resturant-Website/admin",
+    runScripts: "outside-only",
+    pretendToBeVisual: true,
+    virtualConsole: staticConsole,
+  });
+  const w = staticDom.window;
+  // a static host answers everything with 404 + the 404 page
+  w.fetch = async () => ({ ok: false, status: 404, json: async () => { throw new Error("not json"); } });
+  w.sessionStorage.clear();
+  w.eval(read("assets/js/admin.js"));
+  await sleep(50);
+
+  const q = (sel) => w.document.querySelector(sel);
+  check("on a static host the editor says so instead of asking for a password", q("#offline-note").hidden === false);
+  check("on a static host the sign-in fields are hidden", q("#login-submit").hidden === true);
+  check("the heading changes for static hosting", /No editor on this copy/.test(q("#login-title").textContent));
+  check("it names the two ways to change the menu", /menu\.json/.test(q("#offline-note").textContent) && /npm start/.test(q("#offline-note").textContent));
+  staticDom.window.close();
 }
 
 console.log("");
