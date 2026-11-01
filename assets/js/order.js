@@ -25,7 +25,6 @@ $$("[data-add-to-order]").forEach((btn) => {
     name: row.dataset.name || $(".dish-row__name", row)?.textContent.trim() || id,
     price: Number(row.dataset.price) || 0,
     no: row.querySelector(".dish-row__no")?.textContent.trim() || "",
-    confirmed: row.dataset.confirmed !== "false",
   });
 });
 
@@ -37,7 +36,7 @@ async function loadCatalog() {
     const data = await res.json();
     data.categories.forEach((cat) =>
       cat.items.forEach((item) =>
-        state.catalog.set(item.id, { name: item.name, price: item.price, no: item.no, confirmed: item.confirmed !== false })
+        state.catalog.set(item.id, { name: item.name, price: item.price, no: item.no })
       )
     );
   } catch {
@@ -47,7 +46,6 @@ async function loadCatalog() {
   CATALOG_FALLBACK.forEach((v, k) => {
     if (!state.catalog.has(k)) state.catalog.set(k, v);
   });
-  pricesSafe = state.items.every((i) => state.catalog.get(i.id)?.confirmed !== false);
 }
 
 /* --------------------------------------------------------------- storage */
@@ -134,9 +132,7 @@ function lineMarkup(item) {
   const label = item.no ? `<span class="cart-line__no">#${escapeHtml(item.no)}</span> ` : "";
   return `<div class="cart-line" data-line="${item.id}">
       <div>
-        <p class="cart-line__name">${label}${escapeHtml(item.name)}${
-    item.confirmed === false ? ' <span class="dish-row__est">est.</span>' : ""
-  }</p>
+        <p class="cart-line__name">${label}${escapeHtml(item.name)}</p>
         <div class="qty" role="group" aria-label="Quantity for ${escapeHtml(item.name)}">
           <button type="button" data-qty="-1" data-id="${item.id}" aria-label="Remove one ${escapeHtml(
             item.name
@@ -190,7 +186,7 @@ function add(id, qty = 1) {
   if (!meta) return;
   const existing = state.items.find((i) => i.id === id);
   if (existing) existing.qty += qty;
-  else state.items.push({ id, name: meta.name, price: meta.price, qty, no: meta.no, confirmed: meta.confirmed !== false });
+  else state.items.push({ id, name: meta.name, price: meta.price, qty, no: meta.no });
   render();
   flashAdded(id);
   toast(`${meta.name} added — ${npr(meta.price * qty)}`);
@@ -208,13 +204,12 @@ function paintBar() {
   const bar = $("[data-order-bar]");
   if (!bar) return;
   const n = count();
-  const anyEstimated = state.items.some((i) => i.confirmed === false);
   bar.classList.toggle("is-visible", n > 0);
   bar.inert = n === 0;
   const title = $("[data-order-bar-title]", bar);
   const meta = $("[data-order-bar-meta]", bar);
   if (title) title.textContent = n === 1 ? state.items[0].name : `${n} items in your order`;
-  if (meta) meta.textContent = `${n} item${n === 1 ? "" : "s"} · ${npr(subtotal())}${anyEstimated ? " · some prices to confirm" : ""}`;
+  if (meta) meta.textContent = `${n} item${n === 1 ? "" : "s"} · ${npr(subtotal())}`;
   // keep the sticky bar clear of the page's own bottom padding
   document.body.classList.toggle("has-order-bar", n > 0);
 }
@@ -250,7 +245,6 @@ $$("[data-add-to-order]").forEach((btn) =>
           id,
         price: Number(btn.dataset.price || row?.dataset.price) || 0,
         no: btn.dataset.no || "",
-        confirmed: true,
       });
     }
     add(id, 1);
@@ -304,8 +298,7 @@ function validate() {
 function buildMessage() {
   const lines = state.items.map((i) => {
     const label = i.no ? `#${i.no} ` : "";
-    const est = i.confirmed === false ? " (price to confirm)" : "";
-    return `• ${i.qty} × ${label}${i.name} — ${npr(i.price * i.qty)}${est}`;
+    return `• ${i.qty} × ${label}${i.name} — ${npr(i.price * i.qty)}`;
   });
   const c = state.customer;
   const delivery = c.type === "Delivery";

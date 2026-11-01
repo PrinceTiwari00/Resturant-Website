@@ -83,7 +83,6 @@ const SCHEDULE = {
   Fri: [540, 1380],
   Sat: [540, 1380],
 };
-const DELIVERY = [600, 1260]; // 10:00 – 21:00
 
 function kathmanduNow() {
   const parts = new Intl.DateTimeFormat("en-US", {
@@ -103,8 +102,7 @@ function openState() {
   const now = kathmanduNow();
   const [open, close] = SCHEDULE[now.day] ?? SCHEDULE.Sun;
   const isOpen = now.minutes >= open && now.minutes < close;
-  const deliveryOpen = now.minutes >= DELIVERY[0] && now.minutes < DELIVERY[1];
-  return { ...now, isOpen, deliveryOpen, close, open };
+  return { ...now, isOpen, close, open };
 }
 
 const fmtTime = (mins) => {
@@ -122,11 +120,6 @@ function paintStatus() {
     el.textContent = state.isOpen
       ? `Open now · until ${fmtTime(state.close)}`
       : `Closed now · opens ${fmtTime(state.open)}`;
-  });
-  $$("[data-delivery-status]").forEach((el) => {
-    el.textContent = state.deliveryOpen
-      ? "Delivery partner orders open now (10:00 AM – 9:00 PM)"
-      : "Delivery partners take orders 10:00 AM – 9:00 PM — call us for takeaway";
   });
   $$("[data-today]").forEach((el) => {
     el.dataset.today = state.day;

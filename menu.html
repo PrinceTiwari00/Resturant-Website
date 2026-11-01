@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Menu — Noodles, Cold Sides &amp; Drinks | Kungfu Noodles, Thamel</title>
+    <title>Menu — Noodles &amp; Cold Sides | Kungfu Noodles, Thamel</title>
     <meta
       name="description"
-      content="The full Kungfu Noodles menu: Special Kungfu Noodles, Sichuan style, Wuhan dry noodles, hot & sour, cold sides, dumplings and fresh juices. Prices in NPR."
+      content="The full Kungfu Noodles menu: eleven noodle bowls and thirteen cold sides, with the numbers and prices copied off the boards on the wall in the shop. Prices in NPR."
     />
     <link rel="canonical" href="https://kungfunoodles.com.np/menu.html" />
     <meta name="theme-color" content="#3b0806" />
@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Kungfu Noodles" />
     <meta property="og:title" content="Menu — Kungfu Noodles, Thamel, Kathmandu" />
-    <meta property="og:description" content="Fifteen noodle bowls, cold sides and dumplings. Prices in NPR, updated for 2026." />
+    <meta property="og:description" content="Eleven noodle bowls and thirteen cold sides, transcribed from the menu boards in the shop. Prices in NPR." />
     <meta property="og:url" content="https://kungfunoodles.com.np/menu.html" />
     <meta property="og:image" content="https://kungfunoodles.com.np/assets/img/og-1200.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -49,23 +49,34 @@
     {
       "@type": "MenuSection",
       "name": "Noodles",
-      "description": "Handmade, cooked to order. The numbers are the ones on the board in the shop — just say the number.",
+      "description": "Handmade noodles, cooked to order. The number on the left is printed on the board in the shop — say the number and you get exactly this bowl.",
       "hasMenuItem": [
         {
           "@type": "MenuItem",
-          "name": "Kungfu Noodle Special",
-          "description": "The house dish: chewy hand-pulled noodles in a rich, spicy broth with big chunks of braised buff and a heavy hand of Sichuan pepper. Chicken if you'd rather.",
+          "name": "Kungfu Noodles Special",
+          "description": "The bowl the shop is named for: buff, chilli and Chinese sauce in a noodle soup. The feature written about it calls it hot, spicy, meaty and chewy.",
           "identifier": "1",
           "offers": {
             "@type": "Offer",
-            "price": 380,
+            "price": 350,
+            "priceCurrency": "NPR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Noodles with Chicken Gizzard",
+          "description": "Chicken gizzard and chilli in a noodle soup. Two flames on the board.",
+          "identifier": "2",
+          "offers": {
+            "@type": "Offer",
+            "price": 320,
             "priceCurrency": "NPR"
           }
         },
         {
           "@type": "MenuItem",
           "name": "Noodles, Sichuan Style",
-          "description": "Minced buff, fresh vegetables and numbing Sichuan peppercorns. This is the bowl regulars mean when they say “the Sichuan one”.",
+          "description": "Minced meat and vegetables in a noodle soup, built on Sichuan pepper — numbing more than simply hot.",
           "identifier": "3",
           "offers": {
             "@type": "Offer",
@@ -75,8 +86,8 @@
         },
         {
           "@type": "MenuItem",
-          "name": "Chicken & Mushroom Noodles",
-          "description": "Clear, savoury broth with chicken, shiitake-type mushrooms, greens, garlic and leek. The one to order if you want comfort rather than heat.",
+          "name": "Noodles with Chicken & Mushroom",
+          "description": "Chicken and mushroom in a Chinese-sauce noodle soup. A regular who has eaten here since 2018 calls this the bowl to order, especially in winter.",
           "identifier": "8",
           "offers": {
             "@type": "Offer",
@@ -86,20 +97,66 @@
         },
         {
           "@type": "MenuItem",
+          "name": "Special Chinese Dry Noodles",
+          "description": "No broth: dry noodles with pickled mustard tuber, peanuts and minced meat.",
+          "identifier": "9",
+          "offers": {
+            "@type": "Offer",
+            "price": 320,
+            "priceCurrency": "NPR"
+          }
+        },
+        {
+          "@type": "MenuItem",
           "name": "Noodles with Super Spicy Chicken",
-          "description": "For the heat-seekers: chilli oil, tender chicken and enough Sichuan pepper to make your lips hum.",
+          "description": "Spicy chicken and peanuts over dry noodles. Three flames on the board — the hottest thing printed on it.",
           "identifier": "11",
           "offers": {
             "@type": "Offer",
-            "price": 240,
+            "price": 320,
+            "priceCurrency": "NPR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Noodles, Beijing Style",
+          "description": "Minced meat, cucumber and carrot over dry noodles — the mild, savoury one.",
+          "identifier": "12",
+          "offers": {
+            "@type": "Offer",
+            "price": 320,
+            "priceCurrency": "NPR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Noodles with Three Vegetables",
+          "description": "Mushroom, tomato and spinach in a Chinese-sauce noodle soup. The board marks this one “For Vegetarian”.",
+          "identifier": "13",
+          "suitableForDiet": "https://schema.org/VegetarianDiet",
+          "offers": {
+            "@type": "Offer",
+            "price": 320,
             "priceCurrency": "NPR"
           }
         },
         {
           "@type": "MenuItem",
           "name": "Noodles, Wuhan Style",
-          "description": "Dry-tossed noodles in rich sesame paste with pickled mustard tuber, crushed peanuts and fresh veg. Toss hard before the first bite — no broth here.",
+          "description": "Sesame sauce, vegetables and dry noodles — no broth, no meat printed on the board. Toss it hard before the first bite.",
           "identifier": "14",
+          "suitableForDiet": "https://schema.org/VegetarianDiet",
+          "offers": {
+            "@type": "Offer",
+            "price": 320,
+            "priceCurrency": "NPR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Noodles, Chongqing Style",
+          "description": "Chilli, peanuts and Chinese sauce in a noodle soup. Three flames on the board.",
+          "identifier": "15",
           "offers": {
             "@type": "Offer",
             "price": 320,
@@ -109,93 +166,12 @@
         {
           "@type": "MenuItem",
           "name": "Hot & Sour Noodles",
-          "description": "Black vinegar and white pepper, tangy and warming rather than punishing. Ask for it without meat and the kitchen will make it vegetarian.",
+          "description": "Chilli, peanuts and Chinese sauce in a noodle soup — sour first, then the numbing heat. Three flames.",
           "identifier": "16",
-          "offers": {
-            "@type": "Offer",
-            "price": 300,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Tomato & Egg Noodles",
-          "description": "Comfort in a bowl: stewed tomato, silky egg, scallion and noodles. No chilli unless you ask for it.",
           "suitableForDiet": "https://schema.org/VegetarianDiet",
           "offers": {
             "@type": "Offer",
-            "price": 280,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Braised Pork & Beef Noodles",
-          "description": "Slow-braised pork and beef over noodles in a dark, savoury broth. The richest bowl on the board.",
-          "offers": {
-            "@type": "Offer",
-            "price": 350,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Special Chinese Dry Noodles",
-          "description": "Pickled mustard tuber, peanuts, dry noodles and minced meat — the four horsemen, tossed together.",
-          "offers": {
-            "@type": "Offer",
-            "price": 350,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Three Fresh Vegetable Noodles",
-          "description": "Garden vegetables in a light broth, no meat. Tell us if you want it properly vegetarian — the wok is shared.",
-          "suitableForDiet": "https://schema.org/VegetarianDiet",
-          "offers": {
-            "@type": "Offer",
-            "price": 280,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Kung Pao Chicken Noodles",
-          "description": "Wok-fried chicken with dried chillies and roasted peanuts, over noodles.",
-          "offers": {
-            "@type": "Offer",
             "price": 320,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Dan Dan Noodles",
-          "description": "Minced meat, chilli oil and toasted sesame, tossed so every strand is coated.",
-          "offers": {
-            "@type": "Offer",
-            "price": 320,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Zhajiang Noodles",
-          "description": "Thick wheat noodles under a glossy fermented bean and pork sauce, with shredded cucumber.",
-          "offers": {
-            "@type": "Offer",
-            "price": 320,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Chicken Noodles",
-          "description": "The plain one: chicken and noodles in a clean broth, no chilli unless you ask.",
-          "offers": {
-            "@type": "Offer",
-            "price": 300,
             "priceCurrency": "NPR"
           }
         }
@@ -204,166 +180,25 @@
     {
       "@type": "MenuSection",
       "name": "Cold Counter & Sides",
-      "description": "The half of the menu most people miss. Order two or three for the table while the noodles are pulled.",
+      "description": "The cold counter across the back wall, numbered from #20. Order two or three for the table while the noodles are cooked.",
       "hasMenuItem": [
         {
           "@type": "MenuItem",
-          "name": "Agaric Mushroom with Vinegar",
-          "description": "Wood-ear mushrooms dressed with black vinegar and garlic. Chewy, cold, refreshing — the classic partner to a spicy bowl.",
+          "name": "Cold Sliced Tomato",
+          "description": "Sliced tomato, dressed cold.",
+          "identifier": "20",
           "suitableForDiet": "https://schema.org/VegetarianDiet",
           "offers": {
             "@type": "Offer",
             "price": 150,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Cucumber with Vinegar",
-          "description": "Seasoned cucumber, garlic and vinegar. The cool-down between bites.",
-          "suitableForDiet": "https://schema.org/VegetarianDiet",
-          "offers": {
-            "@type": "Offer",
-            "price": 150,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Sichuan Style Buff Tongue",
-          "description": "Cold-sliced buff tongue with chilli oil, toasted sesame and scallion.",
-          "offers": {
-            "@type": "Offer",
-            "price": 250,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Pork Head Meat in Chilli Oil",
-          "description": "Cold-sliced pork head meat with chilli oil, coriander and raw garlic. Rich, gelatinous, very Chinese.",
-          "offers": {
-            "@type": "Offer",
-            "price": 220,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Pig's Ears",
-          "description": "Super spicy, with coriander and raw garlic. A Thamel cult order — you either get it or you don't.",
-          "offers": {
-            "@type": "Offer",
-            "price": 200,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Tripe",
-          "description": "Cold, chilli-dressed tripe with coriander. Texture is the point.",
-          "offers": {
-            "@type": "Offer",
-            "price": 200,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Chicken Feet",
-          "description": "Marinated in chilli and black vinegar, served cold. Chewy and addictive.",
-          "offers": {
-            "@type": "Offer",
-            "price": 200,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Pork Paws",
-          "description": "Braised trotters, sticky and rich, chopped to share.",
-          "offers": {
-            "@type": "Offer",
-            "price": 280,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Preserved Egg",
-          "description": "Century egg with pickled ginger and black vinegar. A traditional Chinese side dish.",
-          "suitableForDiet": "https://schema.org/VegetarianDiet",
-          "offers": {
-            "@type": "Offer",
-            "price": 150,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Salted Egg",
-          "description": "Salted duck egg, served cold to cut the chilli. A reviewer's favourite.",
-          "suitableForDiet": "https://schema.org/VegetarianDiet",
-          "offers": {
-            "@type": "Offer",
-            "price": 100,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Buff Salad",
-          "description": "Chilled shredded buff with cucumber, coriander, toasted sesame and chilli oil.",
-          "offers": {
-            "@type": "Offer",
-            "price": 250,
             "priceCurrency": "NPR"
           }
         },
         {
           "@type": "MenuItem",
           "name": "Salted Peanuts",
-          "description": "Boiled peanuts with star anise and salt — the thing to nibble while you wait.",
-          "suitableForDiet": "https://schema.org/VegetarianDiet",
-          "offers": {
-            "@type": "Offer",
-            "price": 100,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Fried Egg",
-          "description": "Crisp-edged with a runny yolk. Add it to any bowl.",
-          "suitableForDiet": "https://schema.org/VegetarianDiet",
-          "offers": {
-            "@type": "Offer",
-            "price": 80,
-            "priceCurrency": "NPR"
-          }
-        }
-      ]
-    },
-    {
-      "@type": "MenuSection",
-      "name": "Drinks",
-      "description": "Cold, fresh and made to put the fire out.",
-      "hasMenuItem": [
-        {
-          "@type": "MenuItem",
-          "name": "Fresh Fruit Juice",
-          "description": "Pineapple, papaya, mango or watermelon — squeezed to order.",
-          "suitableForDiet": "https://schema.org/VegetarianDiet",
-          "offers": {
-            "@type": "Offer",
-            "price": 180,
-            "priceCurrency": "NPR"
-          }
-        },
-        {
-          "@type": "MenuItem",
-          "name": "Honey Lemon Tea",
-          "description": "Warm, sweet and sharp. Ordered alongside the super spicy chicken.",
+          "description": "Boiled peanuts in brine — the bowl that lands on every table.",
+          "identifier": "21",
           "suitableForDiet": "https://schema.org/VegetarianDiet",
           "offers": {
             "@type": "Offer",
@@ -373,31 +208,43 @@
         },
         {
           "@type": "MenuItem",
-          "name": "Canned Iced Tea",
-          "description": "The imported cans on the shelf — pricey, but they do the job.",
-          "suitableForDiet": "https://schema.org/VegetarianDiet",
+          "name": "Preserved Egg with Green Pepper",
+          "description": "Century egg chopped with green pepper.",
+          "identifier": "22",
           "offers": {
             "@type": "Offer",
-            "price": 250,
+            "price": 150,
             "priceCurrency": "NPR"
           }
         },
         {
           "@type": "MenuItem",
-          "name": "Chinese Green Tea",
-          "description": "A pot of loose-leaf tea, refilled while you eat.",
+          "name": "Cold Onion Salad",
+          "description": "Raw onion, dressed cold.",
+          "identifier": "23",
           "suitableForDiet": "https://schema.org/VegetarianDiet",
           "offers": {
             "@type": "Offer",
-            "price": 120,
+            "price": 150,
             "priceCurrency": "NPR"
           }
         },
         {
           "@type": "MenuItem",
-          "name": "Soft Drinks",
-          "description": "Chilled bottles, served with a glass.",
-          "suitableForDiet": "https://schema.org/VegetarianDiet",
+          "name": "Pickled Chicken Paws",
+          "description": "Chicken feet cured in pickled mountain pepper.",
+          "identifier": "24",
+          "offers": {
+            "@type": "Offer",
+            "price": 240,
+            "priceCurrency": "NPR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Fried Egg",
+          "description": "A fried egg on top of any bowl. Both boards print it — it is the cheapest thing in the shop.",
+          "identifier": "25",
           "offers": {
             "@type": "Offer",
             "price": 100,
@@ -406,12 +253,78 @@
         },
         {
           "@type": "MenuItem",
-          "name": "Mineral Water",
-          "description": "One litre, chilled.",
-          "suitableForDiet": "https://schema.org/VegetarianDiet",
+          "name": "Spiced Chicken",
+          "description": "Chicken braised in the shop's spiced master stock, served cold.",
+          "identifier": "26",
           "offers": {
             "@type": "Offer",
-            "price": 60,
+            "price": 240,
+            "priceCurrency": "NPR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Five-Spice Chicken Gizzard",
+          "description": "Gizzard braised with five spice and sliced cold.",
+          "identifier": "27",
+          "offers": {
+            "@type": "Offer",
+            "price": 240,
+            "priceCurrency": "NPR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Spiced Buff",
+          "description": "Buff braised in five spice and sliced cold — what the reviews call the buff salad.",
+          "identifier": "28",
+          "offers": {
+            "@type": "Offer",
+            "price": 240,
+            "priceCurrency": "NPR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Pork Ear in Chilli Oil",
+          "description": "Thin slices of pork ear under chilli oil — all crunch.",
+          "identifier": "31",
+          "offers": {
+            "@type": "Offer",
+            "price": 240,
+            "priceCurrency": "NPR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Cold Pork Tripe",
+          "description": "Pork tripe dressed cold.",
+          "identifier": "32",
+          "offers": {
+            "@type": "Offer",
+            "price": 240,
+            "priceCurrency": "NPR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Braised Pork Paws",
+          "description": "Pork trotters braised until sticky, served cold.",
+          "identifier": "34",
+          "offers": {
+            "@type": "Offer",
+            "price": 240,
+            "priceCurrency": "NPR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Five-Spice Buff Tongue",
+          "description": "Buff tongue, five spice, sliced thin.",
+          "identifier": "36",
+          "offers": {
+            "@type": "Offer",
+            "price": 240,
             "priceCurrency": "NPR"
           }
         }
@@ -491,11 +404,12 @@
           <nav class="crumbs" aria-label="Breadcrumb">
             <a href="index.html">Home</a><span>/</span><span aria-current="page">Menu</span>
           </nav>
-          <p class="eyebrow">Order by number · 15 bowls, 20 sides</p>
+          <p class="eyebrow">Order by number · straight off the wall</p>
           <h1 id="menu-title">The menu</h1>
           <p>
-            Fifteen noodle bowls and about twenty cold sides, cooked to order. The numbers match the
-            board in the shop — order by number and you'll get exactly what the regulars get.
+            Eleven noodle bowls and thirteen cold sides, cooked to order. Every number, name and price
+            on this page was copied off the two boards on the wall in the shop — order by number and
+            you get exactly what the regulars get.
           </p>
           <div class="btn-row">
             <button class="btn" type="button" data-drawer-open aria-haspopup="dialog">
@@ -513,31 +427,31 @@
           <div class="menu-featured">
             <figure data-reveal>
               <picture>
-                <source type="image/webp" srcset="assets/img/dish-kungfu-300.webp 300w, assets/img/dish-kungfu-420.webp 420w" sizes="(min-width: 900px) 22vw, 45vw" />
-                <img src="assets/img/dish-kungfu-420.jpg" width="420" height="420" loading="lazy" decoding="async" alt="Special Kungfu Noodles in spicy broth with braised buff." />
+                <source type="image/webp" srcset="assets/img/dish-beijing-300.webp 300w, assets/img/dish-beijing-420.webp 420w" sizes="(min-width: 900px) 22vw, 45vw" />
+                <img src="assets/img/dish-beijing-420.jpg" width="420" height="289" loading="lazy" decoding="async" alt="A bowl of Beijing-style dry noodles at Kungfu Noodles: noodles topped with dark bean sauce, shredded cucumber, spring onion and julienned carrot." />
               </picture>
-              <figcaption><strong>No. 1 · Kungfu Noodle Special</strong>Rs 380 · the one to order first</figcaption>
+              <figcaption><strong>No. 12 · Noodles, Beijing Style</strong>Rs 320 — photographed in the shop</figcaption>
             </figure>
             <figure data-reveal>
               <picture>
-                <source type="image/webp" srcset="assets/img/dish-sichuan-300.webp 300w, assets/img/dish-sichuan-420.webp 420w" sizes="(min-width: 900px) 22vw, 45vw" />
-                <img src="assets/img/dish-sichuan-420.jpg" width="420" height="420" loading="lazy" decoding="async" alt="Sichuan style noodles with minced meat and peanuts." />
+                <source type="image/webp" srcset="assets/img/board-noodles-420.webp 420w, assets/img/board-noodles-620.webp 620w" sizes="(min-width: 900px) 22vw, 45vw" />
+                <img src="assets/img/board-noodles-420.jpg" width="420" height="560" loading="lazy" decoding="async" alt="The noodle board on the wall at Kungfu Noodles, showing numbered dishes such as 07 tomato and egg noodles and 06 buff noodles." />
               </picture>
-              <figcaption><strong>No. 3 · Noodles, Sichuan Style</strong>Rs 320 · numbing, not just hot</figcaption>
+              <figcaption><strong>The noodle board</strong>#01–#16 · every price below is copied from it</figcaption>
             </figure>
             <figure data-reveal>
               <picture>
-                <source type="image/webp" srcset="assets/img/dish-wuhan-300.webp 300w, assets/img/dish-wuhan-420.webp 420w" sizes="(min-width: 900px) 22vw, 45vw" />
-                <img src="assets/img/dish-wuhan-420.jpg" width="420" height="420" loading="lazy" decoding="async" alt="Wuhan style dry noodles in sesame sauce with peanuts." />
+                <source type="image/webp" srcset="assets/img/board-sides-420.webp 420w, assets/img/board-sides-620.webp 620w" sizes="(min-width: 900px) 22vw, 45vw" />
+                <img src="assets/img/board-sides-420.jpg" width="420" height="560" loading="lazy" decoding="async" alt="The cold-counter board at Kungfu Noodles, showing numbered side dishes from 20 to 36 with their prices." />
               </picture>
-              <figcaption><strong>No. 14 · Noodles, Wuhan Style</strong>Rs 320 · sesame, peanuts, pickle</figcaption>
+              <figcaption><strong>The cold counter</strong>#20–#36 · Rs 150 or Rs 240 a plate</figcaption>
             </figure>
             <figure data-reveal>
               <picture>
-                <source type="image/webp" srcset="assets/img/dish-salad-300.webp 300w, assets/img/dish-salad-420.webp 420w" sizes="(min-width: 900px) 22vw, 45vw" />
-                <img src="assets/img/dish-salad-420.jpg" width="420" height="420" loading="lazy" decoding="async" alt="Preserved egg and buff salad on a dark plate." />
+                <source type="image/webp" srcset="assets/img/shopfront-420.webp 420w, assets/img/shopfront-620.webp 620w" sizes="(min-width: 900px) 22vw, 45vw" />
+                <img src="assets/img/shopfront-420.jpg" width="420" height="525" loading="lazy" decoding="async" alt="The shopfront of Kungfu Noodles on JP Marg in Thamel, with its white hanging sign and the painted bowl on the wall." />
               </picture>
-              <figcaption><strong>The cold counter</strong>Rs 150 a plate · vinegar, garlic, chilli</figcaption>
+              <figcaption><strong>JP Marg, Thamel</strong>Look for the bowl painted on the wall</figcaption>
             </figure>
           </div>
         </div>
@@ -551,7 +465,6 @@
 <button class="chip-filter is-active" type="button" data-filter="all" aria-pressed="true">Everything</button>
 <button class="chip-filter" type="button" data-filter="noodles" aria-pressed="false">Noodles</button>
 <button class="chip-filter" type="button" data-filter="sides" aria-pressed="false">Cold Counter &amp; Sides</button>
-<button class="chip-filter" type="button" data-filter="drinks" aria-pressed="false">Drinks</button>
 <button class="chip-filter" type="button" data-filter="veg" aria-pressed="false">Vegetarian</button>
 <button class="chip-filter" type="button" data-filter="spicy" aria-pressed="false">Spicy</button>
 <!-- /build:menu-filters -->
@@ -568,12 +481,12 @@
       <div class="menu-body">
         <div class="wrap">
           <!-- build:menu-banner -->
-<div class="draft-banner" role="status">
-            <span class="draft-banner__dot" aria-hidden="true"></span>
-            <p><strong>Draft menu.</strong> 23 of 33 prices are still to be
-            confirmed with the kitchen — they're marked <span class="dish-row__est">est.</span>
-            Numbers match the board in the shop.</p>
-            <a href="contact.html#write">Tell us about a wrong price</a>
+<div class="source-note" role="note">
+            <span class="source-note__dot" aria-hidden="true"></span>
+            <p><strong>24 dishes, every number read off the board on the
+            wall.</strong> Prices are the ones printed in the shop. The rest of the wall carries more
+            numbers than we could photograph clearly, so they are not listed here.</p>
+            <a href="credits.html#menu">See the board photographs</a>
           </div>
 <!-- /build:menu-banner -->
           <p class="eyebrow" style="margin-bottom: 1.5rem" data-filter-summary>
@@ -586,75 +499,111 @@
         <span class="menu-cat__num">01</span>
         <div>
           <h2 class="menu-cat__title" id="title-noodles">Noodles <span class="cn" lang="zh">面</span></h2>
-          <p class="menu-cat__blurb">Handmade, cooked to order. The numbers are the ones on the board in the shop — just say the number.</p>
+          <p class="menu-cat__blurb">Handmade noodles, cooked to order. The number on the left is printed on the board in the shop — say the number and you get exactly this bowl.</p>
         </div>
       </header>
       <div class="menu-cat__grid">
-        <article class="dish-row" data-item="kungfu-special" data-name="Kungfu Noodle Special" data-cat="noodles"
-          data-heat="2" data-diet="choice" data-price="380" data-confirmed="true"
-          data-search="number 1 kungfu noodle special 功夫面 the house dish: chewy hand-pulled noodles in a rich, spicy broth with big chunks of braised buff and a heavy hand of sichuan pepper. chicken if you'd rather. noodles">
+        <article class="dish-row" data-item="kungfu-special" data-name="Kungfu Noodles Special" data-cat="noodles"
+          data-heat="2" data-diet="buff" data-price="350"
+          data-search="number 1 kungfu noodles special 江湖特色牛肉面 the bowl the shop is named for: buff, chilli and chinese sauce in a noodle soup. the feature written about it calls it hot, spicy, meaty and chewy. noodles">
           <span class="dish-row__no" title="Number on the board in the shop">1</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Kungfu Noodle Special <span class="dish-row__cn" lang="zh">功夫面</span> <span class="tag">Bestseller</span></h3>
+              <h3 class="dish-row__name">Kungfu Noodles Special <span class="dish-row__cn" lang="zh">江湖特色牛肉面</span> <span class="tag">House special</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 380</span>
+              <span class="dish-row__price">Rs 350</span>
             </div>
-            <p class="dish-row__desc">The house dish: chewy hand-pulled noodles in a rich, spicy broth with big chunks of braised buff and a heavy hand of Sichuan pepper. Chicken if you'd rather.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--mix" aria-hidden="true"></span>Chicken or Buff</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
+            <p class="dish-row__desc">The bowl the shop is named for: buff, chilli and Chinese sauce in a noodle soup. The feature written about it calls it hot, spicy, meaty and chewy.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Buff</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
           </div>
           <button class="dish-row__add" type="button" data-add-to-order="kungfu-special"
-            aria-label="Add Kungfu Noodle Special, number 1 on the board, to your order">
+            aria-label="Add Kungfu Noodles Special, number 1 on the board, to your order">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </article>
+        <article class="dish-row" data-item="chicken-gizzard-noodles" data-name="Noodles with Chicken Gizzard" data-cat="noodles"
+          data-heat="2" data-diet="chicken" data-price="320"
+          data-search="number 2 noodles with chicken gizzard 鸡杂面 chicken gizzard and chilli in a noodle soup. two flames on the board. noodles">
+          <span class="dish-row__no" title="Number on the board in the shop">2</span>
+          <div class="dish-row__main">
+            <div class="dish-row__line">
+              <h3 class="dish-row__name">Noodles with Chicken Gizzard <span class="dish-row__cn" lang="zh">鸡杂面</span></h3>
+              <span class="dish-row__leader" aria-hidden="true"></span>
+              <span class="dish-row__price">Rs 320</span>
+            </div>
+            <p class="dish-row__desc">Chicken gizzard and chilli in a noodle soup. Two flames on the board.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Chicken</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
+          </div>
+          <button class="dish-row__add" type="button" data-add-to-order="chicken-gizzard-noodles"
+            aria-label="Add Noodles with Chicken Gizzard, number 2 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
         <article class="dish-row" data-item="sichuan-style" data-name="Noodles, Sichuan Style" data-cat="noodles"
-          data-heat="2" data-diet="buff" data-price="320" data-confirmed="true"
-          data-search="number 3 noodles, sichuan style 四川面 minced buff, fresh vegetables and numbing sichuan peppercorns. this is the bowl regulars mean when they say “the sichuan one”. noodles">
+          data-heat="2" data-diet="meat" data-price="320"
+          data-search="number 3 noodles, sichuan style 四川担担面 minced meat and vegetables in a noodle soup, built on sichuan pepper — numbing more than simply hot. noodles">
           <span class="dish-row__no" title="Number on the board in the shop">3</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Noodles, Sichuan Style <span class="dish-row__cn" lang="zh">四川面</span> <span class="tag">Popular</span></h3>
+              <h3 class="dish-row__name">Noodles, Sichuan Style <span class="dish-row__cn" lang="zh">四川担担面</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
               <span class="dish-row__price">Rs 320</span>
             </div>
-            <p class="dish-row__desc">Minced buff, fresh vegetables and numbing Sichuan peppercorns. This is the bowl regulars mean when they say “the Sichuan one”.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Buff</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
+            <p class="dish-row__desc">Minced meat and vegetables in a noodle soup, built on Sichuan pepper — numbing more than simply hot.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Minced meat</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
           </div>
           <button class="dish-row__add" type="button" data-add-to-order="sichuan-style"
             aria-label="Add Noodles, Sichuan Style, number 3 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
-        <article class="dish-row" data-item="chicken-mushroom" data-name="Chicken &amp; Mushroom Noodles" data-cat="noodles"
-          data-heat="0" data-diet="chicken" data-price="320" data-confirmed="true"
-          data-search="number 8 chicken &amp; mushroom noodles 香菇鸡汤面 clear, savoury broth with chicken, shiitake-type mushrooms, greens, garlic and leek. the one to order if you want comfort rather than heat. noodles">
+        <article class="dish-row" data-item="chicken-mushroom" data-name="Noodles with Chicken &amp; Mushroom" data-cat="noodles"
+          data-heat="0" data-diet="chicken" data-price="320"
+          data-search="number 8 noodles with chicken &amp; mushroom 蘑菇炖鸡面 chicken and mushroom in a chinese-sauce noodle soup. a regular who has eaten here since 2018 calls this the bowl to order, especially in winter. noodles">
           <span class="dish-row__no" title="Number on the board in the shop">8</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Chicken &amp; Mushroom Noodles <span class="dish-row__cn" lang="zh">香菇鸡汤面</span></h3>
+              <h3 class="dish-row__name">Noodles with Chicken &amp; Mushroom <span class="dish-row__cn" lang="zh">蘑菇炖鸡面</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
               <span class="dish-row__price">Rs 320</span>
             </div>
-            <p class="dish-row__desc">Clear, savoury broth with chicken, shiitake-type mushrooms, greens, garlic and leek. The one to order if you want comfort rather than heat.</p>
+            <p class="dish-row__desc">Chicken and mushroom in a Chinese-sauce noodle soup. A regular who has eaten here since 2018 calls this the bowl to order, especially in winter.</p>
             <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Chicken</span></div>
           </div>
           <button class="dish-row__add" type="button" data-add-to-order="chicken-mushroom"
-            aria-label="Add Chicken &amp; Mushroom Noodles, number 8 on the board, to your order">
+            aria-label="Add Noodles with Chicken &amp; Mushroom, number 8 on the board, to your order">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </article>
+        <article class="dish-row" data-item="special-dry" data-name="Special Chinese Dry Noodles" data-cat="noodles"
+          data-heat="1" data-diet="meat" data-price="320"
+          data-search="number 9 special chinese dry noodles 宜宾燃面 no broth: dry noodles with pickled mustard tuber, peanuts and minced meat. noodles">
+          <span class="dish-row__no" title="Number on the board in the shop">9</span>
+          <div class="dish-row__main">
+            <div class="dish-row__line">
+              <h3 class="dish-row__name">Special Chinese Dry Noodles <span class="dish-row__cn" lang="zh">宜宾燃面</span></h3>
+              <span class="dish-row__leader" aria-hidden="true"></span>
+              <span class="dish-row__price">Rs 320</span>
+            </div>
+            <p class="dish-row__desc">No broth: dry noodles with pickled mustard tuber, peanuts and minced meat.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Minced meat</span><span class="heat" role="img" aria-label="Heat level 1 of 3" title="Heat level 1 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
+          </div>
+          <button class="dish-row__add" type="button" data-add-to-order="special-dry"
+            aria-label="Add Special Chinese Dry Noodles, number 9 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
         <article class="dish-row" data-item="super-spicy-chicken" data-name="Noodles with Super Spicy Chicken" data-cat="noodles"
-          data-heat="3" data-diet="chicken" data-price="240" data-confirmed="true"
-          data-search="number 11 noodles with super spicy chicken 超辣鸡面 for the heat-seekers: chilli oil, tender chicken and enough sichuan pepper to make your lips hum. noodles">
+          data-heat="3" data-diet="chicken" data-price="320"
+          data-search="number 11 noodles with super spicy chicken 辣子鸡面 spicy chicken and peanuts over dry noodles. three flames on the board — the hottest thing printed on it. noodles">
           <span class="dish-row__no" title="Number on the board in the shop">11</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Noodles with Super Spicy Chicken <span class="dish-row__cn" lang="zh">超辣鸡面</span></h3>
+              <h3 class="dish-row__name">Noodles with Super Spicy Chicken <span class="dish-row__cn" lang="zh">辣子鸡面</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 240</span>
+              <span class="dish-row__price">Rs 320</span>
             </div>
-            <p class="dish-row__desc">For the heat-seekers: chilli oil, tender chicken and enough Sichuan pepper to make your lips hum.</p>
+            <p class="dish-row__desc">Spicy chicken and peanuts over dry noodles. Three flames on the board — the hottest thing printed on it.</p>
             <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Chicken</span><span class="heat" role="img" aria-label="Heat level 3 of 3" title="Heat level 3 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
           </div>
           <button class="dish-row__add" type="button" data-add-to-order="super-spicy-chicken"
@@ -662,183 +611,93 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
-        <article class="dish-row" data-item="wuhan-style" data-name="Noodles, Wuhan Style" data-cat="noodles"
-          data-heat="1" data-diet="choice" data-price="320" data-confirmed="true"
-          data-search="number 14 noodles, wuhan style 热干面 dry-tossed noodles in rich sesame paste with pickled mustard tuber, crushed peanuts and fresh veg. toss hard before the first bite — no broth here. noodles">
-          <span class="dish-row__no" title="Number on the board in the shop">14</span>
+        <article class="dish-row" data-item="beijing-style" data-name="Noodles, Beijing Style" data-cat="noodles"
+          data-heat="0" data-diet="meat" data-price="320"
+          data-search="number 12 noodles, beijing style 北京炸酱面 minced meat, cucumber and carrot over dry noodles — the mild, savoury one. noodles">
+          <span class="dish-row__no" title="Number on the board in the shop">12</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Noodles, Wuhan Style <span class="dish-row__cn" lang="zh">热干面</span> <span class="tag">Dry</span></h3>
+              <h3 class="dish-row__name">Noodles, Beijing Style <span class="dish-row__cn" lang="zh">北京炸酱面</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
               <span class="dish-row__price">Rs 320</span>
             </div>
-            <p class="dish-row__desc">Dry-tossed noodles in rich sesame paste with pickled mustard tuber, crushed peanuts and fresh veg. Toss hard before the first bite — no broth here.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--mix" aria-hidden="true"></span>Chicken or Buff</span><span class="heat" role="img" aria-label="Heat level 1 of 3" title="Heat level 1 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
+            <p class="dish-row__desc">Minced meat, cucumber and carrot over dry noodles — the mild, savoury one.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Minced meat</span></div>
+          </div>
+          <button class="dish-row__add" type="button" data-add-to-order="beijing-style"
+            aria-label="Add Noodles, Beijing Style, number 12 on the board, to your order">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </article>
+        <article class="dish-row" data-item="three-vegetable" data-name="Noodles with Three Vegetables" data-cat="noodles"
+          data-heat="0" data-diet="veg" data-price="320"
+          data-search="number 13 noodles with three vegetables 三鲜蔬菜面 mushroom, tomato and spinach in a chinese-sauce noodle soup. the board marks this one “for vegetarian”. noodles">
+          <span class="dish-row__no" title="Number on the board in the shop">13</span>
+          <div class="dish-row__main">
+            <div class="dish-row__line">
+              <h3 class="dish-row__name">Noodles with Three Vegetables <span class="dish-row__cn" lang="zh">三鲜蔬菜面</span> <span class="tag">Vegetarian</span></h3>
+              <span class="dish-row__leader" aria-hidden="true"></span>
+              <span class="dish-row__price">Rs 320</span>
+            </div>
+            <p class="dish-row__desc">Mushroom, tomato and spinach in a Chinese-sauce noodle soup. The board marks this one “For Vegetarian”.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
+          </div>
+          <button class="dish-row__add" type="button" data-add-to-order="three-vegetable"
+            aria-label="Add Noodles with Three Vegetables, number 13 on the board, to your order">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </article>
+        <article class="dish-row" data-item="wuhan-style" data-name="Noodles, Wuhan Style" data-cat="noodles"
+          data-heat="2" data-diet="veg" data-price="320"
+          data-search="number 14 noodles, wuhan style 武汉热干面 sesame sauce, vegetables and dry noodles — no broth, no meat printed on the board. toss it hard before the first bite. noodles">
+          <span class="dish-row__no" title="Number on the board in the shop">14</span>
+          <div class="dish-row__main">
+            <div class="dish-row__line">
+              <h3 class="dish-row__name">Noodles, Wuhan Style <span class="dish-row__cn" lang="zh">武汉热干面</span> <span class="tag">Dry</span></h3>
+              <span class="dish-row__leader" aria-hidden="true"></span>
+              <span class="dish-row__price">Rs 320</span>
+            </div>
+            <p class="dish-row__desc">Sesame sauce, vegetables and dry noodles — no broth, no meat printed on the board. Toss it hard before the first bite.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
           </div>
           <button class="dish-row__add" type="button" data-add-to-order="wuhan-style"
             aria-label="Add Noodles, Wuhan Style, number 14 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
+        <article class="dish-row" data-item="chongqing-style" data-name="Noodles, Chongqing Style" data-cat="noodles"
+          data-heat="3" data-diet="meat" data-price="320"
+          data-search="number 15 noodles, chongqing style 重庆小面 chilli, peanuts and chinese sauce in a noodle soup. three flames on the board. noodles">
+          <span class="dish-row__no" title="Number on the board in the shop">15</span>
+          <div class="dish-row__main">
+            <div class="dish-row__line">
+              <h3 class="dish-row__name">Noodles, Chongqing Style <span class="dish-row__cn" lang="zh">重庆小面</span></h3>
+              <span class="dish-row__leader" aria-hidden="true"></span>
+              <span class="dish-row__price">Rs 320</span>
+            </div>
+            <p class="dish-row__desc">Chilli, peanuts and Chinese sauce in a noodle soup. Three flames on the board.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Minced meat</span><span class="heat" role="img" aria-label="Heat level 3 of 3" title="Heat level 3 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
+          </div>
+          <button class="dish-row__add" type="button" data-add-to-order="chongqing-style"
+            aria-label="Add Noodles, Chongqing Style, number 15 on the board, to your order">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </article>
         <article class="dish-row" data-item="hot-sour" data-name="Hot &amp; Sour Noodles" data-cat="noodles"
-          data-heat="1" data-diet="choice" data-price="300" data-confirmed="true"
-          data-search="number 16 hot &amp; sour noodles 酸辣面 black vinegar and white pepper, tangy and warming rather than punishing. ask for it without meat and the kitchen will make it vegetarian. noodles">
+          data-heat="3" data-diet="veg" data-price="320"
+          data-search="number 16 hot &amp; sour noodles 酸辣粉 chilli, peanuts and chinese sauce in a noodle soup — sour first, then the numbing heat. three flames. noodles">
           <span class="dish-row__no" title="Number on the board in the shop">16</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Hot &amp; Sour Noodles <span class="dish-row__cn" lang="zh">酸辣面</span> <span class="tag">Veg option</span></h3>
+              <h3 class="dish-row__name">Hot &amp; Sour Noodles <span class="dish-row__cn" lang="zh">酸辣粉</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 300</span>
+              <span class="dish-row__price">Rs 320</span>
             </div>
-            <p class="dish-row__desc">Black vinegar and white pepper, tangy and warming rather than punishing. Ask for it without meat and the kitchen will make it vegetarian.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--mix" aria-hidden="true"></span>Chicken or Buff</span><span class="heat" role="img" aria-label="Heat level 1 of 3" title="Heat level 1 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
+            <p class="dish-row__desc">Chilli, peanuts and Chinese sauce in a noodle soup — sour first, then the numbing heat. Three flames.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span><span class="heat" role="img" aria-label="Heat level 3 of 3" title="Heat level 3 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
           </div>
           <button class="dish-row__add" type="button" data-add-to-order="hot-sour"
             aria-label="Add Hot &amp; Sour Noodles, number 16 on the board, to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="tomato-egg" data-name="Tomato &amp; Egg Noodles" data-cat="noodles"
-          data-heat="0" data-diet="veg" data-price="280" data-confirmed="false"
-          data-search="tomato &amp; egg noodles 番茄鸡蛋面 comfort in a bowl: stewed tomato, silky egg, scallion and noodles. no chilli unless you ask for it. noodles">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Tomato &amp; Egg Noodles <span class="dish-row__cn" lang="zh">番茄鸡蛋面</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 280 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Comfort in a bowl: stewed tomato, silky egg, scallion and noodles. No chilli unless you ask for it.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="tomato-egg"
-            aria-label="Add Tomato &amp; Egg Noodles to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="braised-pork-beef" data-name="Braised Pork &amp; Beef Noodles" data-cat="noodles"
-          data-heat="1" data-diet="choice" data-price="350" data-confirmed="false"
-          data-search="braised pork &amp; beef noodles 卤肉牛肉面 slow-braised pork and beef over noodles in a dark, savoury broth. the richest bowl on the board. noodles">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Braised Pork &amp; Beef Noodles <span class="dish-row__cn" lang="zh">卤肉牛肉面</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 350 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Slow-braised pork and beef over noodles in a dark, savoury broth. The richest bowl on the board.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--mix" aria-hidden="true"></span>Chicken or Buff</span><span class="heat" role="img" aria-label="Heat level 1 of 3" title="Heat level 1 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="braised-pork-beef"
-            aria-label="Add Braised Pork &amp; Beef Noodles to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="special-dry" data-name="Special Chinese Dry Noodles" data-cat="noodles"
-          data-heat="1" data-diet="choice" data-price="350" data-confirmed="true"
-          data-search="special chinese dry noodles 干拌面 pickled mustard tuber, peanuts, dry noodles and minced meat — the four horsemen, tossed together. noodles">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Special Chinese Dry Noodles <span class="dish-row__cn" lang="zh">干拌面</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 350</span>
-            </div>
-            <p class="dish-row__desc">Pickled mustard tuber, peanuts, dry noodles and minced meat — the four horsemen, tossed together.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--mix" aria-hidden="true"></span>Chicken or Buff</span><span class="heat" role="img" aria-label="Heat level 1 of 3" title="Heat level 1 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="special-dry"
-            aria-label="Add Special Chinese Dry Noodles to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="vegetable" data-name="Three Fresh Vegetable Noodles" data-cat="noodles"
-          data-heat="0" data-diet="veg" data-price="280" data-confirmed="false"
-          data-search="three fresh vegetable noodles 三鲜蔬菜面 garden vegetables in a light broth, no meat. tell us if you want it properly vegetarian — the wok is shared. noodles">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Three Fresh Vegetable Noodles <span class="dish-row__cn" lang="zh">三鲜蔬菜面</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 280 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Garden vegetables in a light broth, no meat. Tell us if you want it properly vegetarian — the wok is shared.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="vegetable"
-            aria-label="Add Three Fresh Vegetable Noodles to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="kung-pao" data-name="Kung Pao Chicken Noodles" data-cat="noodles"
-          data-heat="2" data-diet="chicken" data-price="320" data-confirmed="false"
-          data-search="kung pao chicken noodles 宫保鸡丁面 wok-fried chicken with dried chillies and roasted peanuts, over noodles. noodles">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Kung Pao Chicken Noodles <span class="dish-row__cn" lang="zh">宫保鸡丁面</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 320 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Wok-fried chicken with dried chillies and roasted peanuts, over noodles.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Chicken</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="kung-pao"
-            aria-label="Add Kung Pao Chicken Noodles to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="dan-dan" data-name="Dan Dan Noodles" data-cat="noodles"
-          data-heat="2" data-diet="choice" data-price="320" data-confirmed="false"
-          data-search="dan dan noodles 担担面 minced meat, chilli oil and toasted sesame, tossed so every strand is coated. noodles">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Dan Dan Noodles <span class="dish-row__cn" lang="zh">担担面</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 320 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Minced meat, chilli oil and toasted sesame, tossed so every strand is coated.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--mix" aria-hidden="true"></span>Chicken or Buff</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="dan-dan"
-            aria-label="Add Dan Dan Noodles to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="zhajiang" data-name="Zhajiang Noodles" data-cat="noodles"
-          data-heat="0" data-diet="pork" data-price="320" data-confirmed="false"
-          data-search="zhajiang noodles 炸酱面 thick wheat noodles under a glossy fermented bean and pork sauce, with shredded cucumber. noodles">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Zhajiang Noodles <span class="dish-row__cn" lang="zh">炸酱面</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 320 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Thick wheat noodles under a glossy fermented bean and pork sauce, with shredded cucumber.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Pork</span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="zhajiang"
-            aria-label="Add Zhajiang Noodles to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="chicken-noodles" data-name="Chicken Noodles" data-cat="noodles"
-          data-heat="0" data-diet="chicken" data-price="300" data-confirmed="false"
-          data-search="chicken noodles 鸡汤面 the plain one: chicken and noodles in a clean broth, no chilli unless you ask. noodles">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Chicken Noodles <span class="dish-row__cn" lang="zh">鸡汤面</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 300 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">The plain one: chicken and noodles in a clean broth, no chilli unless you ask.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Chicken</span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="chicken-noodles"
-            aria-label="Add Chicken Noodles to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
@@ -850,361 +709,241 @@
         <span class="menu-cat__num">02</span>
         <div>
           <h2 class="menu-cat__title" id="title-sides">Cold Counter &amp; Sides <span class="cn" lang="zh">凉菜</span></h2>
-          <p class="menu-cat__blurb">The half of the menu most people miss. Order two or three for the table while the noodles are pulled.</p>
+          <p class="menu-cat__blurb">The cold counter across the back wall, numbered from #20. Order two or three for the table while the noodles are cooked.</p>
         </div>
       </header>
       <div class="menu-cat__grid">
-        <article class="dish-row" data-item="agaric-vinegar" data-name="Agaric Mushroom with Vinegar" data-cat="sides"
-          data-heat="0" data-diet="veg" data-price="150" data-confirmed="true"
-          data-search="agaric mushroom with vinegar 凉拌木耳 wood-ear mushrooms dressed with black vinegar and garlic. chewy, cold, refreshing — the classic partner to a spicy bowl. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
+        <article class="dish-row" data-item="cold-tomato" data-name="Cold Sliced Tomato" data-cat="sides"
+          data-heat="0" data-diet="veg" data-price="150"
+          data-search="number 20 cold sliced tomato 凉拌番茄 sliced tomato, dressed cold. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">20</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Agaric Mushroom with Vinegar <span class="dish-row__cn" lang="zh">凉拌木耳</span> <span class="tag">Great value</span></h3>
+              <h3 class="dish-row__name">Cold Sliced Tomato <span class="dish-row__cn" lang="zh">凉拌番茄</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
               <span class="dish-row__price">Rs 150</span>
             </div>
-            <p class="dish-row__desc">Wood-ear mushrooms dressed with black vinegar and garlic. Chewy, cold, refreshing — the classic partner to a spicy bowl.</p>
+            <p class="dish-row__desc">Sliced tomato, dressed cold.</p>
             <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
           </div>
-          <button class="dish-row__add" type="button" data-add-to-order="agaric-vinegar"
-            aria-label="Add Agaric Mushroom with Vinegar to your order">
+          <button class="dish-row__add" type="button" data-add-to-order="cold-tomato"
+            aria-label="Add Cold Sliced Tomato, number 20 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
-        <article class="dish-row" data-item="cucumber-vinegar" data-name="Cucumber with Vinegar" data-cat="sides"
-          data-heat="0" data-diet="veg" data-price="150" data-confirmed="true"
-          data-search="cucumber with vinegar 凉拌黄瓜 seasoned cucumber, garlic and vinegar. the cool-down between bites. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Cucumber with Vinegar <span class="dish-row__cn" lang="zh">凉拌黄瓜</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 150</span>
-            </div>
-            <p class="dish-row__desc">Seasoned cucumber, garlic and vinegar. The cool-down between bites.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="cucumber-vinegar"
-            aria-label="Add Cucumber with Vinegar to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="buff-tongue" data-name="Sichuan Style Buff Tongue" data-cat="sides"
-          data-heat="2" data-diet="buff" data-price="250" data-confirmed="false"
-          data-search="sichuan style buff tongue 凉拌牛舌 cold-sliced buff tongue with chilli oil, toasted sesame and scallion. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Sichuan Style Buff Tongue <span class="dish-row__cn" lang="zh">凉拌牛舌</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 250 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Cold-sliced buff tongue with chilli oil, toasted sesame and scallion.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Buff</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="buff-tongue"
-            aria-label="Add Sichuan Style Buff Tongue to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="pork-head" data-name="Pork Head Meat in Chilli Oil" data-cat="sides"
-          data-heat="2" data-diet="pork" data-price="220" data-confirmed="false"
-          data-search="pork head meat in chilli oil 凉拌猪头肉 cold-sliced pork head meat with chilli oil, coriander and raw garlic. rich, gelatinous, very chinese. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Pork Head Meat in Chilli Oil <span class="dish-row__cn" lang="zh">凉拌猪头肉</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 220 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Cold-sliced pork head meat with chilli oil, coriander and raw garlic. Rich, gelatinous, very Chinese.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Pork</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="pork-head"
-            aria-label="Add Pork Head Meat in Chilli Oil to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="pigs-ears" data-name="Pig's Ears" data-cat="sides"
-          data-heat="3" data-diet="pork" data-price="200" data-confirmed="false"
-          data-search="pig's ears 凉拌猪耳 super spicy, with coriander and raw garlic. a thamel cult order — you either get it or you don't. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Pig's Ears <span class="dish-row__cn" lang="zh">凉拌猪耳</span> <span class="tag">Cult favourite</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 200 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Super spicy, with coriander and raw garlic. A Thamel cult order — you either get it or you don't.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Pork</span><span class="heat" role="img" aria-label="Heat level 3 of 3" title="Heat level 3 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="pigs-ears"
-            aria-label="Add Pig's Ears to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="tripe" data-name="Tripe" data-cat="sides"
-          data-heat="2" data-diet="buff" data-price="200" data-confirmed="false"
-          data-search="tripe 凉拌毛肚 cold, chilli-dressed tripe with coriander. texture is the point. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Tripe <span class="dish-row__cn" lang="zh">凉拌毛肚</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 200 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Cold, chilli-dressed tripe with coriander. Texture is the point.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Buff</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="tripe"
-            aria-label="Add Tripe to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="chicken-feet" data-name="Chicken Feet" data-cat="sides"
-          data-heat="2" data-diet="chicken" data-price="200" data-confirmed="false"
-          data-search="chicken feet 泡椒凤爪 marinated in chilli and black vinegar, served cold. chewy and addictive. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Chicken Feet <span class="dish-row__cn" lang="zh">泡椒凤爪</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 200 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Marinated in chilli and black vinegar, served cold. Chewy and addictive.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Chicken</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="chicken-feet"
-            aria-label="Add Chicken Feet to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="pork-paws" data-name="Pork Paws" data-cat="sides"
-          data-heat="1" data-diet="pork" data-price="280" data-confirmed="false"
-          data-search="pork paws 卤猪蹄 braised trotters, sticky and rich, chopped to share. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Pork Paws <span class="dish-row__cn" lang="zh">卤猪蹄</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 280 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Braised trotters, sticky and rich, chopped to share.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Pork</span><span class="heat" role="img" aria-label="Heat level 1 of 3" title="Heat level 1 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="pork-paws"
-            aria-label="Add Pork Paws to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="preserved-egg" data-name="Preserved Egg" data-cat="sides"
-          data-heat="0" data-diet="veg" data-price="150" data-confirmed="false"
-          data-search="preserved egg 皮蛋 century egg with pickled ginger and black vinegar. a traditional chinese side dish. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Preserved Egg <span class="dish-row__cn" lang="zh">皮蛋</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 150 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Century egg with pickled ginger and black vinegar. A traditional Chinese side dish.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="preserved-egg"
-            aria-label="Add Preserved Egg to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="salted-egg" data-name="Salted Egg" data-cat="sides"
-          data-heat="0" data-diet="veg" data-price="100" data-confirmed="false"
-          data-search="salted egg 咸蛋 salted duck egg, served cold to cut the chilli. a reviewer's favourite. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Salted Egg <span class="dish-row__cn" lang="zh">咸蛋</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 100 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Salted duck egg, served cold to cut the chilli. A reviewer's favourite.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="salted-egg"
-            aria-label="Add Salted Egg to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="buff-salad" data-name="Buff Salad" data-cat="sides"
-          data-heat="2" data-diet="buff" data-price="250" data-confirmed="false"
-          data-search="buff salad 凉拌牛肉 chilled shredded buff with cucumber, coriander, toasted sesame and chilli oil. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
-          <div class="dish-row__main">
-            <div class="dish-row__line">
-              <h3 class="dish-row__name">Buff Salad <span class="dish-row__cn" lang="zh">凉拌牛肉</span></h3>
-              <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 250 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
-            </div>
-            <p class="dish-row__desc">Chilled shredded buff with cucumber, coriander, toasted sesame and chilli oil.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Buff</span><span class="heat" role="img" aria-label="Heat level 2 of 3" title="Heat level 2 of 3"><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame is-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg><svg class="flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span></div>
-          </div>
-          <button class="dish-row__add" type="button" data-add-to-order="buff-salad"
-            aria-label="Add Buff Salad to your order">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </article>
-        <article class="dish-row" data-item="spiced-peanuts" data-name="Salted Peanuts" data-cat="sides"
-          data-heat="0" data-diet="veg" data-price="100" data-confirmed="false"
-          data-search="salted peanuts 盐水花生 boiled peanuts with star anise and salt — the thing to nibble while you wait. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
+        <article class="dish-row" data-item="salted-peanuts" data-name="Salted Peanuts" data-cat="sides"
+          data-heat="0" data-diet="veg" data-price="150"
+          data-search="number 21 salted peanuts 盐水花生 boiled peanuts in brine — the bowl that lands on every table. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">21</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
               <h3 class="dish-row__name">Salted Peanuts <span class="dish-row__cn" lang="zh">盐水花生</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 100 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
+              <span class="dish-row__price">Rs 150</span>
             </div>
-            <p class="dish-row__desc">Boiled peanuts with star anise and salt — the thing to nibble while you wait.</p>
+            <p class="dish-row__desc">Boiled peanuts in brine — the bowl that lands on every table.</p>
             <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
           </div>
-          <button class="dish-row__add" type="button" data-add-to-order="spiced-peanuts"
-            aria-label="Add Salted Peanuts to your order">
+          <button class="dish-row__add" type="button" data-add-to-order="salted-peanuts"
+            aria-label="Add Salted Peanuts, number 21 on the board, to your order">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </article>
+        <article class="dish-row" data-item="preserved-egg" data-name="Preserved Egg with Green Pepper" data-cat="sides"
+          data-heat="0" data-diet="egg" data-price="150"
+          data-search="number 22 preserved egg with green pepper 青椒皮蛋 century egg chopped with green pepper. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">22</span>
+          <div class="dish-row__main">
+            <div class="dish-row__line">
+              <h3 class="dish-row__name">Preserved Egg with Green Pepper <span class="dish-row__cn" lang="zh">青椒皮蛋</span></h3>
+              <span class="dish-row__leader" aria-hidden="true"></span>
+              <span class="dish-row__price">Rs 150</span>
+            </div>
+            <p class="dish-row__desc">Century egg chopped with green pepper.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Egg</span></div>
+          </div>
+          <button class="dish-row__add" type="button" data-add-to-order="preserved-egg"
+            aria-label="Add Preserved Egg with Green Pepper, number 22 on the board, to your order">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </article>
+        <article class="dish-row" data-item="cold-onion" data-name="Cold Onion Salad" data-cat="sides"
+          data-heat="0" data-diet="veg" data-price="150"
+          data-search="number 23 cold onion salad 凉拌洋葱 raw onion, dressed cold. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">23</span>
+          <div class="dish-row__main">
+            <div class="dish-row__line">
+              <h3 class="dish-row__name">Cold Onion Salad <span class="dish-row__cn" lang="zh">凉拌洋葱</span></h3>
+              <span class="dish-row__leader" aria-hidden="true"></span>
+              <span class="dish-row__price">Rs 150</span>
+            </div>
+            <p class="dish-row__desc">Raw onion, dressed cold.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
+          </div>
+          <button class="dish-row__add" type="button" data-add-to-order="cold-onion"
+            aria-label="Add Cold Onion Salad, number 23 on the board, to your order">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </article>
+        <article class="dish-row" data-item="chicken-paw" data-name="Pickled Chicken Paws" data-cat="sides"
+          data-heat="0" data-diet="chicken" data-price="240"
+          data-search="number 24 pickled chicken paws 山椒鸡爪 chicken feet cured in pickled mountain pepper. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">24</span>
+          <div class="dish-row__main">
+            <div class="dish-row__line">
+              <h3 class="dish-row__name">Pickled Chicken Paws <span class="dish-row__cn" lang="zh">山椒鸡爪</span></h3>
+              <span class="dish-row__leader" aria-hidden="true"></span>
+              <span class="dish-row__price">Rs 240</span>
+            </div>
+            <p class="dish-row__desc">Chicken feet cured in pickled mountain pepper.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Chicken</span></div>
+          </div>
+          <button class="dish-row__add" type="button" data-add-to-order="chicken-paw"
+            aria-label="Add Pickled Chicken Paws, number 24 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
         <article class="dish-row" data-item="fried-egg" data-name="Fried Egg" data-cat="sides"
-          data-heat="0" data-diet="veg" data-price="80" data-confirmed="false"
-          data-search="fried egg 煎蛋 crisp-edged with a runny yolk. add it to any bowl. cold counter &amp; sides">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
+          data-heat="0" data-diet="egg" data-price="100"
+          data-search="number 25 fried egg 煎鸡蛋 a fried egg on top of any bowl. both boards print it — it is the cheapest thing in the shop. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">25</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Fried Egg <span class="dish-row__cn" lang="zh">煎蛋</span></h3>
+              <h3 class="dish-row__name">Fried Egg <span class="dish-row__cn" lang="zh">煎鸡蛋</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 80 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
+              <span class="dish-row__price">Rs 100</span>
             </div>
-            <p class="dish-row__desc">Crisp-edged with a runny yolk. Add it to any bowl.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
+            <p class="dish-row__desc">A fried egg on top of any bowl. Both boards print it — it is the cheapest thing in the shop.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Egg</span></div>
           </div>
           <button class="dish-row__add" type="button" data-add-to-order="fried-egg"
-            aria-label="Add Fried Egg to your order">
+            aria-label="Add Fried Egg, number 25 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
-      </div>
-    </section>
-
-    <section class="menu-cat" id="cat-drinks" data-cat-section="drinks" aria-labelledby="title-drinks">
-      <header class="menu-cat__head">
-        <span class="menu-cat__num">03</span>
-        <div>
-          <h2 class="menu-cat__title" id="title-drinks">Drinks <span class="cn" lang="zh">饮料</span></h2>
-          <p class="menu-cat__blurb">Cold, fresh and made to put the fire out.</p>
-        </div>
-      </header>
-      <div class="menu-cat__grid">
-        <article class="dish-row" data-item="fresh-juice" data-name="Fresh Fruit Juice" data-cat="drinks"
-          data-heat="0" data-diet="veg" data-price="180" data-confirmed="false"
-          data-search="fresh fruit juice 鲜榨果汁 pineapple, papaya, mango or watermelon — squeezed to order. drinks">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
+        <article class="dish-row" data-item="spiced-chicken" data-name="Spiced Chicken" data-cat="sides"
+          data-heat="0" data-diet="chicken" data-price="240"
+          data-search="number 26 spiced chicken 卤味鸡块 chicken braised in the shop's spiced master stock, served cold. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">26</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Fresh Fruit Juice <span class="dish-row__cn" lang="zh">鲜榨果汁</span> <span class="tag">Popular</span></h3>
+              <h3 class="dish-row__name">Spiced Chicken <span class="dish-row__cn" lang="zh">卤味鸡块</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 180 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
+              <span class="dish-row__price">Rs 240</span>
             </div>
-            <p class="dish-row__desc">Pineapple, papaya, mango or watermelon — squeezed to order.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
+            <p class="dish-row__desc">Chicken braised in the shop's spiced master stock, served cold.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Chicken</span></div>
           </div>
-          <button class="dish-row__add" type="button" data-add-to-order="fresh-juice"
-            aria-label="Add Fresh Fruit Juice to your order">
+          <button class="dish-row__add" type="button" data-add-to-order="spiced-chicken"
+            aria-label="Add Spiced Chicken, number 26 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
-        <article class="dish-row" data-item="honey-lemon-tea" data-name="Honey Lemon Tea" data-cat="drinks"
-          data-heat="0" data-diet="veg" data-price="150" data-confirmed="false"
-          data-search="honey lemon tea 蜂蜜柠檬茶 warm, sweet and sharp. ordered alongside the super spicy chicken. drinks">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
+        <article class="dish-row" data-item="chicken-gizzard" data-name="Five-Spice Chicken Gizzard" data-cat="sides"
+          data-heat="0" data-diet="chicken" data-price="240"
+          data-search="number 27 five-spice chicken gizzard 五香鸡胗 gizzard braised with five spice and sliced cold. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">27</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Honey Lemon Tea <span class="dish-row__cn" lang="zh">蜂蜜柠檬茶</span></h3>
+              <h3 class="dish-row__name">Five-Spice Chicken Gizzard <span class="dish-row__cn" lang="zh">五香鸡胗</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 150 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
+              <span class="dish-row__price">Rs 240</span>
             </div>
-            <p class="dish-row__desc">Warm, sweet and sharp. Ordered alongside the super spicy chicken.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
+            <p class="dish-row__desc">Gizzard braised with five spice and sliced cold.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Chicken</span></div>
           </div>
-          <button class="dish-row__add" type="button" data-add-to-order="honey-lemon-tea"
-            aria-label="Add Honey Lemon Tea to your order">
+          <button class="dish-row__add" type="button" data-add-to-order="chicken-gizzard"
+            aria-label="Add Five-Spice Chicken Gizzard, number 27 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
-        <article class="dish-row" data-item="canned-tea" data-name="Canned Iced Tea" data-cat="drinks"
-          data-heat="0" data-diet="veg" data-price="250" data-confirmed="true"
-          data-search="canned iced tea 罐装冰茶 the imported cans on the shelf — pricey, but they do the job. drinks">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
+        <article class="dish-row" data-item="spiced-buff" data-name="Spiced Buff" data-cat="sides"
+          data-heat="0" data-diet="buff" data-price="240"
+          data-search="number 28 spiced buff 五香牛肉 buff braised in five spice and sliced cold — what the reviews call the buff salad. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">28</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Canned Iced Tea <span class="dish-row__cn" lang="zh">罐装冰茶</span></h3>
+              <h3 class="dish-row__name">Spiced Buff <span class="dish-row__cn" lang="zh">五香牛肉</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 250</span>
+              <span class="dish-row__price">Rs 240</span>
             </div>
-            <p class="dish-row__desc">The imported cans on the shelf — pricey, but they do the job.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
+            <p class="dish-row__desc">Buff braised in five spice and sliced cold — what the reviews call the buff salad.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Buff</span></div>
           </div>
-          <button class="dish-row__add" type="button" data-add-to-order="canned-tea"
-            aria-label="Add Canned Iced Tea to your order">
+          <button class="dish-row__add" type="button" data-add-to-order="spiced-buff"
+            aria-label="Add Spiced Buff, number 28 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
-        <article class="dish-row" data-item="green-tea" data-name="Chinese Green Tea" data-cat="drinks"
-          data-heat="0" data-diet="veg" data-price="120" data-confirmed="false"
-          data-search="chinese green tea 绿茶 a pot of loose-leaf tea, refilled while you eat. drinks">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
+        <article class="dish-row" data-item="pork-ear" data-name="Pork Ear in Chilli Oil" data-cat="sides"
+          data-heat="0" data-diet="pork" data-price="240"
+          data-search="number 31 pork ear in chilli oil 红油耳片 thin slices of pork ear under chilli oil — all crunch. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">31</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Chinese Green Tea <span class="dish-row__cn" lang="zh">绿茶</span></h3>
+              <h3 class="dish-row__name">Pork Ear in Chilli Oil <span class="dish-row__cn" lang="zh">红油耳片</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 120 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
+              <span class="dish-row__price">Rs 240</span>
             </div>
-            <p class="dish-row__desc">A pot of loose-leaf tea, refilled while you eat.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
+            <p class="dish-row__desc">Thin slices of pork ear under chilli oil — all crunch.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Pork</span></div>
           </div>
-          <button class="dish-row__add" type="button" data-add-to-order="green-tea"
-            aria-label="Add Chinese Green Tea to your order">
+          <button class="dish-row__add" type="button" data-add-to-order="pork-ear"
+            aria-label="Add Pork Ear in Chilli Oil, number 31 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
-        <article class="dish-row" data-item="soft-drinks" data-name="Soft Drinks" data-cat="drinks"
-          data-heat="0" data-diet="veg" data-price="100" data-confirmed="false"
-          data-search="soft drinks 汽水 chilled bottles, served with a glass. drinks">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
+        <article class="dish-row" data-item="pork-tripe" data-name="Cold Pork Tripe" data-cat="sides"
+          data-heat="0" data-diet="pork" data-price="240"
+          data-search="number 32 cold pork tripe 凉拌猪肚 pork tripe dressed cold. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">32</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Soft Drinks <span class="dish-row__cn" lang="zh">汽水</span></h3>
+              <h3 class="dish-row__name">Cold Pork Tripe <span class="dish-row__cn" lang="zh">凉拌猪肚</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 100 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
+              <span class="dish-row__price">Rs 240</span>
             </div>
-            <p class="dish-row__desc">Chilled bottles, served with a glass.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
+            <p class="dish-row__desc">Pork tripe dressed cold.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Pork</span></div>
           </div>
-          <button class="dish-row__add" type="button" data-add-to-order="soft-drinks"
-            aria-label="Add Soft Drinks to your order">
+          <button class="dish-row__add" type="button" data-add-to-order="pork-tripe"
+            aria-label="Add Cold Pork Tripe, number 32 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
-        <article class="dish-row" data-item="mineral-water" data-name="Mineral Water" data-cat="drinks"
-          data-heat="0" data-diet="veg" data-price="60" data-confirmed="false"
-          data-search="mineral water 矿泉水 one litre, chilled. drinks">
-          <span class="dish-row__no dish-row__no--empty" aria-hidden="true">·</span>
+        <article class="dish-row" data-item="pork-paws" data-name="Braised Pork Paws" data-cat="sides"
+          data-heat="0" data-diet="pork" data-price="240"
+          data-search="number 34 braised pork paws 五香猪手 pork trotters braised until sticky, served cold. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">34</span>
           <div class="dish-row__main">
             <div class="dish-row__line">
-              <h3 class="dish-row__name">Mineral Water <span class="dish-row__cn" lang="zh">矿泉水</span></h3>
+              <h3 class="dish-row__name">Braised Pork Paws <span class="dish-row__cn" lang="zh">五香猪手</span></h3>
               <span class="dish-row__leader" aria-hidden="true"></span>
-              <span class="dish-row__price">Rs 60 <span class="dish-row__est" title="Price still to be confirmed with the kitchen">est.</span></span>
+              <span class="dish-row__price">Rs 240</span>
             </div>
-            <p class="dish-row__desc">One litre, chilled.</p>
-            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--veg" aria-hidden="true"></span>Vegetarian</span></div>
+            <p class="dish-row__desc">Pork trotters braised until sticky, served cold.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Pork</span></div>
           </div>
-          <button class="dish-row__add" type="button" data-add-to-order="mineral-water"
-            aria-label="Add Mineral Water to your order">
+          <button class="dish-row__add" type="button" data-add-to-order="pork-paws"
+            aria-label="Add Braised Pork Paws, number 34 on the board, to your order">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </article>
+        <article class="dish-row" data-item="buff-tongue" data-name="Five-Spice Buff Tongue" data-cat="sides"
+          data-heat="0" data-diet="buff" data-price="240"
+          data-search="number 36 five-spice buff tongue 五香舌头 buff tongue, five spice, sliced thin. cold counter &amp; sides">
+          <span class="dish-row__no" title="Number on the board in the shop">36</span>
+          <div class="dish-row__main">
+            <div class="dish-row__line">
+              <h3 class="dish-row__name">Five-Spice Buff Tongue <span class="dish-row__cn" lang="zh">五香舌头</span></h3>
+              <span class="dish-row__leader" aria-hidden="true"></span>
+              <span class="dish-row__price">Rs 240</span>
+            </div>
+            <p class="dish-row__desc">Buff tongue, five spice, sliced thin.</p>
+            <div class="dish-row__meta"><span class="diet"><span class="diet__dot diet__dot--meat" aria-hidden="true"></span>Buff</span></div>
+          </div>
+          <button class="dish-row__add" type="button" data-add-to-order="buff-tongue"
+            aria-label="Add Five-Spice Buff Tongue, number 36 on the board, to your order">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </article>
@@ -1214,24 +953,24 @@
 
           <div class="menu-empty">
             <h3>Nothing matches that</h3>
-            <p>Try “noodle”, “buff”, “dumpling” — or clear the filters.</p>
+            <p>Try “noodle”, “buff”, “peanuts” — or clear the filters.</p>
           </div>
 
           <div class="menu-note">
             <p>
-              <strong>Prices</strong> are in Nepali Rupees and include taxes. Dishes marked
-              “Chicken or Buff” come with your choice of protein. Please tell us about any allergies
-              before you order — our kitchen uses peanuts, sesame, wheat gluten, egg and shellfish, and
-              everything is cooked in the same wok.
+              <strong>Prices</strong> are in Nepali Rupees and are the ones printed on the board. Tell
+              the kitchen about any allergy before you order — peanuts, sesame, egg and wheat noodles
+              appear all over the board, and a small kitchen cooks all of it in one place.
             </p>
             <p>
-              <strong>Spice</strong> is measured in flames: one is gently warm, three is a serious
-              Sichuan hit. We can always add more chilli oil, never less pain.
+              <strong>Spice</strong> is measured in flames, copied from the flames printed beside each
+              dish on the board: one is gently warm, three is the hottest thing on the wall. Ask for less.
             </p>
             <p>
-              <strong>Numbers</strong> are printed on the board in the shop. Items marked
-              <span class="dish-row__est">est.</span> have prices we haven't confirmed with the
-              kitchen yet — the board always wins, so ask when you order.
+              <strong>Where these prices come from.</strong> They are read off the two picture boards
+              in the shop, one price at a time — nothing here is estimated. The boards list more
+              numbers than we could photograph clearly, so a few dishes are left off rather than
+              guessed at. The wall always wins.
             </p>
             <p>
               Menu prices are current as of <strong>November 2026</strong>. The wall menu in the shop is
@@ -1264,7 +1003,7 @@
                 <span class="brand__sub" style="color: var(--gold)">Thamel · Kathmandu</span>
               </span>
             </a>
-            <p>Hand-pulled Chinese noodles, Sichuan heat and cold side dishes on JP Marg. Open every day, 9 AM until 11 PM.</p>
+            <p>Handmade Chinese noodles, Sichuan heat and cold side dishes on JP Marg. Open every day, 9 AM until 11 PM.</p>
             <div class="social">
               <a href="https://www.facebook.com/kungfunoodles977/" target="_blank" rel="noopener" aria-label="Kungfu Noodles on Facebook">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.3h2.5l.4-2.9h-2.9V8.9c0-.8.2-1.4 1.4-1.4h1.6V4.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.1H7.9v2.9h2.5V21h3.1Z"/></svg>

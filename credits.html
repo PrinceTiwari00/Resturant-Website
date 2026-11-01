@@ -58,14 +58,62 @@
 
       <section class="section">
         <div class="wrap wrap--narrow" style="display: grid; gap: 1.6rem">
-          <div class="card">
+          <div class="card" id="photography">
             <h2 style="font-size: var(--step-2)">Photography</h2>
             <p style="margin-top: 0.6rem; color: var(--ink-2)">
-              All food and interior photography on this site is <strong>AI-generated imagery</strong>
-              created for this project as placeholder art direction. It illustrates the style of the
-              dishes and the room — it is not a literal record of a specific plate served at the shop.
-              Before launch, replace it with the restaurant's own photographs; the image pipeline in
-              <code>scripts/build-assets.mjs</code> will resize and recompress them automatically.
+              <strong>Every photograph on this site is of the real shop.</strong> There is no stock
+              photography and no AI-generated imagery anywhere on it. The pictures are the ones
+              published by Kungfu Noodles on its own listings — the Google Maps listing (1,200 photos)
+              and the Tripadvisor listing (42 photos) — where the shop and its customers uploaded them.
+              They are reproduced here to show the room, the sign and the food as they actually are.
+            </p>
+            <ul style="margin-top: 0.9rem; display: grid; gap: 0.5rem; color: var(--ink-2); font-size: 0.92rem">
+              <li><strong>Home hero</strong> — the painted wall inside the shop, from the Tripadvisor listing.</li>
+              <li><strong>Story</strong> — the white hanging sign over JP Marg, from the Tripadvisor listing.</li>
+              <li><strong>Shopfront and order band</strong> — the doorway on JP Marg, from the shop's Google listing.</li>
+              <li><strong>Beijing noodles</strong> — a bowl photographed at the shop and uploaded to its Nosh Nepal listing.</li>
+              <li><strong>Menu boards</strong> — see below.</li>
+            </ul>
+            <p style="margin-top: 0.9rem; font-size: 0.85rem; color: var(--ink-3)">
+              If you own one of these photographs and would rather it were not here, write to
+              <a href="mailto:manojadhikari2950@gmail.com">manojadhikari2950@gmail.com</a> and it comes down
+              the same day.
+            </p>
+          </div>
+
+          <div class="card" id="menu">
+            <h2 style="font-size: var(--step-2)">The menu boards — the source of every price</h2>
+            <p style="margin-top: 0.6rem; color: var(--ink-2)">
+              The shop does not publish a written menu. It prices everything on two picture boards
+              fixed to the wall inside the door, and photographs of those boards are what
+              <a href="menu.html">the menu page</a> was transcribed from. Both are reproduced below at
+              the size they were published, so you can check any number on this site against the wall
+              yourself.
+            </p>
+            <div class="board-pair">
+              <figure>
+                <picture>
+                  <source type="image/webp" srcset="assets/img/board-noodles-420.webp 420w, assets/img/board-noodles-620.webp 620w" sizes="(min-width: 720px) 46vw, 92vw" />
+                  <img src="assets/img/board-noodles-420.jpg" width="420" height="560" loading="lazy" decoding="async" alt="The noodle board at Kungfu Noodles: photographed dish tiles with Chinese names, English descriptions and prices — 07 tomato and egg noodles 290, 06 buff noodles 290, 12 Beijing style 320, 25 fried egg 100." />
+                </picture>
+                <figcaption>The noodle wall. Read off it: #06, #07, #08, #12, #14, #25.</figcaption>
+              </figure>
+              <figure>
+                <picture>
+                  <source type="image/webp" srcset="assets/img/board-sides-420.webp 420w, assets/img/board-sides-620.webp 620w" sizes="(min-width: 720px) 46vw, 92vw" />
+                  <img src="assets/img/board-sides-420.jpg" width="420" height="560" loading="lazy" decoding="async" alt="The cold-counter board at Kungfu Noodles: numbered side dishes from 20 to 36, with prices of 150 and 240." />
+                </picture>
+                <figcaption>The cold counter. Read off it: #20–#28, #31, #32, #34, #36.</figcaption>
+              </figure>
+            </div>
+            <p style="margin-top: 0.9rem; color: var(--ink-2); font-size: 0.92rem">
+              A third photograph of the same two boards, taken straight on from further back, shows the
+              full grid of tiles — including the noodle dishes #01, #02, #03, #09, #11, #13, #15 and
+              #16 at Rs 320–350. It is published on the shop's Nosh Nepal listing.
+            </p>
+            <p style="margin-top: 0.9rem; font-size: 0.85rem; color: var(--ink-3)">
+              <code>MENU-SOURCES.md</code> in the repository lists the transcription for all 24 items,
+              one row per board tile.
             </p>
           </div>
 
@@ -88,8 +136,10 @@
               processed with ImageMagick. Google Maps loads only after you tap “Load the map”.
             </p>
             <p style="margin-top: 0.7rem; font-size: 0.85rem; color: var(--ink-3)">
-              Business details and review quotations are drawn from the restaurant's public listings.
-              Review text is quoted for attribution and edited only for length.
+              Business details and review quotations are drawn from the restaurant's public listings —
+              Google Maps (4.0 from 739 reviews, 1,200 photos), Tripadvisor (4.5 from 21 reviews) and Nosh
+              Nepal (Rs 500 average spend, 9 AM–11 PM). Review text is quoted for attribution and edited
+              only for length.
             </p>
           </div>
 

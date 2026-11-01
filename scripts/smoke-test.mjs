@@ -150,20 +150,22 @@ test("menu page: server-rendered items are present and filterable", async () => 
 
   // bilingual names straight from the shop's own board photos
   eq(doc.querySelectorAll(".dish-row__cn").length, allItems.filter((i) => i.cn).length, "rows with a Chinese name");
-  assert(doc.querySelector('[data-item="tomato-egg"]'), "番茄鸡蛋面 item missing");
-  assert(doc.querySelector('[data-item="pork-head"]'), "凉拌猪头肉 item missing");
-  assert(doc.querySelector('[data-item="pork-head"] .dish-row__cn').textContent.trim() === "凉拌猪头肉", "pork head Chinese name wrong");
+  assert(doc.querySelector('[data-item="three-vegetable"] .dish-row__cn').textContent.trim() === "三鲜蔬菜面", "三鲜蔬菜面 Chinese name wrong");
+  assert(doc.querySelector('[data-item="wuhan-style"] .dish-row__cn').textContent.trim() === "武汉热干面", "武汉热干面 Chinese name wrong");
 
-  // draft banner counts exactly the items flagged unconfirmed
-  const banner = doc.querySelector(".draft-banner");
-  const draft = allItems.filter((i) => i.confirmed === false).length;
-  if (draft > 0) {
-    assert(banner, "draft banner missing while items are unconfirmed");
-    assert(banner.textContent.includes(`${draft} of ${allItems.length}`), `banner count wrong: ${banner.textContent.slice(0, 120)}`);
-    eq(doc.querySelectorAll('[data-confirmed="false"]').length, draft, "rows marked as estimates");
-  } else {
-    assert(!banner || !banner.textContent.match(/Draft menu/), "banner should disappear once everything is confirmed");
-  }
+  // every price on the page is a board price: no estimate marker exists anywhere
+  eq(doc.querySelectorAll(".dish-row__est").length, 0, "rows still marked as estimates");
+  const board = doc.querySelector(".source-note");
+  assert(board, "the note saying where the prices come from is missing");
+  assert(board.textContent.includes(String(allItems.length)), "source note should state how many dishes were transcribed");
+
+  // the two boards photograph the shop's own prices — no item may claim a non-board price
+  const PRICES = new Set([100, 150, 240, 320, 350]);
+  assert(
+    allItems.every((i) => PRICES.has(i.price)),
+    `an item has a price that is not printed on either board: ${allItems.filter((i) => !PRICES.has(i.price)).map((i) => `${i.name} ${i.price}`).join(", ")}`
+  );
+  assert(allItems.every((i) => i.source && i.source.length > 20), "every item needs a board transcription in its source field");
 });
 
 test("menu page: search narrows results and handles no matches", async () => {
@@ -195,23 +197,23 @@ test("order: adding a dish updates the cart, badge and total", async () => {
   btn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
 
   eq(doc.querySelectorAll(".cart-line").length, 1, "cart lines");
-  eq(doc.querySelector("[data-order-subtotal]").textContent.trim(), "Rs 380", "subtotal");
+  eq(doc.querySelector("[data-order-subtotal]").textContent.trim(), "Rs 350", "subtotal");
   eq(doc.querySelector("[data-order-count]").textContent, "1", "header badge");
 
   btn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
-  eq(doc.querySelector("[data-order-subtotal]").textContent.trim(), "Rs 760", "subtotal after second add");
+  eq(doc.querySelector("[data-order-subtotal]").textContent.trim(), "Rs 700", "subtotal after second add");
   eq(doc.querySelector(".cart-line output").textContent, "2", "quantity");
 
   const minus = doc.querySelector('[data-qty="-1"]');
   minus.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
-  eq(doc.querySelector("[data-order-subtotal]").textContent.trim(), "Rs 380", "subtotal after decrement");
+  eq(doc.querySelector("[data-order-subtotal]").textContent.trim(), "Rs 350", "subtotal after decrement");
 
   // the cart shows the board number, and the sticky bar mirrors it
   assert(doc.querySelector(".cart-line__no")?.textContent.trim() === "#1", "cart line should carry the board number");
   const bar = doc.querySelector("[data-order-bar]");
   assert(bar.classList.contains("is-visible"), "sticky order bar should appear when the cart has items");
   eq(bar.inert, false, "order bar must be reachable when visible");
-  assert(/1 item · Rs 380/.test(bar.textContent), `order bar summary wrong: ${bar.textContent.replace(/\s+/g, " ").trim()}`);
+  assert(/1 item · Rs 350/.test(bar.textContent), `order bar summary wrong: ${bar.textContent.replace(/\s+/g, " ").trim()}`);
 
   doc.querySelector("[data-clear-order]").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
   assert(!bar.classList.contains("is-visible"), "order bar should hide when the cart is emptied");
@@ -245,7 +247,7 @@ test("order: valid order produces a WhatsApp hand-off with every line", async ()
   };
 
   doc.querySelector('[data-add-to-order="wuhan-style"]').dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
-  doc.querySelector('[data-add-to-order="buff-salad"]').dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  doc.querySelector('[data-add-to-order="spiced-buff"]').dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
 
   doc.querySelector("#cust-name").value = "Sita Rai";
   doc.querySelector("#cust-name").dispatchEvent(new window.Event("input", { bubbles: true }));
@@ -261,8 +263,8 @@ test("order: valid order produces a WhatsApp hand-off with every line", async ()
   assert(url.pathname.includes("9779851172950"), "wrong phone number in hand-off");
   const text = decodeURIComponent(url.searchParams.get("text") || "");
   assert(text.includes("#14 Wuhan Style") || text.includes("#14 Noodles, Wuhan Style"), `board number missing from message: ${text}`);
-  assert(text.includes("Buff Salad"), "salad missing from message");
-  assert(text.includes("Rs 570"), `total wrong in message: ${text}`);
+  assert(text.includes("Spiced Buff"), "cold counter dish missing from message");
+  assert(text.includes("Rs 560"), `total wrong in message: ${text}`);
   assert(text.includes("Sita Rai") && text.includes("9812345678"), "customer details missing");
 });
 
@@ -271,7 +273,7 @@ test("home page: a signature dish can be added straight from the card", async ()
   const btn = doc.querySelector('.dish-card__add[data-add-to-order="kungfu-special"]');
   assert(btn, "no add button on the signature card");
   btn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
-  assert(doc.querySelector("[data-order-subtotal]").textContent.trim() === "Rs 380", "subtotal after adding from home");
+  assert(doc.querySelector("[data-order-subtotal]").textContent.trim() === "Rs 350", "subtotal after adding from home");
   assert(doc.querySelector("[data-order-count]").textContent === "1", "header badge after adding from home");
   assert(doc.querySelector("[data-order-bar]").classList.contains("is-visible"), "sticky bar should appear on home too");
 });

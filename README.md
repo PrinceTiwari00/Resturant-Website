@@ -1,6 +1,6 @@
 # Kungfu Noodles — website
 
-A conversion-focused website for **Kungfu Noodles** (江湖面馆), a hand-pulled Chinese noodle
+A conversion-focused website for **Kungfu Noodles** (江湖面馆), a Chinese noodle
 shop on JP Marg, Thamel, Kathmandu.
 
 Built to the brief in *Kungfu Noodles — Website Development Documentation*: a home page that sells
@@ -33,7 +33,7 @@ the missing endpoint and hands the message to WhatsApp instead (see below).
 | File | Purpose |
 | --- | --- |
 | `index.html` | Hero, signature dishes, story, reviews, ordering options, location + lazy map |
-| `menu.html` | 28 items in 3 sections, numbered like the board, live search, category / vegetarian / spicy filters, draft banner |
+| `menu.html` | 24 items in 2 sections at the board numbers, live search, category / vegetarian / spicy filters, transcription note |
 | `order.html` | The three ordering routes, delivery partners, how an order runs, FAQ |
 | `contact.html` | Enquiry form, hours with a live open/closed badge, map, directions, FAQ |
 | `credits.html` | Photo and font attribution (marked `noindex`) |
@@ -113,46 +113,42 @@ assets/data/menu.json
 
 ```json
 {
-  "no": 1,                    // number printed on the board in the shop (null if unnumbered)
+  "no": 1,                    // number printed on the board in the shop
   "id": "kungfu-special",
-  "name": "Kungfu Noodle Special",
-  "desc": "Rich, spicy broth, chewy noodles, choice of chicken or buff.",
-  "price": 380,
-  "heat": 2,                  // 0–3 flames
-  "diet": "choice",           // veg | chicken | buff | pork | choice
-  "confirmed": true,          // false → renders with an "est." marker
-  "badge": "Bestseller",      // optional
-  "source": "where this came from — printed in MENU-TO-CONFIRM.md"
+  "name": "Kungfu Noodles Special",
+  "cn": "江湖特色牛肉面",          // the Chinese name printed on the board
+  "desc": "The bowl the shop is named for…",
+  "price": 350,               // exactly the price printed on the board
+  "heat": 2,                  // 0–3 flames, from the flames printed on the board
+  "diet": "buff",             // veg | egg | meat | chicken | buff | pork
+  "badge": "House special",   // optional
+  "source": "Noodle board #01 — “Kungfu noodles-Special” 350, printed ingredients …"
 }
 ```
 
-#### Where the menu came from
+#### Where the menu comes from
 
-The shop's real menu is a numbered board — about **15 noodle bowls and 20 cold sides**. The site
-transcribes it rather than inventing dishes:
+**There is no estimate path in this project, by design.** The shop publishes no written menu; it
+prices everything on two picture boards fixed to the wall inside the door, and both are photographed
+on its own listings. Every number, Chinese name, English name and price in `menu.json` is transcribed
+from those photographs — 11 noodles (#01, #02, #03, #08, #09, #11, #12, #13, #14, #15, #16) and 13
+cold sides (#20–#28, #31, #32, #34, #36).
 
 | Source | What it established |
 | --- | --- |
-| The client brief (PDF) | 4 items: Special Kungfu Noodles, Sichuan Style, Wuhan Style, Preserved Egg / Buff Salad |
-| *Sincerely from China* feature (myRepublica) | 15 noodles + 20 sides; pork paws, buff tongue, fried eggs, seasoned cucumbers |
-| Karl Rock's Kathmandu cheap-eats guide | Board numbering (#1, #3, #14) and prices: Buff Sichuan Rs 320, Sesame Wuhan Rs 320, Spicy Chicken Rs 240, Kungfu Special Rs 350 |
-| Tripadvisor reviews | Kungfu Special Rs 380, Special Chinese Dry Noodles Rs 350, agaric + cucumber Rs 150 each, and the numbers #8, #11, #16 |
-| Google Maps reviews/photos | Fresh juices, canned tea Rs 250, super spicy chicken; 4.0 from 739 reviews; review topics naming Special Kungfu Noodles, wuhan style noodles, buff salad, egg & tomato noodle soup, buffalo tongue |
-| Tripadvisor photo captions | Chinese dish names straight off the shop's own board: 三鲜蔬菜面, 凉拌猪头肉, 盐水花生, 番茄鸡蛋面, 卤肉牛肉面, 凉拌牛舌 |
+| The shop's own noodle board (Nosh Nepal listing, menu photo 1) | Numbers, Chinese names, printed ingredients and prices for the noodle run |
+| The shop's own cold-counter board (Nosh Nepal listing, menu photo 2) | The same for the sides, and the Rs 150 / Rs 240 price split |
+| Google Maps reviews and review topics | Confirms #1, #8, #11, #14, #15, #16, fried egg, peanuts, cucumber, tripe, pork ears, buff tongue |
+| Tripadvisor listing and photo captions | Chinese dish names on the board: 三鲜蔬菜面, 凉拌猪头肉, 盐水花生, 番茄鸡蛋面, 卤肉牛肉面, 凉拌牛舌 |
+| *Sincerely from China* feature (myRepublica) | Handmade noodles, ingredients imported from China, pork paws and buff tongue among the sides |
 
-**Nothing on the site is presented as certain when it isn't.** Every item carries `confirmed`:
+A reviewer's or a feature's price is never used to set a menu price — only the board is. The
+report showing one row per board tile is generated to **`MENU-SOURCES.md`**; a smoke test asserts that
+no item carries a price outside the set printed on the boards (100, 150, 240, 320, 350) and that every
+item has a transcription in its `source`.
 
-- `true` → price shown plainly.
-- `false` → price shown with a dashed **est.** marker, and the menu page displays a draft banner
-  counting how many are unconfirmed.
-
-`npm run menu` also writes **`MENU-TO-CONFIRM.md`**, the owner's checklist: every unconfirmed item,
-its listed price, and why it needs checking. Flip `confirmed` to `true` as you verify prices — when
-the last one is confirmed the banner disappears on its own. No code change needed.
-
-Items still to confirm: the six noodles without board numbers (Kung Pao, Dan Dan, Zhajiang,
-Vegetable, Chicken, Special Chinese Dry), their prices, three drinks, and the numbers/prices of
-sides beyond the eleven transcribed.
+Numbers the photographs do not clearly show are **omitted rather than guessed** — the wall carries more
+than is listed here. To fill the gaps, photograph each board straight on with no glare and add the rows.
 
 After editing, regenerate the static markup + `Menu` JSON-LD:
 
@@ -182,14 +178,17 @@ npm run assets        # requires ImageMagick (`convert`) on the PATH
 
 | Source | Output |
 | --- | --- |
-| `raw/hero` | `hero-{760,1080,1440,1920}`, `hero-portrait-{420,640,900}`, `og-1200.jpg` |
-| `raw/dish-*` | `dish-*-{300,420,620,900}` |
-| `raw/interior` | `interior-{420,620,900}` (4:5 crop) |
+| `raw/hero` | `hero-{760,1080,1440}`, `hero-portrait-{420,640,900}`, `og-1200.jpg` |
+| `raw/shopfront`, `raw/story` | `shopfront-*`, `story-*` (4:5 and 4:3 crops) |
+| `raw/dish-beijing`, `raw/dish-cold-sides` | `dish-*-{300,420,620}` |
+| `raw/board-noodles`, `raw/board-sides` | `board-*-{420,620}` — the menu boards, shown on `credits.html#menu` |
 | `raw/order-bg` | `order-bg-{800,1200,1920}` |
 
-Replace a source file, re-run `npm run assets`, done — the `srcset` descriptors already match. The
-current photography is AI-generated placeholder art direction; swap in the restaurant's own photos
-before launch.
+Replace a source file, re-run `npm run assets`, done — the `srcset` descriptors in the HTML match.
+
+**Every photograph on the site is a real photograph of the shop**, published by it or by customers on
+its Google Maps, Tripadvisor and Nosh Nepal listings. There is no stock photography and no generated
+imagery anywhere in the project, and `credits.html` says so on the page.
 
 ---
 
@@ -226,11 +225,17 @@ order, and a full WhatsApp hand-off with line items and totals.
 
 ## What came from where
 
-Every fact on the site traces to a source: the client PDF, the [Google Maps place page](https://www.google.com/maps/place/Kungfu+Noodles/@27.7122735,85.3102415,17z)
-(4.0 · 739 reviews, plus code, hours, service options), the [Tripadvisor listing](https://www.tripadvisor.com/Restaurant_Review-g293890-d13462947)
-(rating, second email, Chinese dish names in photo captions), the myRepublica feature on the shop,
-and Karl Rock's Kathmandu guide (board numbering and prices). `MENU-TO-CONFIRM.md` lists exactly
-what is still unverified and why — nothing is presented as certain when it isn't.
+Every fact on the site traces to a source: the shop's two menu boards (all dish numbers, Chinese
+names and prices), the [Google Maps place page](https://www.google.com/maps/place/Kungfu+Noodles/@27.7122735,85.3102415,17z)
+(4.0 · 739 reviews · plus code · hours · service options · review text), the [Tripadvisor listing](https://www.tripadvisor.com/Restaurant_Review-g293890-d13462947)
+(4.5 · 21 reviews · second email · Chinese dish names in photo captions), the Nosh Nepal listing
+(Rs 500 average spend, 9 AM–11 PM, Delivery / Takeaway / Family-friendly tags) and the myRepublica
+feature on the shop.
+
+Where a fact could not be sourced it was **removed rather than invented** — that includes payment
+methods, delivery fees and radii, takeaway timings, table booking policy and any claim about who
+cooks what. `MENU-SOURCES.md` is generated from `menu.json` and lists the transcription for every
+item.
 
 ## Accessibility & performance
 
@@ -261,7 +266,7 @@ assets/
     contact.js           enquiry form with API → WhatsApp fallback
 scripts/
   build-assets.mjs       ImageMagick pipeline
-  build-menu.mjs         menu.json → menu.html markup + JSON-LD
+  build-menu.mjs         menu.json → menu.html markup + JSON-LD + MENU-SOURCES.md
   check-links.mjs        link / anchor / asset / menu-sync checker
   smoke-test.mjs         jsdom behaviour tests
 server.mjs               static server + /api/contact
@@ -271,14 +276,14 @@ server.mjs               static server + /api/contact
 
 ## Before launch — checklist
 
-- [ ] Replace the AI-generated photography with the shop's own photos.
-- [ ] Work through `MENU-TO-CONFIRM.md`: confirm each price and number, set `confirmed: true`, run
-      `npm run menu`. Add the missing noodle numbers (#2, #4–#7, #9, #10, #12, #13, #15) and the
-      remaining cold sides.
+- [ ] Photograph both boards straight on, no glare, and add the numbers the current photos cut off:
+      noodles #04–#07, #10, #17–#19 and the cold counter #29, #30, #33, #35, #37.
+- [ ] Add the fridge drinks, with board prices, if the shop wants them orderable.
 - [ ] Confirm the hours: the site now says 9 AM – 11 PM to match the live Google/Tripadvisor listings,
       which contradicts the brief's 10:30 PM close. Update `SCHEDULE`
       in `main.js`, the two hours lists in the HTML, and the JSON-LD.
-- [ ] Point the delivery-partner buttons at the restaurant's actual listing pages.
+- [ ] Ask the shop for its delivery fee and radius, and which payment methods it takes — both were
+      removed from the site rather than guessed at, and can go back the moment they are known.
 - [ ] Check the review quotations: the three on the home page are real Google reviews (Sudish
       Shrestha, Sushma Shrestha, Prozwal Manandhar) shown with names and relative dates — confirm the
       shop is happy to display them, and refresh them as new reviews come in.
@@ -291,6 +296,7 @@ server.mjs               static server + /api/contact
 
 ## Credits
 
-Food photography: AI-generated placeholder art. Typefaces: **Fraunces** (Undercase Type) and
+Photography: the shop's own, from its Google Maps, Tripadvisor and Nosh Nepal listings — credited on
+`credits.html`. Typefaces: **Fraunces** (Undercase Type) and
 **Manrope** (Mikhail Sharanda), both under the SIL Open Font License — the license text ships in
 `assets/fonts/OFL.txt`. Details also on `credits.html`.

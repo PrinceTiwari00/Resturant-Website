@@ -23,15 +23,22 @@ mkdirSync(OUT, { recursive: true });
 
 // name -> { widths: [...], ratio: [w, h] | null (keep source ratio), crop: [w,h] }
 const JOBS = [
-  { name: "hero", widths: [1920, 1440, 1080, 760], ratio: [16, 9], quality: 80 },
-  { name: "hero-portrait", src: "hero", widths: [900, 640, 420], ratio: [3, 4], quality: 78, gravity: "center" },
-  { name: "dish-kungfu", widths: [900, 620, 420, 300], ratio: [1, 1], quality: 80 },
-  { name: "dish-sichuan", widths: [900, 620, 420, 300], ratio: [1, 1], quality: 80 },
-  { name: "dish-wuhan", widths: [900, 620, 420, 300], ratio: [1, 1], quality: 80 },
-  { name: "dish-salad", widths: [900, 620, 420, 300], ratio: [1, 1], quality: 80 },
-  { name: "interior", widths: [900, 620, 420], ratio: [4, 5], quality: 78 },
-  { name: "order-bg", widths: [1920, 1200, 800], ratio: [16, 9], quality: 74 },
+  // hero + social card — the mural inside the shop (the restaurant's own photograph)
+  { name: "hero", widths: [1440, 1080, 760], ratio: [16, 9], quality: 80 },
+  { name: "hero-portrait", widths: [900, 640, 420], ratio: [3, 4], quality: 78 },
   { name: "og", src: "hero", widths: [1200], ratio: [1200, 630], quality: 82, format: "jpg" },
+  // the shopfront on JP Marg — the doorway, the crowd and the painted bowl
+  { name: "shopfront", widths: [900, 620, 420], ratio: [4, 5], quality: 78 },
+  // the big white hanging sign, used in the story block
+  { name: "story", widths: [900, 620, 420], ratio: [4, 3], quality: 80 },
+  // real plates photographed in the shop
+  { name: "dish-beijing", widths: [620, 420, 300], ratio: [16, 11], quality: 82 },
+  { name: "dish-cold-sides", widths: [620, 420, 300], ratio: [3, 4], quality: 82 },
+  // the handwritten-price boards that the menu data is transcribed from
+  { name: "board-noodles", widths: [620, 420], ratio: [3, 4], quality: 84 },
+  { name: "board-sides", widths: [620, 420], ratio: [3, 4], quality: 84 },
+  // band behind the order CTA
+  { name: "order-bg", widths: [1920, 1200, 800], ratio: [16, 9], quality: 74 },
 ];
 
 let total = 0;
